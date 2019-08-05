@@ -30,7 +30,13 @@ class mongologic
 
         console.log("done");
         // this.getUser("user2@example.com");
-        // this.getData();
+
+        this.alldata = [];
+        await this.getData();
+
+        this.boards.watch().on('change', ()=> {
+            this.getData();
+        });
     }
 
 
@@ -47,19 +53,15 @@ class mongologic
         }
     }
 
-    async getData(id)
+    async getData()
     {
-        console.log("wawaw "+id);
-        //{assignedUserId:"1"}
-        let alldata = [];
+        console.log("collecting data..");
+        this.alldata = [];
         try
         {
             let result = await this.boards.find();
             let data = await result.toArray();
-            console.log(data.length);
-            console.log(data[0].lists.length);
-            console.log(data[0].lists[0].cards.length);
-            // console.log(data);
+            
             for(let i=0; i<data.length; i++)
             {
                 if(data[i]._id != null)
@@ -68,24 +70,48 @@ class mongologic
                     {
                         for(let k=0; k<data[i].lists[j].cards.length; k++)
                         {
-                            let user = data[i].lists[j].cards[k].assignedUserId;
-
-                            if(user == id)
-                            {
-                                let card = data[i].lists[j].cards[k].text;
-                                alldata.push(card);
-                                console.log("card "+card+ " contains user user1");
-                            }
+                            let carddata = data[i].lists[j].cards[k];
+                            let card;
+                            // let user = data[i].lists[j].cards[k].assignedUserId;
+                            card = {text:carddata.text,list:data[i].lists[j].title,board:data[i].title,labels:carddata.labels,date:carddata.date,userid:carddata.assignedUserId};
+                            this.alldata.push(card);
+                            // if(user == id)
+                            // {
+                            //     let card = data[i].lists[j].cards[k].text;
+                            //     alldata.push(card);
+                            //     console.log("card "+card+ " contains user user1");
+                            // }
+                            
                         }
                     }
                 }
             }
-            return alldata;
+            console.log("Done collecting data, "+this.alldata.length+ " cards were collected");
+
         }
         catch(err)
         {
             console.log("Error reading data , "+err);
         }
+    }
+
+    async parseData(id)
+    {
+        let data = [];
+
+        if(this.alldata != undefined)
+        {
+            console.log("Parsing data..");
+
+            for(let i=0; i<this.alldata.length; i++)
+            {
+                if(this.alldata[i].userid == id)
+                {
+                    data.push(this.alldata[i]);
+                }
+            }
+        }
+        return data;
     }
 }
 

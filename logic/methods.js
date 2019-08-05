@@ -15,7 +15,7 @@ class methods
 
     async showData(req,res)
     {
-        let data = await this.mongoer.getData(req.params.id);
+        let data = await this.mongoer.parseData(req.params.id);
         res.json(data);
     }
 }
