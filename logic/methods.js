@@ -13,6 +13,7 @@ class methods
         res.render(path.join(__dirname,'../client/index.html'));
     }
 
+    
     async showData(req,res)
     {
         let data = await this.mongoer.parseData(req.params.id);

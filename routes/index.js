@@ -9,6 +9,8 @@ router.get('/', (req, res, next)=> {
 });
 
 router.get('/data/:id', (req, res, next)=> {
+    console.log("hello?");
     methods.showData(req,res);
 });
+
 module.exports = router;

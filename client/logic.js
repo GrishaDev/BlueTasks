@@ -100,7 +100,7 @@ function renderData()
 
 function getTasks()
 {
-    let datastr = httpGet('/data/2');
+    let datastr = httpGet('/api/data/2');
     data = JSON.parse(datastr);
 
     console.log(data);
