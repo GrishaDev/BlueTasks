@@ -16,7 +16,11 @@ class methods
     
     async showData(req,res)
     {
+        // let id = await this.mongoer.getUser(req.params.name);
         let data = await this.mongoer.parseData(req.params.id);
+        console.log("=====================");
+        console.log(data);
+        // data[0].date="none;
         res.json(data);
     }
 }

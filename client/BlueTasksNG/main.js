@@ -104,12 +104,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mainpage_content_content_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./mainpage/content/content.component */ "./src/app/mainpage/content/content.component.ts");
 /* harmony import */ var _mainpage_content_task_task_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./mainpage/content/task/task.component */ "./src/app/mainpage/content/task/task.component.ts");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _mainpage_content_filters_filters_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./mainpage/content/filters/filters.component */ "./src/app/mainpage/content/filters/filters.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -138,7 +140,8 @@ var AppModule = /** @class */ (function () {
                 _mainpage_mainpage_component__WEBPACK_IMPORTED_MODULE_8__["MainpageComponent"],
                 _mainpage_header_header_component__WEBPACK_IMPORTED_MODULE_9__["HeaderComponent"],
                 _mainpage_content_content_component__WEBPACK_IMPORTED_MODULE_10__["ContentComponent"],
-                _mainpage_content_task_task_component__WEBPACK_IMPORTED_MODULE_11__["TaskComponent"]
+                _mainpage_content_task_task_component__WEBPACK_IMPORTED_MODULE_11__["TaskComponent"],
+                _mainpage_content_filters_filters_component__WEBPACK_IMPORTED_MODULE_13__["FiltersComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -151,6 +154,7 @@ var AppModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatFormFieldModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatToolbarModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatCheckboxModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(appRoutes)
             ],
             providers: [],
@@ -263,7 +267,7 @@ var LoginpageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "@-webkit-keyframes slideInFromLeft {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0);\r\n                transform: translateX(0);\r\n      }\r\n  }\r\n\r\n\r\n@keyframes slideInFromLeft {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0);\r\n                transform: translateX(0);\r\n      }\r\n  }\r\n\r\n\r\n.all\r\n{\r\n    padding: 50px;\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n    text-align: center;\r\n    justify-content: center;\r\n    -webkit-animation: 1s ease-out 0s 1 slideInFromLeft;\r\n            animation: 1s ease-out 0s 1 slideInFromLeft;\r\n}\r\n\r\n\r\n.spaceout\r\n{\r\n    padding: 30px;\r\n}"
+module.exports = "@-webkit-keyframes slideInFromLeft {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0);\r\n                transform: translateX(0);\r\n      }\r\n  }\r\n\r\n\r\n@keyframes slideInFromLeft {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0);\r\n                transform: translateX(0);\r\n      }\r\n  }\r\n\r\n\r\n.all\r\n{\r\n    width: 100%;\r\n    /* padding: 50px; */\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n    text-align: center;\r\n    justify-content: center;\r\n    -webkit-animation: 1s ease-out 0s 1 slideInFromLeft;\r\n            animation: 1s ease-out 0s 1 slideInFromLeft;\r\n}\r\n\r\n\r\n.spaceout\r\n{\r\n    padding: 30px;\r\n}"
 
 /***/ }),
 
@@ -274,7 +278,7 @@ module.exports = "@-webkit-keyframes slideInFromLeft {\r\n    0% {\r\n      -web
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"all\">\n    <app-task *ngFor=\"let item of data\" [item]='item' class=\"spaceout\"></app-task>\n</div>\n"
+module.exports = "<app-filters [checklist]='checkboxes' (newdata)=\"dataChanged($event)\"></app-filters>\n<div class=\"all\">\n    <app-task *ngFor=\"let item of filterd_data\" [item]='item' class=\"spaceout\"></app-task>\n</div>\n"
 
 /***/ }),
 
@@ -289,6 +293,7 @@ module.exports = "<div class=\"all\">\n    <app-task *ngFor=\"let item of data\"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContentComponent", function() { return ContentComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _logic_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./logic.service */ "./src/app/mainpage/content/logic.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -299,10 +304,88 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var ContentComponent = /** @class */ (function () {
-    function ContentComponent() {
+    function ContentComponent(logic) {
+        this.logic = logic;
+        this.filterd_data = [];
+        this.checkboxes = [];
+        this.filterd_data_nodate = [];
+        this.filterd_data_yesdate = [];
     }
     ContentComponent.prototype.ngOnInit = function () {
+        console.log("hello do i have data????????????????????????????");
+        console.log(this.data);
+        // this.checkboxes = this.buildCheckBoxes();
+        this.checkboxes = this.logic.buildCheckBoxes(this.data);
+        // this.filterd_data = this.logic.makeData(this.data,this.checkboxes);
+        this.filterd_data = this.data;
+        // this.sortData();
+        // this.filterd_data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        this.datasort();
+        this.sortDates();
+        // this.filterd_data.sort((a, b)=>{ 
+        //     return +new Date(a.date) - +new Date(b.date); 
+        // }); 
+        // this.filterd_data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        // this.filterd_data.sort();
+    };
+    ContentComponent.prototype.datasort = function () {
+        for (var i = 0; i < this.filterd_data.length; i++) {
+            // if(this.filterd_data[i].date)
+            var date = new Date(this.filterd_data[i].date);
+            if (!isNaN(date.getTime())) {
+                this.filterd_data[i].date = date;
+            }
+            else
+                this.filterd_data[i].date = "none";
+        }
+        // this.filterd_data = this.bubbleSort(this.filterd_data);
+    };
+    ContentComponent.prototype.sortDates = function () {
+        this.filterd_data_nodate = [];
+        this.filterd_data_yesdate = [];
+        for (var i = 0; i < this.filterd_data.length; i++) {
+            if (this.filterd_data[i].date == "none") {
+                this.filterd_data_nodate.push(this.filterd_data[i]);
+            }
+            else {
+                this.filterd_data_yesdate.push(this.filterd_data[i]);
+            }
+        }
+        this.filterd_data_yesdate.sort(function (b, a) {
+            return new Date(b.date).getTime() - new Date(a.date).getTime();
+        });
+        this.filterd_data = this.filterd_data_yesdate.concat(this.filterd_data_nodate);
+    };
+    // bubbleSort(items) {
+    //   var length = items.length;
+    //   for (var i = 0; i < length; i++) { //Number of passes
+    //     for (var j = 0; j < (length - i - 1); j++) { //Notice that j < (length - i)
+    //       //Compare the adjacent positions
+    //       if (items[j].date > items[j + 1].date) {
+    //         console.log("true");
+    //         //Swap the numbers
+    //         var tmp = items[j]; //Temporary variable to hold the current number
+    //         items[j] = items[j + 1]; //Replace current number with adjacent number
+    //         items[j + 1] = tmp; //Replace adjacent number with current number
+    //       }
+    //     }
+    //   }
+    //   return items;
+    // }
+    // sortData() {
+    //   return this.filterd_data.sort((a, b) => {
+    //     return <any>new Date(b.date) - <any>new Date(a.date);
+    //   });
+    // }
+    ContentComponent.prototype.dataChanged = function (data) {
+        var isallunchecked = this.logic.isAllUnchecked(data);
+        if (!isallunchecked)
+            this.filterd_data = this.logic.makeData(this.data, data);
+        else
+            this.filterd_data = this.data;
+        this.sortDates();
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -314,9 +397,233 @@ var ContentComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./content.component.html */ "./src/app/mainpage/content/content.component.html"),
             styles: [__webpack_require__(/*! ./content.component.css */ "./src/app/mainpage/content/content.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_logic_service__WEBPACK_IMPORTED_MODULE_1__["LogicService"]])
     ], ContentComponent);
     return ContentComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/mainpage/content/filters/filters.component.css":
+/*!****************************************************************!*\
+  !*** ./src/app/mainpage/content/filters/filters.component.css ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".filters {\r\n    position: relative;\r\n   left: -50%;\r\n   float: left;\r\n}\r\n\r\n.wrapper\r\n{\r\n    position: relative;\r\n   left: 50%;\r\n   float: left;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/mainpage/content/filters/filters.component.html":
+/*!*****************************************************************!*\
+  !*** ./src/app/mainpage/content/filters/filters.component.html ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"wrapper\">\n  <mat-card class=\"mat-elevation-z8 centered filters\" color=\"primary\">\n      <mat-checkbox *ngFor=\"let item of checklist\" [(ngModel)]=\"item.isSelected\" style=\"margin-right: 10px;\" (change)=\"checkBoxClick(item.value,$event.checked)\" color=\"warn\">{{item.value}}</mat-checkbox>\n  </mat-card>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/mainpage/content/filters/filters.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/mainpage/content/filters/filters.component.ts ***!
+  \***************************************************************/
+/*! exports provided: FiltersComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FiltersComponent", function() { return FiltersComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _logic_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../logic.service */ "./src/app/mainpage/content/logic.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var FiltersComponent = /** @class */ (function () {
+    function FiltersComponent(logic) {
+        this.logic = logic;
+        this.newdata = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    FiltersComponent.prototype.ngOnInit = function () {
+    };
+    FiltersComponent.prototype.checkBoxClick = function (filter, checked) {
+        if (checked) {
+            // this.checkedfilters.push(filter);
+            this.checklist = this.logic.tickChecklist(this.checklist, filter, true);
+            // console.log(this.checklist);
+            // console.log("You checked "+checked+" and here checked filters: "+this.checkedfilters);
+            this.newdata.emit(this.checklist);
+        }
+        else {
+            this.checklist = this.logic.tickChecklist(this.checklist, filter, false);
+            // console.log("You checked "+checked+" and here checked filters: "+this.checkedfilters);
+            var checkedfilters = this.logic.getCheckedFilters(this.checklist);
+            if (checkedfilters.length == 0) {
+                this.newdata.emit(this.checklist);
+                // console.log("here u should get init data..");
+                // this.dataSource = new MatTableDataSource<Server>(SERVER_DATA);
+                // setTimeout(() => {this.dataSource.paginator = this.paginator; this.dataSource.sort = this.sort;});
+            }
+            else {
+                this.newdata.emit(this.checklist);
+            }
+        }
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], FiltersComponent.prototype, "checklist", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], FiltersComponent.prototype, "newdata", void 0);
+    FiltersComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-filters',
+            template: __webpack_require__(/*! ./filters.component.html */ "./src/app/mainpage/content/filters/filters.component.html"),
+            styles: [__webpack_require__(/*! ./filters.component.css */ "./src/app/mainpage/content/filters/filters.component.css")]
+        }),
+        __metadata("design:paramtypes", [_logic_service__WEBPACK_IMPORTED_MODULE_1__["LogicService"]])
+    ], FiltersComponent);
+    return FiltersComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/mainpage/content/logic.service.ts":
+/*!***************************************************!*\
+  !*** ./src/app/mainpage/content/logic.service.ts ***!
+  \***************************************************/
+/*! exports provided: LogicService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LogicService", function() { return LogicService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var LogicService = /** @class */ (function () {
+    function LogicService() {
+    }
+    LogicService.prototype.buildCheckBoxes = function (data) {
+        var once = true;
+        var label;
+        // let deadline:string;
+        var checklist = [];
+        for (var i = 0; i < data.length; i++) {
+            // deadline = this.data[i].date;
+            for (var j = 0; j < data[i].labels.length; j++) {
+                label = data[i].labels[j];
+                if (!this.filterExists(checklist, label)) {
+                    checklist.push({ value: label, isSelected: false });
+                }
+            }
+            if (data[i].date != "none" && once) {
+                once = false;
+                checklist.push({ value: "deadline", isSelected: false });
+            }
+        }
+        return checklist;
+    };
+    LogicService.prototype.filterExists = function (checklist, filter) {
+        for (var i = 0; i < checklist.length; i++) {
+            if (checklist[i].value == filter) {
+                return true;
+            }
+        }
+        return false;
+    };
+    LogicService.prototype.makeData = function (data, checkedfilters) {
+        var currentdata = data;
+        var newdata = [];
+        var once = true;
+        var used_data = [];
+        var checked = this.getCheckedFilters(checkedfilters);
+        for (var i = 0; i < currentdata.length; i++) {
+            for (var k = 0; k < currentdata[i].labels.length; k++) {
+                for (var j = 0; j < checked.length; j++) {
+                    if (currentdata[i].labels[k] == checked[j]) {
+                        if (!this.sameObjectAlreadyThere(newdata, currentdata[i])) {
+                            newdata.push(currentdata[i]);
+                            used_data.push(true);
+                        }
+                    }
+                }
+            }
+            console.log(newdata);
+            for (var j = 0; j < checked.length; j++) {
+                //currentdata[i].date != undefined
+                if (currentdata[i].date != "none" && checked[j] == "deadline" && !used_data[i]) {
+                    if (!this.sameObjectAlreadyThere(newdata, currentdata[i]))
+                        newdata.push(currentdata[i]);
+                }
+            }
+        }
+        return newdata;
+    };
+    LogicService.prototype.sameObjectAlreadyThere = function (newdata, currentdata) {
+        for (var i = 0; i < newdata.length; i++) {
+            if (currentdata == newdata[i]) {
+                return true;
+            }
+        }
+        return false;
+    };
+    LogicService.prototype.getCheckedFilters = function (checklist) {
+        var checkedfilters = [];
+        for (var i = 0; i < checklist.length; i++) {
+            if (checklist[i].isSelected) {
+                checkedfilters.push(checklist[i].value);
+            }
+        }
+        return checkedfilters;
+    };
+    LogicService.prototype.tickChecklist = function (checklist, filter, value) {
+        for (var i = 0; i < checklist.length; i++) {
+            if (checklist[i].value == filter) {
+                checklist[i].isSelected = value;
+            }
+        }
+        return checklist;
+    };
+    LogicService.prototype.isAllUnchecked = function (checklist) {
+        for (var i = 0; i < checklist.length; i++) {
+            if (checklist[i].isSelected) {
+                return false;
+            }
+        }
+        return true;
+    };
+    LogicService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], LogicService);
+    return LogicService;
 }());
 
 
@@ -370,7 +677,7 @@ var TaskComponent = /** @class */ (function () {
     function TaskComponent() {
     }
     TaskComponent.prototype.ngOnInit = function () {
-        console.log(this.item);
+        // console.log(this.item);
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -476,7 +783,7 @@ module.exports = "\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header [user]='user'></app-header>\n<app-content [data]='data'></app-content>"
+module.exports = "<app-header [user]='user'></app-header>\n<app-content *ngIf=\"data.length > 0\" [data]='data'></app-content>"
 
 /***/ }),
 
@@ -505,8 +812,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 // import { hostname } from 'os';
 var MainpageComponent = /** @class */ (function () {
-    function MainpageComponent(userservice) {
+    function MainpageComponent(userservice, cd) {
         this.userservice = userservice;
+        this.cd = cd;
         this.user = "";
         this.data = [];
     }
@@ -519,13 +827,20 @@ var MainpageComponent = /** @class */ (function () {
         // });
         // console.log("??????? "+this.userservice.user);
         this.user = this.userservice.user;
-        console.log(this.user);
         this.userservice.getData().subscribe(function (data) {
             _this.data = data;
+            _this.cd.detectChanges();
             console.log(data);
         });
-        // this.data = [{text:"important mission",list:"a good list",board:"bisli",labels:["general"],date:"2019-18-12",userid:"2"},
-        //              {text:"hello its very good mission",list:"better list",board:"bisli",labels:["general"],date:"2026-08-12",userid:"2"}];
+        //2019-07-07T 9:30:00.0
+        // this.data = [{text:"important mission1",list:"a good list",board:"bisli",labels:["general"],date:"2019-07-07T09:30",userid:"2"},
+        //              {text:"important mission2",list:"better list",board:"bisli",labels:["general","meme"],date:"2026-08-12T15:20",userid:"2"},
+        //              {text:"important mission3",list:"better list",board:"bisli",labels:["bamba"],date:"none",userid:"2"},
+        //              {text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:undefined,userid:"2"},
+        //              {text:"important mission5",list:"better list",board:"bisli",labels:["general"],date:"2019-08-08T13:05",userid:"2"}];
+        // this.data = [{text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:"none",userid:"2"},
+        //             {text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:"none",userid:"2"}];
+        // console.log(this.data);
         console.log(this.data);
     };
     __decorate([
@@ -538,7 +853,7 @@ var MainpageComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./mainpage.component.html */ "./src/app/mainpage/mainpage.component.html"),
             styles: [__webpack_require__(/*! ./mainpage.component.css */ "./src/app/mainpage/mainpage.component.css")]
         }),
-        __metadata("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"]])
+        __metadata("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"]])
     ], MainpageComponent);
     return MainpageComponent;
 }());

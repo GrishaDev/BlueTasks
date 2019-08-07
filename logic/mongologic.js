@@ -46,6 +46,7 @@ class mongologic
         {
             let result = await this.users.findOne({displayName:name});
             console.log(result._id);
+            return result._id;
         }
         catch(err)
         {
@@ -70,10 +71,13 @@ class mongologic
                     {
                         for(let k=0; k<data[i].lists[j].cards.length; k++)
                         {
-                            let carddata = data[i].lists[j].cards[k];
+                            let card_data = data[i].lists[j].cards[k];
                             let card;
+                            // let parseddate = carddata.date.substring(0,16);
+                            let parsed_date = card_data.date;
+                            console.log(parsed_date);
                             // let user = data[i].lists[j].cards[k].assignedUserId;
-                            card = {text:carddata.text,list:data[i].lists[j].title,board:data[i].title,labels:carddata.labels,date:carddata.date,userid:carddata.assignedUserId};
+                            card = {text:card_data.text,list:data[i].lists[j].title,board:data[i].title,labels:card_data.labels,date:"none",userid:card_data.assignedUserId};
                             this.alldata.push(card);
                             // if(user == id)
                             // {
