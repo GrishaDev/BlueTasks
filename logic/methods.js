@@ -16,12 +16,23 @@ class methods
     
     async showData(req,res)
     {
-        // let id = await this.mongoer.getUser(req.params.name);
-        let data = await this.mongoer.parseData(req.params.id);
-        console.log("=====================");
-        console.log(data);
-        // data[0].date="none;
-        res.json(data);
+        let id = req.params.id;
+        if(id != undefined)
+        {
+            let data = await this.mongoer.parseData(id);
+            res.json(data);
+        }
+    }
+
+    async CheckUser(req,res)
+    {
+        console.log("jdsjfsfd");
+        console.log(req.body.name);
+        let id = await this.mongoer.getUser(req.body.name);
+        if(id!=undefined)
+            res.json({status:true,id:id});
+        else
+            res.json({status:false});
     }
 }
 

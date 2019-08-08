@@ -18,25 +18,25 @@ class mongologic
                 reconnectTries: 1000000,
                 reconnectInterval: 3000
             });
+
+            this.db = mongo.db(config.db);
+            this.users = this.db.collection(config.usersCollection);
+            this.boards = this.db.collection(config.boardsCollection);
+
+            console.log("done");
+            // this.getUser("user2@example.com");
+
+            this.alldata = [];
+            await this.getData();
+
+            this.boards.watch().on('change', ()=> {
+                this.getData();
+            });
         }
         catch(err)
         {
             console.log("Error connecting to mongo , "+err);
         }
-        
-        this.db = mongo.db(config.db);
-        this.users = this.db.collection(config.usersCollection);
-        this.boards = this.db.collection(config.boardsCollection);
-
-        console.log("done");
-        // this.getUser("user2@example.com");
-
-        this.alldata = [];
-        await this.getData();
-
-        this.boards.watch().on('change', ()=> {
-            this.getData();
-        });
     }
 
 
@@ -77,7 +77,9 @@ class mongologic
                             let parsed_date = card_data.date;
                             console.log(parsed_date);
                             // let user = data[i].lists[j].cards[k].assignedUserId;
-                            card = {text:card_data.text,list:data[i].lists[j].title,board:data[i].title,labels:card_data.labels,date:"none",userid:card_data.assignedUserId};
+                            if(parsed_date == undefined)
+                                parsed_date = "none";
+                            card = {text:card_data.text,list:data[i].lists[j].title,board:data[i].title,labels:card_data.labels,date:parsed_date,userid:card_data.assignedUserId};
                             this.alldata.push(card);
                             // if(user == id)
                             // {

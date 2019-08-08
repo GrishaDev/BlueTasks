@@ -175,7 +175,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "*\r\n{\r\n    font-size: 1.2em;\r\n}\r\n.form\r\n{\r\n    position: fixed; /* or absolute */\r\n    top: 50%;\r\n    left: 50%;\r\n    /* bring your own prefixes */\r\n    -webkit-transform: translate(-50%, -50%);\r\n            transform: translate(-50%, -50%);\r\n    background-color: rgba(192, 192, 192, 0.75);\r\n    height: 500px;\r\n    width: 700px;\r\n    /* box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12); */\r\n}\r\n.header\r\n{\r\n    position: absolute;\r\n    width: 100%;\r\n    top: 0;\r\n    height: 20%;\r\n    /* background-color: red; */\r\n    text-align: center;\r\n    padding-top: 30px;\r\n}\r\n.area\r\n{\r\n    position: absolute;\r\n    /* background-color: blue; */\r\n    top: 20%;\r\n    height: 80%;\r\n    width: 100%;\r\n}\r\nexample-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n  }\r\n.example-container > * {\r\n    width: 50%;\r\n    left: 25%;\r\n  }\r\n.submit\r\n{\r\n    position: absolute;\r\n    bottom: 25%;\r\n}\r\n/* .input\r\n{\r\n    width: 50%;\r\n} */"
+module.exports = "@-webkit-keyframes slideInFromTop {\r\n    0% {\r\n      -webkit-transform: translateY(100%);\r\n              transform: translateY(100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateY(50%);\r\n                transform: translateY(50%);\r\n      }\r\n  }\r\n\r\n\r\n@keyframes slideInFromTop {\r\n    0% {\r\n      -webkit-transform: translateY(100%);\r\n              transform: translateY(100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateY(50%);\r\n                transform: translateY(50%);\r\n      }\r\n  }\r\n\r\n\r\n*\r\n{\r\n    \r\n    font-size: 1.2em;\r\n}\r\n\r\n\r\n/* .all\r\n{\r\n    animation: 1s ease-out 0s 1 slideInFromTop;\r\n} */\r\n\r\n\r\n.form\r\n{\r\n    position: fixed;\r\n    top: 50%;\r\n    left: 50%;\r\n    /* bring your own prefixes */\r\n    -webkit-transform: translate(-50%, -50%);\r\n            transform: translate(-50%, -50%);\r\n    background-color: rgba(139, 139, 139, 0.548);\r\n    height: 500px;\r\n    width: 700px;\r\n    \r\n    /* box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12); */\r\n}\r\n\r\n\r\n.header\r\n{\r\n    position: absolute;\r\n    width: 100%;\r\n    top: 0;\r\n    height: 20%;\r\n    /* background-color: red; */\r\n    text-align: center;\r\n    padding-top: 30px;\r\n}\r\n\r\n\r\n.area\r\n{\r\n    position: absolute;\r\n    /* background-color: blue; */\r\n    top: 20%;\r\n    height: 80%;\r\n    width: 100%;\r\n}\r\n\r\n\r\nexample-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n  }\r\n\r\n\r\n.example-container > * {\r\n    width: 50%;\r\n    left: 25%;\r\n  }\r\n\r\n\r\n.submit\r\n{\r\n    position: absolute;\r\n    bottom: 25%;\r\n}\r\n\r\n\r\n.error\r\n{\r\n    color:red;\r\n    position: absolute;\r\n    bottom: 0;\r\n    text-align: center;\r\n}\r\n\r\n\r\n/* .input\r\n{\r\n    width: 50%;\r\n} */"
 
 /***/ }),
 
@@ -186,7 +186,7 @@ module.exports = "*\r\n{\r\n    font-size: 1.2em;\r\n}\r\n.form\r\n{\r\n    posi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <p>\n  loginpage works!\n</p> -->\n\n<div class=\"form mat-elevation-z8\">\n    \n        <div class=\"header\">\n            Hello\n        </div>\n        <div class=\"example-container area\">\n            <mat-form-field>\n                <input matInput placeholder=\"User\" class=\"input\" [(ngModel)]=\"username\">\n            </mat-form-field>\n            <br>\n            <button mat-raised-button (click)=\"login()\" color=\"primary\" class=\"submit\" >Check</button>      \n        </div>\n</div>"
+module.exports = "<!-- <p>\n  loginpage works!\n</p> -->\n\n<!-- <div class=\"all\"> -->\n    <div class=\"form mat-elevation-z8\">\n        \n            <div class=\"header\">\n                Hello\n            </div>\n            <div class=\"example-container area\">\n                <mat-form-field>\n                    <input matInput placeholder=\"User\" class=\"input\" [(ngModel)]=\"username\" (input)=\"inputChanged($event)\">\n                </mat-form-field>\n                <br>\n                <button mat-raised-button (click)=\"login()\" color=\"primary\" class=\"submit\" >Check</button> \n                <p class=\"error\">{{err}}</p>     \n            </div>\n    </div>\n<!-- </div> -->"
 
 /***/ }),
 
@@ -225,21 +225,37 @@ var LoginpageComponent = /** @class */ (function () {
         this.router = router;
         this.http = http;
         this.userservice = userservice;
-        // password: string;
-        // isvalid:boolean = false;
-        // err:string;
         this.user = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].email]);
     }
     LoginpageComponent.prototype.ngOnInit = function () {
     };
-    // getErrorMessage() {
-    // return this.user.hasError('required') ? 'You must enter a value' :
-    //     this.user.hasError('email') ? 'Not a valid email' :
-    //         '';
+    // login():void
+    // {
+    //     this.userservice.set(this.username);
+    //     this.router.navigate(["home"]);
     // }
     LoginpageComponent.prototype.login = function () {
-        this.userservice.set(this.username);
-        this.router.navigate(["home"]);
+        var _this = this;
+        var it = this;
+        var req = this.http.post('/api/checkuser', {
+            "name": this.username,
+        })
+            .subscribe(function (res) {
+            console.log(res);
+            if (res.status) {
+                _this.userservice.set(_this.username, res.id);
+                it.router.navigate(["home"]);
+            }
+            else {
+                it.err = "Invalid user";
+            }
+        }, function (err) {
+            console.log("Error occured+ :: " + err);
+            it.err = "Error connecting";
+        });
+    };
+    LoginpageComponent.prototype.inputChanged = function ($event) {
+        this.err = "";
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('f'),
@@ -637,7 +653,7 @@ var LogicService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "@-webkit-keyframes float {\r\n\t0% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n\t50% {\r\n\t\tbox-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);\r\n\t\t-webkit-transform: translatey(-20px);\r\n\t\t        transform: translatey(-20px);\r\n\t}\r\n\t100% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n}\r\n\r\n\r\n@keyframes float {\r\n\t0% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n\t50% {\r\n\t\tbox-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);\r\n\t\t-webkit-transform: translatey(-20px);\r\n\t\t        transform: translatey(-20px);\r\n\t}\r\n\t100% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n}\r\n\r\n\r\n.poop\r\n{\r\n    transition-duration: 0.5s;\r\n}\r\n\r\n\r\n.poop:hover\r\n{\r\n    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);\r\n    -webkit-transform: translateY(-5%);\r\n            transform: translateY(-5%);\r\n}\r\n\r\n\r\n.example-card {\r\n    max-width: 400px;\r\n    min-width: 300px;\r\n    transition-duration: 0.5s;\r\n  }\r\n\r\n\r\n/* .example-card:hover\r\n{\r\n    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);\r\n    transform: translateY(-5%);\r\n} */\r\n\r\n\r\n/* .example-header-image {\r\n    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');\r\n    background-size: cover;\r\n  } */"
+module.exports = "@-webkit-keyframes float {\r\n\t0% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n\t50% {\r\n\t\tbox-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);\r\n\t\t-webkit-transform: translatey(-20px);\r\n\t\t        transform: translatey(-20px);\r\n\t}\r\n\t100% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n}\r\n\r\n@keyframes float {\r\n\t0% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n\t50% {\r\n\t\tbox-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);\r\n\t\t-webkit-transform: translatey(-20px);\r\n\t\t        transform: translatey(-20px);\r\n\t}\r\n\t100% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n}\r\n\r\n@-webkit-keyframes slideInFromLeft2 {\r\n    0% {\r\n      -webkit-transform: translateX(-1000%);\r\n              transform: translateX(-1000%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0);\r\n                transform: translateX(0);\r\n      }\r\n  }\r\n\r\n@keyframes slideInFromLeft2 {\r\n    0% {\r\n      -webkit-transform: translateX(-1000%);\r\n              transform: translateX(-1000%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0);\r\n                transform: translateX(0);\r\n      }\r\n  }\r\n\r\n.poop\r\n{\r\n    transition-duration: 0.5s;\r\n    /* animation: 1s ease-out 0s 1 slideInFromLeft2; */\r\n    \r\n}\r\n\r\n.poop:hover\r\n{\r\n    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);\r\n    -webkit-transform: translateY(-5%);\r\n            transform: translateY(-5%);\r\n}\r\n\r\n.example-card {\r\n    max-width: 400px;\r\n    min-width: 300px;\r\n    transition-duration: 0.5s;\r\n    /* background-color: rgb(240, 240, 240); */\r\n  }\r\n\r\n/* .example-card:hover\r\n{\r\n    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);\r\n    transform: translateY(-5%);\r\n} */\r\n\r\n/* .example-header-image {\r\n    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');\r\n    background-size: cover;\r\n  } */"
 
 /***/ }),
 
@@ -705,7 +721,7 @@ var TaskComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* .header\r\n{\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 15%;\r\n} */\r\n.example-spacer {\r\n    flex: 1 1 auto;\r\n  }\r\n.title\r\n{\r\n    text-align: center;\r\n    font-size: 2em;\r\n}"
+module.exports = "/* .header\r\n{\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 15%;\r\n} */\r\n.example-spacer {\r\n    flex: 1 1 auto;\r\n  }\r\n.title\r\n{\r\n    text-align: center;\r\n    font-size: 2em;\r\n}\r\n.logout\r\n{\r\n    transition-duration: 0.5s;\r\n    font-size: 36px;\r\n    padding: 0;\r\n    margin-bottom: 7.5px;\r\n    margin-right: 7.5px;\r\n}\r\n.logout:hover\r\n{\r\n    color: red;\r\n}"
 
 /***/ }),
 
@@ -716,7 +732,7 @@ module.exports = "/* .header\r\n{\r\n    position: absolute;\r\n    width: 100%;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\">\n    <span>Hello {{ user }}</span>\n    <span class=\"example-spacer\"></span>\n    <mat-icon class=\"example-icon\" aria-hidden=\"false\" aria-label=\"Example user verified icon\">verified_user</mat-icon>\n</mat-toolbar>\n\n<p class=\"title\"> Your tasks: </p>"
+module.exports = "<mat-toolbar color=\"primary\">\n    <span>Hello {{ user }}</span>\n    <mat-icon class=\"example-icon\" aria-hidden=\"false\" aria-label=\"Example user verified icon\">verified_user</mat-icon>\n    <span class=\"example-spacer\"></span>\n    <mat-icon class=\"logout\" (click)=\"logout()\">arrow_back</mat-icon>\n</mat-toolbar>\n\n<p class=\"title\"> Your tasks: </p>"
 
 /***/ }),
 
@@ -731,6 +747,7 @@ module.exports = "<mat-toolbar color=\"primary\">\n    <span>Hello {{ user }}</s
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -741,10 +758,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var HeaderComponent = /** @class */ (function () {
-    function HeaderComponent() {
+    function HeaderComponent(router) {
+        this.router = router;
     }
     HeaderComponent.prototype.ngOnInit = function () {
+    };
+    HeaderComponent.prototype.logout = function () {
+        this.router.navigate([""]);
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -756,7 +778,7 @@ var HeaderComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./header.component.html */ "./src/app/mainpage/header/header.component.html"),
             styles: [__webpack_require__(/*! ./header.component.css */ "./src/app/mainpage/header/header.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
     ], HeaderComponent);
     return HeaderComponent;
 }());
@@ -772,7 +794,7 @@ var HeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n"
+module.exports = "\r\n.content\r\n{\r\n    overflow-y: scroll;\r\n}\r\n\r\n.error\r\n{\r\n    text-align:center;\r\n}"
 
 /***/ }),
 
@@ -783,7 +805,7 @@ module.exports = "\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header [user]='user'></app-header>\n<app-content *ngIf=\"data.length > 0\" [data]='data'></app-content>"
+module.exports = "<app-header [user]='user'></app-header>\n<app-content *ngIf=\"data.length > 0\" [data]='data' class=\"content\"></app-content>\n<div *ngIf=\"data.length == 0\" class=\"error\">\n    <mat-icon style=\"font-size: 3em; margin-right: 0.5em\">sentiment_dissatisfied</mat-icon>\n    <p style=\"color:red; font-size: 2em\">No data found</p>\n</div>"
 
 /***/ }),
 
@@ -890,19 +912,27 @@ var UserService = /** @class */ (function () {
     function UserService(http) {
         this.http = http;
         this.user = "";
+        this.id = "";
         this.change = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.change2 = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
     UserService.prototype.getData = function () {
-        return this.http.get(host + '/api/data/' + this.user);
+        return this.http.get(host + '/api/data/' + this.id);
     };
-    UserService.prototype.set = function (user) {
+    UserService.prototype.set = function (user, id) {
         this.user = user;
+        this.id = id;
         this.change.emit(this.user);
+        this.change.emit(this.id);
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
     ], UserService.prototype, "change", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], UserService.prototype, "change2", void 0);
     UserService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
