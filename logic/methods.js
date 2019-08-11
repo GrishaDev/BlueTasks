@@ -26,8 +26,6 @@ class methods
 
     async CheckUser(req,res)
     {
-        console.log("jdsjfsfd");
-        console.log(req.body.name);
         let id = await this.mongoer.getUser(req.body.name);
         if(id!=undefined)
             res.json({status:true,id:id});

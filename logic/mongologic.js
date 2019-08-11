@@ -24,7 +24,6 @@ class mongologic
             this.boards = this.db.collection(config.boardsCollection);
 
             console.log("done");
-            // this.getUser("user2@example.com");
 
             this.alldata = [];
             await this.getData();
@@ -67,6 +66,7 @@ class mongologic
             {
                 if(data[i]._id != null)
                 {
+                    // let labels = data[i].labels
                     for(let j=0; j<data[i].lists.length; j++)
                     {
                         for(let k=0; k<data[i].lists[j].cards.length; k++)
@@ -75,19 +75,12 @@ class mongologic
                             let card;
                             // let parseddate = carddata.date.substring(0,16);
                             let parsed_date = card_data.date;
-                            console.log(parsed_date);
-                            // let user = data[i].lists[j].cards[k].assignedUserId;
                             if(parsed_date == undefined)
                                 parsed_date = "none";
-                            card = {text:card_data.text,list:data[i].lists[j].title,board:data[i].title,labels:card_data.labels,date:parsed_date,userid:card_data.assignedUserId};
-                            this.alldata.push(card);
-                            // if(user == id)
-                            // {
-                            //     let card = data[i].lists[j].cards[k].text;
-                            //     alldata.push(card);
-                            //     console.log("card "+card+ " contains user user1");
-                            // }
                             
+                            let labels = this.labels(card_data.labels,data[i]);
+                            card = {text:card_data.text,list:data[i].lists[j].title,board:data[i].title,labels:labels,date:parsed_date,userid:card_data.assignedUserId};
+                            this.alldata.push(card);
                         }
                     }
                 }
@@ -99,6 +92,28 @@ class mongologic
         {
             console.log("Error reading data , "+err);
         }
+    }
+
+    labels(labels,board)
+    {
+        if(labels == undefined || board.labels == undefined)
+        {
+            return "";
+        }
+
+        let actuallabels = [];
+
+        for(let i=0; i<board.labels.length; i++)
+        {
+            for(let j=0; j<labels.length; j++)
+            {
+                if(labels[j] == board.labels[i].id)
+                {
+                    actuallabels.push(board.labels[i].title);
+                }
+            } 
+        }
+        return actuallabels;
     }
 
     async parseData(id)
