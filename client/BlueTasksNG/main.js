@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "/* *\r\n{\r\n    font-family: 'Roboto';\r\n    font-style: italic;\r\n  font-weight: 400;\r\n  src: local('Roboto Italic'), local('Roboto-Italic'), url(https://fonts.gstatic.com/s/roboto/v20/KFOkCnqEu92Fr1Mu51xFIzIFKw.woff2) format('woff2');\r\n  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;\r\n} */\r\n\r\n"
 
 /***/ }),
 
@@ -155,6 +155,9 @@ var AppModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatToolbarModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatCardModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatCheckboxModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatExpansionModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatDividerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatTreeModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(appRoutes)
             ],
             providers: [],
@@ -283,7 +286,7 @@ var LoginpageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "@-webkit-keyframes slideInFromLeft {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0);\r\n                transform: translateX(0);\r\n      }\r\n  }\r\n\r\n\r\n@keyframes slideInFromLeft {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0);\r\n                transform: translateX(0);\r\n      }\r\n  }\r\n\r\n\r\n.all\r\n{\r\n    width: 100%;\r\n    /* padding: 50px; */\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n    text-align: center;\r\n    justify-content: center;\r\n    -webkit-animation: 1s ease-out 0s 1 slideInFromLeft;\r\n            animation: 1s ease-out 0s 1 slideInFromLeft;\r\n}\r\n\r\n\r\n.spaceout\r\n{\r\n    padding: 30px;\r\n}"
+module.exports = "@-webkit-keyframes slideInFromRight {\r\n    0% {\r\n      -webkit-transform: translateX(100%);\r\n              transform: translateX(100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n\r\n@keyframes slideInFromRight {\r\n    0% {\r\n      -webkit-transform: translateX(100%);\r\n              transform: translateX(100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n\r\n.content\r\n{\r\n    position: absolute;\r\n    width: 70%;\r\n    left: 30%;\r\n    /* height: 100%; */\r\n    /* padding: 50px; */\r\n    display: flex;\r\n    /* flex-flow: row wrap; */\r\n    flex-direction: column;\r\n    text-align: center;\r\n    justify-content: center;\r\n    -webkit-animation: 1s ease-out 0s 1 slideInFromRight;\r\n            animation: 1s ease-out 0s 1 slideInFromRight;\r\n    /* overflow-y: visible; */\r\n    height: 90%;\r\n    /* background-color: red; */\r\n    padding-left: 25px;\r\n    /* background-color: green; */\r\n}\r\n\r\n\r\n.scrollable\r\n{\r\n    position: relative;\r\n    height: 100%;\r\n    overflow-y: auto;\r\n}\r\n\r\n\r\n.filters\r\n{\r\n    width: 30%;\r\n    /* right: 30%; */\r\n    /* height: 100%; */\r\n    position: absolute;\r\n    height: 100%;\r\n    background-color: rgb(236, 236, 236);\r\n    /* background-color: blue; */\r\n}\r\n\r\n\r\n.spaceout\r\n{\r\n    padding: 30px;\r\n}"
 
 /***/ }),
 
@@ -294,7 +297,7 @@ module.exports = "@-webkit-keyframes slideInFromLeft {\r\n    0% {\r\n      -web
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-filters [checklist]='checkboxes' (newdata)=\"dataChanged($event)\"></app-filters>\n<div class=\"all\">\n    <app-task *ngFor=\"let item of filterd_data\" [item]='item' class=\"spaceout\"></app-task>\n</div>\n"
+module.exports = "<div class=\"filters\">\n    <app-filters [checklist]='checkboxes' [boardlist]='boardlist' (data_labeled)=\"LabelsChanged($event)\" (data_boarded)=\"BoardsChanged($event)\"\n    (time)=\"timeChange($event)\"></app-filters>\n</div>\n<div class=\"content\">\n    <div class=\"scrollable\">\n        <app-task *ngFor=\"let item of filterd_data\" [item]='item' class=\"spaceout\"></app-task>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -326,29 +329,21 @@ var ContentComponent = /** @class */ (function () {
         this.logic = logic;
         this.filterd_data = [];
         this.checkboxes = [];
+        this.boardlist = [];
         this.filterd_data_nodate = [];
         this.filterd_data_yesdate = [];
+        this.time = "all";
     }
     ContentComponent.prototype.ngOnInit = function () {
-        console.log("hello do i have data????????????????????????????");
-        console.log(this.data);
-        // this.checkboxes = this.buildCheckBoxes();
         this.checkboxes = this.logic.buildCheckBoxes(this.data);
-        // this.filterd_data = this.logic.makeData(this.data,this.checkboxes);
+        this.boardlist = this.logic.buildBoardList(this.data);
         this.filterd_data = this.data;
-        // this.sortData();
-        // this.filterd_data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
         this.datasort();
         this.sortDates();
-        // this.filterd_data.sort((a, b)=>{ 
-        //     return +new Date(a.date) - +new Date(b.date); 
-        // }); 
-        // this.filterd_data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-        // this.filterd_data.sort();
+        // console.log("kjsadjasd "+this.logic.isNext7days(new Date("2019-08-20T09:30")));
     };
     ContentComponent.prototype.datasort = function () {
         for (var i = 0; i < this.filterd_data.length; i++) {
-            // if(this.filterd_data[i].date)
             var date = new Date(this.filterd_data[i].date);
             if (!isNaN(date.getTime())) {
                 this.filterd_data[i].date = date.toLocaleString();
@@ -356,7 +351,6 @@ var ContentComponent = /** @class */ (function () {
             else
                 this.filterd_data[i].date = "none";
         }
-        // this.filterd_data = this.bubbleSort(this.filterd_data);
     };
     ContentComponent.prototype.sortDates = function () {
         this.filterd_data_nodate = [];
@@ -374,35 +368,42 @@ var ContentComponent = /** @class */ (function () {
         });
         this.filterd_data = this.filterd_data_yesdate.concat(this.filterd_data_nodate);
     };
-    // bubbleSort(items) {
-    //   var length = items.length;
-    //   for (var i = 0; i < length; i++) { //Number of passes
-    //     for (var j = 0; j < (length - i - 1); j++) { //Notice that j < (length - i)
-    //       //Compare the adjacent positions
-    //       if (items[j].date > items[j + 1].date) {
-    //         console.log("true");
-    //         //Swap the numbers
-    //         var tmp = items[j]; //Temporary variable to hold the current number
-    //         items[j] = items[j + 1]; //Replace current number with adjacent number
-    //         items[j + 1] = tmp; //Replace adjacent number with current number
-    //       }
-    //     }
-    //   }
-    //   return items;
-    // }
-    // sortData() {
-    //   return this.filterd_data.sort((a, b) => {
-    //     return <any>new Date(b.date) - <any>new Date(a.date);
-    //   });
-    // }
-    ContentComponent.prototype.dataChanged = function (data) {
-        console.log("???");
-        var isallunchecked = this.logic.isAllUnchecked(data);
-        if (!isallunchecked)
-            this.filterd_data = this.logic.makeData(this.data, data);
+    ContentComponent.prototype.LabelsChanged = function (data) {
+        // let isallunchecked:boolean = this.logic.isAllUnchecked(data);
+        // if(!isallunchecked)
+        //   this.filterd_data = this.logic.makeData(this.data,data);
+        // else
+        //   this.filterd_data = this.data;
+        // this.sortDates();
+        this.checkboxes = data;
+        this.updateData();
+    };
+    ContentComponent.prototype.BoardsChanged = function (data) {
+        // let isallunchecked:boolean = this.logic.isAllUnchecked(data);
+        // if(!isallunchecked)
+        //   this.filterd_data = this.logic.makeData(this.data,data);
+        // else
+        //   this.filterd_data = this.data;
+        // this.sortDates();
+        this.boardlist = data;
+        this.updateData();
+    };
+    ContentComponent.prototype.updateData = function () {
+        var isalluncheckedFilters = this.logic.isAllUnchecked(this.checkboxes);
+        // let isalluncheckedBoards:boolean = this.logic.isAllUnchecked(this.boardlist);
+        if (!isalluncheckedFilters)
+            this.filterd_data = this.logic.makeData(this.data, this.checkboxes);
         else
             this.filterd_data = this.data;
+        var isalluncheckedBoards = this.logic.isAllUnchecked(this.boardlist);
+        if (!isalluncheckedBoards)
+            this.filterd_data = this.logic.filterBoards(this.filterd_data, this.boardlist);
+        this.filterd_data = this.logic.timeFilter(this.filterd_data, this.time);
         this.sortDates();
+    };
+    ContentComponent.prototype.timeChange = function (time) {
+        this.time = time;
+        this.updateData();
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -430,7 +431,7 @@ var ContentComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".filters {\r\n    position: relative;\r\n   left: -50%;\r\n   float: left;\r\n}\r\n\r\n.wrapper\r\n{\r\n    position: relative;\r\n   left: 50%;\r\n   float: left;\r\n}"
+module.exports = ".filters {\r\n    position: relative;\r\n   left: -50%;\r\n   float: left;\r\n}\r\n\r\n.wrapper\r\n{\r\n   position: relative;\r\n   left: 50%;\r\n   float: left;\r\n   background-color: red;\r\n}\r\n\r\n.filteroptions\r\n{\r\n    padding: 20px;\r\n    font-size: 1.5em;\r\n    font-display: bold;\r\n    width: 50%;\r\n}\r\n\r\n.item\r\n{\r\n    /* background-color: white; */\r\n    transition-duration: 0.5s;\r\n    margin-top: 10px;\r\n}\r\n\r\n.itemselected\r\n{\r\n    background-color: lightgray;\r\n}\r\n\r\n.item:hover\r\n{\r\n    background-color: lightgray;\r\n}\r\n\r\n.iteminside\r\n{\r\n    \r\n}\r\n\r\n.iteminside:hover\r\n{\r\n    background-color: lightgray;\r\n}\r\n\r\n/* .item:hover\r\n{\r\n    background-color: lightblue;\r\n} */\r\n\r\n.expansion\r\n{\r\n    background-color: rgba(245, 245, 245, 0);\r\n    margin-top: 10px;\r\n}\r\n\r\n.expansiontitle\r\n{\r\n    font-size: 1.5em;\r\n    font-display: bold;\r\n    padding: 0px;\r\n    margin: 0px;\r\n}\r\n\r\n.expansionbody\r\n{\r\n    display: flex;\r\n    flex-direction: column;\r\n}"
 
 /***/ }),
 
@@ -441,7 +442,7 @@ module.exports = ".filters {\r\n    position: relative;\r\n   left: -50%;\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\n  <mat-card class=\"mat-elevation-z8 centered filters\" color=\"primary\">\n      <mat-checkbox *ngFor=\"let item of checklist\" [(ngModel)]=\"item.isSelected\" style=\"margin-right: 10px;\" (change)=\"checkBoxClick(item.value,$event.checked)\" color=\"warn\">{{item.value}}</mat-checkbox>\n  </mat-card>\n</div>"
+module.exports = "<!-- <div class=\"wrapper\">\n  <mat-card class=\"mat-elevation-z8 centered filters\" color=\"primary\">\n      <mat-checkbox *ngFor=\"let item of checklist\" [(ngModel)]=\"item.isSelected\" style=\"margin-right: 10px;\" (change)=\"checkBoxClick(item.value,$event.checked)\" color=\"warn\">{{item.value}}</mat-checkbox>\n  </mat-card>\n</div> -->\n\n<!-- mat-elevation-z2 -->\n<div class=\"filteroptions\">\n  <div class=\"item\" (click)=\"timeClick('today')\" [ngClass]=\"{'itemselected':type=='today'}\">\n    <mat-icon>today</mat-icon> Today\n  </div>\n  <div class=\"item\" (click)=\"timeClick('7')\" [ngClass]=\"{'itemselected':type=='7'}\">\n    <mat-icon>event</mat-icon> Next 7 days\n  </div>\n  <div class=\"item\" (click)=\"timeClick('all')\" [ngClass]=\"{'itemselected':type=='all'}\">\n    <mat-icon>date_range</mat-icon> All\n  </div>\n  <!-- <div class=\"item\">\n    <mat-icon>assignment</mat-icon> By board\n  </div> -->\n\n\n  <mat-expansion-panel class=\"expansion mat-elevation-z0\">\n      <mat-expansion-panel-header>\n        <mat-panel-title class=\"expansiontitle\">\n          <mat-icon>assignment</mat-icon> Boards\n        </mat-panel-title>\n      </mat-expansion-panel-header>\n        <div class=\"expansionbody\">\n          <mat-checkbox *ngFor=\"let item of boardlist\" [(ngModel)]=\"item.isSelected\" style=\"margin-right: 10px;\" \n          (change)=\"boardClick(item.value,$event.checked)\" color=\"warn\">{{item.value}}</mat-checkbox>\n        </div>\n  </mat-expansion-panel>\n\n  <!-- <mat-tree class=\"item\">\n      <mat-tree-node> parent node </mat-tree-node>\n      <mat-tree-node> -- child node1 </mat-tree-node>\n      <mat-tree-node> -- child node2 </mat-tree-node>\n  </mat-tree> -->\n\n  <!-- <div class=\"item\">\n    <mat-icon>label</mat-icon> By Label\n  </div> -->\n\n  <mat-expansion-panel class=\"expansion mat-elevation-z0\">\n      <mat-expansion-panel-header>\n        <mat-panel-title class=\"expansiontitle\">\n          <mat-icon>label</mat-icon>  Labels\n        </mat-panel-title>\n      </mat-expansion-panel-header>\n\n        <div class=\"expansionbody\">\n          <mat-checkbox *ngFor=\"let item of checklist\" [(ngModel)]=\"item.isSelected\" style=\"margin-right: 10px;\" \n          (change)=\"filterClick(item.value,$event.checked)\" color=\"warn\">{{item.value}}</mat-checkbox>\n        </div>\n  </mat-expansion-panel>\n\n</div>\n<!-- <mat-divider vertical style=\"height: 1000px\"></mat-divider> -->\n        <!-- <div class=\"iteminside\" *ngFor=\"let item of checklist\" (onclick)=\"checkBoxClick(item.value,$event.checked)\">\n            <mat-icon>label_important</mat-icon> {{item.value}}\n        </div> -->"
 
 /***/ }),
 
@@ -471,41 +472,69 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var FiltersComponent = /** @class */ (function () {
     function FiltersComponent(logic) {
         this.logic = logic;
-        this.newdata = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.data_labeled = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.data_boarded = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.time = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.type = "all";
     }
     FiltersComponent.prototype.ngOnInit = function () {
     };
-    FiltersComponent.prototype.checkBoxClick = function (filter, checked) {
+    FiltersComponent.prototype.filterClick = function (filter, checked) {
         if (checked) {
-            // this.checkedfilters.push(filter);
             this.checklist = this.logic.tickChecklist(this.checklist, filter, true);
-            // console.log(this.checklist);
-            // console.log("You checked "+checked+" and here checked filters: "+this.checkedfilters);
-            this.newdata.emit(this.checklist);
+            this.data_labeled.emit(this.checklist);
         }
         else {
             this.checklist = this.logic.tickChecklist(this.checklist, filter, false);
-            // console.log("You checked "+checked+" and here checked filters: "+this.checkedfilters);
             var checkedfilters = this.logic.getCheckedFilters(this.checklist);
             if (checkedfilters.length == 0) {
-                this.newdata.emit(this.checklist);
-                // console.log("here u should get init data..");
-                // this.dataSource = new MatTableDataSource<Server>(SERVER_DATA);
-                // setTimeout(() => {this.dataSource.paginator = this.paginator; this.dataSource.sort = this.sort;});
+                this.data_labeled.emit(this.checklist);
             }
             else {
-                this.newdata.emit(this.checklist);
+                this.data_labeled.emit(this.checklist);
             }
         }
+    };
+    FiltersComponent.prototype.boardClick = function (filter, checked) {
+        if (checked) {
+            this.boardlist = this.logic.tickChecklist(this.boardlist, filter, true);
+            this.data_boarded.emit(this.boardlist);
+        }
+        else {
+            this.boardlist = this.logic.tickChecklist(this.boardlist, filter, false);
+            var checkedfilters = this.logic.getCheckedFilters(this.boardlist);
+            if (checkedfilters.length == 0) {
+                this.data_boarded.emit(this.boardlist);
+            }
+            else {
+                this.data_boarded.emit(this.boardlist);
+            }
+        }
+    };
+    FiltersComponent.prototype.timeClick = function (type) {
+        this.type = type;
+        this.time.emit(type);
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Object)
     ], FiltersComponent.prototype, "checklist", void 0);
     __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], FiltersComponent.prototype, "boardlist", void 0);
+    __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
-    ], FiltersComponent.prototype, "newdata", void 0);
+    ], FiltersComponent.prototype, "data_labeled", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], FiltersComponent.prototype, "data_boarded", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], FiltersComponent.prototype, "time", void 0);
     FiltersComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-filters',
@@ -544,6 +573,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var LogicService = /** @class */ (function () {
     function LogicService() {
+        this.isToday = function (someDate) {
+            var today = new Date();
+            return someDate.getDate() == today.getDate() &&
+                someDate.getMonth() == today.getMonth() &&
+                someDate.getFullYear() == today.getFullYear();
+        };
     }
     LogicService.prototype.buildCheckBoxes = function (data) {
         var once = true;
@@ -592,7 +627,6 @@ var LogicService = /** @class */ (function () {
             }
             console.log(newdata);
             for (var j = 0; j < checked.length; j++) {
-                //currentdata[i].date != undefined
                 if (currentdata[i].date != "none" && checked[j] == "deadline" && !used_data[i]) {
                     if (!this.sameObjectAlreadyThere(newdata, currentdata[i]))
                         newdata.push(currentdata[i]);
@@ -600,6 +634,56 @@ var LogicService = /** @class */ (function () {
             }
         }
         return newdata;
+    };
+    LogicService.prototype.filterBoards = function (data, checkedfilters) {
+        var currentdata = data;
+        var newdata = [];
+        var once = true;
+        var used_data = [];
+        var checked = this.getCheckedFilters(checkedfilters);
+        for (var i = 0; i < currentdata.length; i++) {
+            for (var j = 0; j < checked.length; j++) {
+                if (currentdata[i].board == checked[j]) {
+                    if (!this.sameObjectAlreadyThere(newdata, currentdata[i])) {
+                        newdata.push(currentdata[i]);
+                        used_data.push(true);
+                    }
+                }
+            }
+            // for(let j=0; j<checked.length; j++)
+            // {
+            //   if(currentdata[i].date != "none" && checked[j]=="deadline" && !used_data[i])
+            //   {
+            //     if(!this.sameObjectAlreadyThere(newdata,currentdata[i]))
+            //       newdata.push(currentdata[i]);
+            //   }
+            // }
+        }
+        return newdata;
+    };
+    LogicService.prototype.timeFilter = function (data, time) {
+        var newdata = [];
+        if (time == "all")
+            return data;
+        for (var i = 0; i < data.length; i++) {
+            if (time == "today") {
+                if (this.isToday(new Date(data[i].date))) {
+                    newdata.push(data[i]);
+                }
+            }
+            else {
+                if (this.isNext7days(new Date(data[i].date))) {
+                    newdata.push(data[i]);
+                }
+            }
+        }
+        return newdata;
+    };
+    LogicService.prototype.isNext7days = function (somedate) {
+        var today = new Date();
+        var inweek = new Date();
+        inweek.setDate(today.getDate() + 7);
+        return (somedate.getTime() > today.getTime() && somedate.getTime() < inweek.getTime());
     };
     LogicService.prototype.sameObjectAlreadyThere = function (newdata, currentdata) {
         for (var i = 0; i < newdata.length; i++) {
@@ -634,6 +718,17 @@ var LogicService = /** @class */ (function () {
         }
         return true;
     };
+    LogicService.prototype.buildBoardList = function (data) {
+        var board;
+        var checklist = [];
+        for (var i = 0; i < data.length; i++) {
+            board = data[i].board;
+            if (!this.filterExists(checklist, board)) {
+                checklist.push({ value: board, isSelected: false });
+            }
+        }
+        return checklist;
+    };
     LogicService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
@@ -654,7 +749,7 @@ var LogicService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "@-webkit-keyframes float {\r\n\t0% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n\t50% {\r\n\t\tbox-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);\r\n\t\t-webkit-transform: translatey(-20px);\r\n\t\t        transform: translatey(-20px);\r\n\t}\r\n\t100% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n}\r\n\r\n@keyframes float {\r\n\t0% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n\t50% {\r\n\t\tbox-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);\r\n\t\t-webkit-transform: translatey(-20px);\r\n\t\t        transform: translatey(-20px);\r\n\t}\r\n\t100% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n}\r\n\r\n@-webkit-keyframes slideInFromLeft2 {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0);\r\n                transform: translateX(0);\r\n      }\r\n  }\r\n\r\n@keyframes slideInFromLeft2 {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0);\r\n                transform: translateX(0);\r\n      }\r\n  }\r\n\r\n.poop\r\n{\r\n    transition-duration: 0.5s;\r\n    /* animation: 1s ease-out 0s 1 slideInFromLeft2; */\r\n}\r\n\r\n.poop:hover\r\n{\r\n    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);\r\n    -webkit-transform: translateY(-5%);\r\n            transform: translateY(-5%);\r\n}\r\n\r\n.example-card {\r\n    max-width: 400px;\r\n    min-width: 300px;\r\n    transition-duration: 0.5s;\r\n    /* background-color: rgb(240, 240, 240); */\r\n  }\r\n\r\n/* .example-card:hover\r\n{\r\n    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);\r\n    transform: translateY(-5%);\r\n} */\r\n\r\n/* .example-header-image {\r\n    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');\r\n    background-size: cover;\r\n  } */"
+module.exports = "@-webkit-keyframes float {\r\n\t0% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n\t50% {\r\n\t\tbox-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);\r\n\t\t-webkit-transform: translatey(-20px);\r\n\t\t        transform: translatey(-20px);\r\n\t}\r\n\t100% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n}\r\n\r\n@keyframes float {\r\n\t0% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n\t50% {\r\n\t\tbox-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);\r\n\t\t-webkit-transform: translatey(-20px);\r\n\t\t        transform: translatey(-20px);\r\n\t}\r\n\t100% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n}\r\n\r\n@-webkit-keyframes slideInFromLeft2 {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0);\r\n                transform: translateX(0);\r\n      }\r\n  }\r\n\r\n@keyframes slideInFromLeft2 {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0);\r\n                transform: translateX(0);\r\n      }\r\n  }\r\n\r\n.poop\r\n{\r\n    transition-duration: 0.5s;\r\n    /* animation: 1s ease-out 0s 1 slideInFromLeft2; */\r\n}\r\n\r\n.poop:hover\r\n{\r\n    /* box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2); */\r\n    -webkit-transform: translateY(-5%);\r\n            transform: translateY(-5%);\r\n}\r\n\r\n.task\r\n{\r\n  position: relative;\r\n  width: 45%;\r\n  height: 100px;\r\n  background-color: white;\r\n  margin-top: 20px;\r\n  margin-left: 25px;\r\n  padding: 0;\r\n}\r\n\r\n.header\r\n{\r\n  position: absolute;\r\n  display: flex;\r\n  height: 30%;\r\n  width: 100%;\r\n  background-color: lightgray;\r\n  padding: 0;\r\n  margin: 0;\r\n  flex-direction: row;\r\n  justify-content: space-around;\r\n  font-weight: bold;\r\n}\r\n\r\n.content\r\n{\r\n  position: absolute;\r\n  height: 70%;\r\n  top: 30%;\r\n  padding: 10px;\r\n}\r\n\r\n.datearea\r\n{\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n}\r\n\r\n.listarea\r\n{\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n}\r\n\r\n.labelarea\r\n{\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n}\r\n\r\n.boardarea\r\n{\r\n  position: absolute;\r\n  bottom: 0;\r\n  right: 0;\r\n}\r\n\r\n.textarea\r\n{\r\n  position: absolute;\r\n  left: 25%;\r\n  top: 12.5%;\r\n  width: 50%;\r\n  height: 75%;\r\n  /* background-color: red; */\r\n  text-align: left;\r\n}\r\n\r\n.example-card {\r\n    max-width: 400px;\r\n    min-width: 300px;\r\n    transition-duration: 0.5s;\r\n    /* background-color: rgb(240, 240, 240); */\r\n  }\r\n\r\n/* .example-card:hover\r\n{\r\n    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);\r\n    transform: translateY(-5%);\r\n} */\r\n\r\n/* .example-header-image {\r\n    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');\r\n    background-size: cover;\r\n  } */"
 
 /***/ }),
 
@@ -665,7 +760,7 @@ module.exports = "@-webkit-keyframes float {\r\n\t0% {\r\n\t\tbox-shadow: 0 5px 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"poop\">\n  <mat-card class=\"example-card mat-elevation-z8\">\n      <mat-card-header>\n        <!-- <div mat-card-avatar class=\"example-header-image\"></div> -->\n        <mat-card-title>{{ item.list }} list</mat-card-title>\n        <mat-card-subtitle>{{ item.board }} board</mat-card-subtitle>\n      </mat-card-header>\n      <!-- <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\"> -->\n      <mat-card-content>\n        <p>\n          {{ item.text }}\n        </p>\n      </mat-card-content>\n      <mat-card-actions>\n        <!-- <button mat-button>LIKE</button>\n        <button mat-button>SHARE</button> -->\n        <mat-card-subtitle>Deadline: {{ item.date }}</mat-card-subtitle>\n        <mat-card-subtitle>Tags: {{ item.labels }}</mat-card-subtitle>\n      </mat-card-actions>\n  </mat-card>\n</div>"
+module.exports = "<!-- <div class=\"poop\">\n  <mat-card class=\"example-card mat-elevation-z8\">\n      <mat-card-header>\n\n        <mat-card-title>{{ item.list }} list</mat-card-title>\n        <mat-card-subtitle>{{ item.board }} board</mat-card-subtitle>\n      </mat-card-header>\n\n      <mat-card-content>\n        <p>\n          {{ item.text }}\n        </p>\n      </mat-card-content>\n      <mat-card-actions>\n\n        <mat-card-subtitle>Deadline: {{ item.date }}</mat-card-subtitle>\n        <mat-card-subtitle>Tags: {{ item.labels }}</mat-card-subtitle>\n      </mat-card-actions>\n  </mat-card>\n</div> -->\n\n<div class=\"poop\">\n  <mat-card class=\"task mat-elevation-z8\">\n    <!-- <div class=\"datearea\">\n       Deadline: {{ item.date }}\n    </div>\n    <div class=\"listarea\">\n        List: {{ item.list }}\n    </div>\n    <div class=\"labelarea\">\n        Labels: {{ item.labels }}\n    </div>\n    <div class=\"boardarea\">\n        Board: {{ item.board }}\n    </div>\n    <div class=\"textarea\">\n        {{ item.text }}\n    </div> -->\n    <div class=\"header\">\n      <div>\n        Deadline: {{ item.date }}\n      </div>\n      <div>\n        Labels: {{ item.labels }}\n      </div>\n      <div>\n        List: {{ item.list }}\n      </div>\n      <div>\n        Board: {{ item.board }}\n      </div>\n    </div>\n    <div class=\"content\">\n      {{ item.text }}\n    </div>\n  </mat-card>\n</div>\n"
 
 /***/ }),
 
@@ -733,7 +828,7 @@ module.exports = "/* .header\r\n{\r\n    position: absolute;\r\n    width: 100%;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\">\n    <span>Hello {{ user }}</span>\n    <mat-icon class=\"example-icon\" aria-hidden=\"false\" aria-label=\"Example user verified icon\">verified_user</mat-icon>\n    <span class=\"example-spacer\"></span>\n    <mat-icon class=\"logout\" (click)=\"logout()\">arrow_back</mat-icon>\n</mat-toolbar>\n\n<p class=\"title\"> Your tasks: </p>"
+module.exports = "<mat-toolbar color=\"primary\">\n    <span>Hello {{ user }}</span>\n    <mat-icon class=\"example-icon\" aria-hidden=\"false\" aria-label=\"Example user verified icon\">verified_user</mat-icon>\n    <span class=\"example-spacer\"></span>\n    <mat-icon class=\"logout\" (click)=\"logout()\">arrow_back</mat-icon>\n</mat-toolbar>\n\n<!-- <p class=\"title\"> Your tasks: </p> -->"
 
 /***/ }),
 
@@ -795,7 +890,7 @@ var HeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n.content\r\n{\r\n    overflow-y: scroll;\r\n}\r\n\r\n.error\r\n{\r\n    text-align:center;\r\n}"
+module.exports = "\r\n.content\r\n{\r\n    overflow: hidden;\r\n}\r\n\r\n.error\r\n{\r\n    text-align:center;\r\n}"
 
 /***/ }),
 
@@ -856,11 +951,12 @@ var MainpageComponent = /** @class */ (function () {
             console.log(data);
         });
         //2019-07-07T 9:30:00.0
-        // this.data = [{text:"important mission1",list:"a good list",board:"bisli",labels:["general"],date:"2019-07-07T09:30",userid:"2"},
-        //              {text:"important mission2",list:"better list",board:"bisli",labels:["general","meme"],date:"2026-08-12T15:20",userid:"2"},
+        // this.data = [{text:"important mission1",list:"a good list",board:"bisli",labels:["general"],date:"2019-08-13T09:30",userid:"2"},
+        //              {text:"important mission2",list:"better list",board:"bisli2",labels:["general","meme"],date:"2026-08-12T15:20",userid:"2"},
         //              {text:"important mission3",list:"better list",board:"bisli",labels:["bamba"],date:"none",userid:"2"},
         //              {text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:undefined,userid:"2"},
-        //              {text:"important mission5",list:"better list",board:"bisli",labels:["general"],date:"2019-08-08T13:05",userid:"2"}];
+        //              {text:"important mission5",list:"better list",board:"bisli",labels:["general"],date:"2019-08-17T14:05",userid:"2"},
+        //              {text:"make pizza",list:"pro",board:"goodboard",labels:["meme"],date:"2019-08-15T13:05",userid:"2"}];
         // this.data = [{text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:"none",userid:"2"},
         //             {text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:"none",userid:"2"}];
         // console.log(this.data);
