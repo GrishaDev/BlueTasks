@@ -61,6 +61,8 @@ class mongologic
         {
             let result = await this.boards.find();
             let data = await result.toArray();
+
+            this.mongodata = data;
             
             for(let i=0; i<data.length; i++)
             {
@@ -79,7 +81,7 @@ class mongologic
                                 parsed_date = "none";
                             
                             let labels = this.labels(card_data.labels,data[i]);
-                            card = {text:card_data.text,list:data[i].lists[j].title,board:data[i].title,labels:labels,date:parsed_date,userid:card_data.assignedUserId};
+                            card = {id:card_data._id,text:card_data.text,list:data[i].lists[j].title,board:data[i].title,labels:labels,date:parsed_date,userid:card_data.assignedUserId};
                             this.alldata.push(card);
                         }
                     }
@@ -133,6 +135,55 @@ class mongologic
             }
         }
         return data;
+    }
+
+    async deleteCard(id)
+    {
+        try
+        {
+            // await this.boards.update();
+            let board = this.findBoardBycard(id);
+            let boardid = board._id;
+
+            await this.boards.deleteOne({_id: boardid});
+            await this.boards.insertOne(board);
+
+            return true;
+        }
+        catch(err)
+        {
+            console.log("Error deleting card, "+err);
+            return false;
+        }
+    }
+    
+    findBoardBycard(id)
+    {
+        let data = this.mongodata
+
+        console.log(data.length);
+
+        for(let i=0; i<data.length; i++)
+        {
+            if(data[i]._id != null)
+            {
+                for(let j=0; j<data[i].lists.length; j++)
+                {
+                    for(let k=0; k<data[i].lists[j].cards.length; k++)
+                    {
+                        let card_data = data[i].lists[j].cards[k];
+                        if(card_data._id == id)
+                        {
+                            // console.log(card_data);
+                            // console.log("should die now");
+                            data[i].lists[j].cards.splice(k,1);
+                            // console.log(card_data);
+                            return data[i];
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

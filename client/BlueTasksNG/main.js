@@ -41,7 +41,7 @@ module.exports = "/* *\r\n{\r\n    font-family: 'Roboto';\r\n    font-style: ita
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<router-outlet></router-outlet>"
+module.exports = "<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -105,12 +105,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mainpage_content_task_task_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./mainpage/content/task/task.component */ "./src/app/mainpage/content/task/task.component.ts");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _mainpage_content_filters_filters_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./mainpage/content/filters/filters.component */ "./src/app/mainpage/content/filters/filters.component.ts");
+/* harmony import */ var _mainpage_content_search_search_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./mainpage/content/search/search.component */ "./src/app/mainpage/content/search/search.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -141,7 +143,8 @@ var AppModule = /** @class */ (function () {
                 _mainpage_header_header_component__WEBPACK_IMPORTED_MODULE_9__["HeaderComponent"],
                 _mainpage_content_content_component__WEBPACK_IMPORTED_MODULE_10__["ContentComponent"],
                 _mainpage_content_task_task_component__WEBPACK_IMPORTED_MODULE_11__["TaskComponent"],
-                _mainpage_content_filters_filters_component__WEBPACK_IMPORTED_MODULE_13__["FiltersComponent"]
+                _mainpage_content_filters_filters_component__WEBPACK_IMPORTED_MODULE_13__["FiltersComponent"],
+                _mainpage_content_search_search_component__WEBPACK_IMPORTED_MODULE_14__["SearchComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -158,6 +161,8 @@ var AppModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatExpansionModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatDividerModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatTreeModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatMenuModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatSnackBarModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(appRoutes)
             ],
             providers: [],
@@ -178,7 +183,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "@-webkit-keyframes slideInFromTop {\r\n    0% {\r\n      -webkit-transform: translateY(100%);\r\n              transform: translateY(100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateY(50%);\r\n                transform: translateY(50%);\r\n      }\r\n  }\r\n\r\n\r\n@keyframes slideInFromTop {\r\n    0% {\r\n      -webkit-transform: translateY(100%);\r\n              transform: translateY(100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateY(50%);\r\n                transform: translateY(50%);\r\n      }\r\n  }\r\n\r\n\r\n*\r\n{\r\n    \r\n    font-size: 1.2em;\r\n}\r\n\r\n\r\n/* .all\r\n{\r\n    animation: 1s ease-out 0s 1 slideInFromTop;\r\n} */\r\n\r\n\r\n.form\r\n{\r\n    position: fixed;\r\n    top: 50%;\r\n    left: 50%;\r\n    /* bring your own prefixes */\r\n    -webkit-transform: translate(-50%, -50%);\r\n            transform: translate(-50%, -50%);\r\n    background-color: rgba(139, 139, 139, 0.548);\r\n    height: 500px;\r\n    width: 700px;\r\n    \r\n    /* box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12); */\r\n}\r\n\r\n\r\n.header\r\n{\r\n    position: absolute;\r\n    width: 100%;\r\n    top: 0;\r\n    height: 20%;\r\n    /* background-color: red; */\r\n    text-align: center;\r\n    padding-top: 30px;\r\n}\r\n\r\n\r\n.area\r\n{\r\n    position: absolute;\r\n    /* background-color: blue; */\r\n    top: 20%;\r\n    height: 80%;\r\n    width: 100%;\r\n}\r\n\r\n\r\nexample-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n  }\r\n\r\n\r\n.example-container > * {\r\n    width: 50%;\r\n    left: 25%;\r\n  }\r\n\r\n\r\n.submit\r\n{\r\n    position: absolute;\r\n    bottom: 25%;\r\n}\r\n\r\n\r\n.error\r\n{\r\n    color:red;\r\n    position: absolute;\r\n    bottom: 0;\r\n    text-align: center;\r\n}\r\n\r\n\r\n/* .input\r\n{\r\n    width: 50%;\r\n} */"
+module.exports = "@-webkit-keyframes slideInFromTop {\r\n    0% {\r\n      -webkit-transform: translateY(100%);\r\n              transform: translateY(100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateY(50%);\r\n                transform: translateY(50%);\r\n      }\r\n  }\r\n\r\n\r\n\r\n@keyframes slideInFromTop {\r\n    0% {\r\n      -webkit-transform: translateY(100%);\r\n              transform: translateY(100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateY(50%);\r\n                transform: translateY(50%);\r\n      }\r\n  }\r\n\r\n\r\n\r\n*\r\n{\r\n    \r\n    font-size: 1.2em;\r\n    /* background-color: skyblue; */\r\n}\r\n\r\n\r\n\r\n/* .all\r\n{\r\n    animation: 1s ease-out 0s 1 slideInFromTop;\r\n} */\r\n\r\n\r\n\r\n.form\r\n{\r\n    position: fixed;\r\n    top: 50%;\r\n    left: 50%;\r\n    /* bring your own prefixes */\r\n    -webkit-transform: translate(-50%, -50%);\r\n            transform: translate(-50%, -50%);\r\n    background-color: rgba(139, 139, 139, 0.548);\r\n    height: 500px;\r\n    width: 700px;\r\n    \r\n    /* box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12); */\r\n}\r\n\r\n\r\n\r\n.header\r\n{\r\n    position: absolute;\r\n    width: 100%;\r\n    top: 0;\r\n    height: 20%;\r\n    /* background-color: red; */\r\n    text-align: center;\r\n    padding-top: 30px;\r\n}\r\n\r\n\r\n\r\n.area\r\n{\r\n    position: absolute;\r\n    /* background-color: blue; */\r\n    top: 20%;\r\n    height: 80%;\r\n    width: 100%;\r\n}\r\n\r\n\r\n\r\nexample-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n  }\r\n\r\n\r\n\r\n.example-container > * {\r\n    width: 50%;\r\n    left: 25%;\r\n  }\r\n\r\n\r\n\r\n.submit\r\n{\r\n    position: absolute;\r\n    bottom: 25%;\r\n}\r\n\r\n\r\n\r\n.error\r\n{\r\n    color:red;\r\n    position: absolute;\r\n    bottom: 0;\r\n    text-align: center;\r\n}\r\n\r\n\r\n\r\n/* .input\r\n{\r\n    width: 50%;\r\n} */"
 
 /***/ }),
 
@@ -286,7 +291,7 @@ var LoginpageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "@-webkit-keyframes slideInFromRight {\r\n    0% {\r\n      -webkit-transform: translateX(100%);\r\n              transform: translateX(100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n\r\n@keyframes slideInFromRight {\r\n    0% {\r\n      -webkit-transform: translateX(100%);\r\n              transform: translateX(100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n\r\n.content\r\n{\r\n    position: absolute;\r\n    width: 70%;\r\n    left: 30%;\r\n    /* height: 100%; */\r\n    /* padding: 50px; */\r\n    display: flex;\r\n    /* flex-flow: row wrap; */\r\n    flex-direction: column;\r\n    text-align: center;\r\n    justify-content: center;\r\n    -webkit-animation: 1s ease-out 0s 1 slideInFromRight;\r\n            animation: 1s ease-out 0s 1 slideInFromRight;\r\n    /* overflow-y: visible; */\r\n    height: 90%;\r\n    /* background-color: red; */\r\n    padding-left: 25px;\r\n    /* background-color: green; */\r\n}\r\n\r\n\r\n.scrollable\r\n{\r\n    position: relative;\r\n    height: 100%;\r\n    overflow-y: auto;\r\n}\r\n\r\n\r\n.filters\r\n{\r\n    width: 30%;\r\n    /* right: 30%; */\r\n    /* height: 100%; */\r\n    position: absolute;\r\n    height: 100%;\r\n    background-color: rgb(236, 236, 236);\r\n    /* background-color: blue; */\r\n}\r\n\r\n\r\n.spaceout\r\n{\r\n    padding: 30px;\r\n}"
+module.exports = "\r\n@-webkit-keyframes slideInFromRight {\r\n    0% {\r\n      -webkit-transform: translateX(100%);\r\n              transform: translateX(100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n  @keyframes slideInFromRight {\r\n    0% {\r\n      -webkit-transform: translateX(100%);\r\n              transform: translateX(100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n  @-webkit-keyframes slideInFromLeft {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n  @keyframes slideInFromLeft {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n  .test\r\n{\r\n    color: my-app-primary;\r\n}\r\n\r\n  .rightside\r\n{\r\n    position: absolute;\r\n}\r\n\r\n  .content\r\n{\r\n    position: absolute;\r\n    width: 70%;\r\n    left: 30%;\r\n    /* height: 100%; */\r\n    /* padding: 50px; */\r\n    display: flex;\r\n    /* flex-flow: row wrap; */\r\n    flex-direction: column;\r\n    text-align: center;\r\n    justify-content: center;\r\n    -webkit-animation: 1s ease-out 0s 1 slideInFromRight;\r\n            animation: 1s ease-out 0s 1 slideInFromRight;\r\n    /* overflow-y: visible; */\r\n    height: 90%;\r\n    /* background-color: red; */\r\n    padding-left: 25px;\r\n    /* background-color: green; */\r\n}\r\n\r\n  .scrollable\r\n{\r\n    position: relative;\r\n    height: 100%;\r\n    overflow-y: auto;\r\n    overflow-x: auto;\r\n}\r\n\r\n  .bot\r\n{\r\n    position: absolute;\r\n    /* background-color: rgba(0, 0, 255, 0.171); */\r\n     bottom: 0;\r\n    left: 0;\r\n    width: 10%;\r\n    /* width: 50%; */\r\n    /* width: 10%;\r\n    height: 10%;\r\n    margin: 200px; */\r\n    /* height: 5%;\r\n    width: 100%;\r\n    bottom: 0;\r\n    padding: 0;\r\n    width: 70%;\r\n    left: 30%; */\r\n}\r\n\r\n  .filters\r\n{\r\n    width: 30%;\r\n    /* right: 30%; */\r\n    /* height: 100%; */\r\n    position: absolute;\r\n    height: 100%;\r\n    background-color: rgb(236, 236, 236);\r\n    -webkit-animation: 1s ease-out 0s 1 slideInFromLeft;\r\n            animation: 1s ease-out 0s 1 slideInFromLeft;\r\n    /* background-color: blue; */\r\n}\r\n\r\n  .spaceout\r\n{\r\n    padding: 30px;\r\n}"
 
 /***/ }),
 
@@ -297,7 +302,7 @@ module.exports = "@-webkit-keyframes slideInFromRight {\r\n    0% {\r\n      -we
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"filters\">\n    <app-filters [checklist]='checkboxes' [boardlist]='boardlist' (data_labeled)=\"LabelsChanged($event)\" (data_boarded)=\"BoardsChanged($event)\"\n    (time)=\"timeChange($event)\"></app-filters>\n</div>\n<div class=\"content\">\n    <div class=\"scrollable\">\n        <app-task *ngFor=\"let item of filterd_data\" [item]='item' class=\"spaceout\"></app-task>\n    </div>\n</div>\n"
+module.exports = "<div class=\"filters\">\n    <app-filters [checklist]='checkboxes' [boardlist]='boardlist' [listslist] = 'listslist' (data_labeled)=\"LabelsChanged($event)\" (data_boarded)=\"BoardsChanged($event)\"\n    (time)=\"timeChange($event)\" (data_listed)=\"ListsChanged($event)\"></app-filters>\n</div>\n\n<!-- <div class=\"rightside\">  -->\n    <div class=\"content\">\n        <div class=\"scrollable\">\n            <app-task *ngFor=\"let item of filterd_data\" [item]='item' class=\"spaceout\" (refresh)=\"refresh($event)\"></app-task>\n        </div>\n    </div>\n    <div class=\"bot\">\n        <app-search (searchValue)=\"searched($event)\"></app-search>\n    </div>\n<!-- </div> -->\n\n"
 
 /***/ }),
 
@@ -313,6 +318,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContentComponent", function() { return ContentComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _logic_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./logic.service */ "./src/app/mainpage/content/logic.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -324,23 +330,32 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var ContentComponent = /** @class */ (function () {
     function ContentComponent(logic) {
         this.logic = logic;
+        this.refreshRoot = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.filterd_data = [];
+        this.filterd_data_backup = [];
         this.checkboxes = [];
         this.boardlist = [];
+        this.listslist = [];
         this.filterd_data_nodate = [];
         this.filterd_data_yesdate = [];
         this.time = "all";
+        this.searchValue = "";
     }
     ContentComponent.prototype.ngOnInit = function () {
+        this.init();
+    };
+    ContentComponent.prototype.init = function () {
         this.checkboxes = this.logic.buildCheckBoxes(this.data);
         this.boardlist = this.logic.buildBoardList(this.data);
+        this.listslist = this.logic.buildLists(this.data);
         this.filterd_data = this.data;
         this.datasort();
         this.sortDates();
-        // console.log("kjsadjasd "+this.logic.isNext7days(new Date("2019-08-20T09:30")));
+        this.datasource = new _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTableDataSource"](this.filterd_data);
     };
     ContentComponent.prototype.datasort = function () {
         for (var i = 0; i < this.filterd_data.length; i++) {
@@ -369,28 +384,19 @@ var ContentComponent = /** @class */ (function () {
         this.filterd_data = this.filterd_data_yesdate.concat(this.filterd_data_nodate);
     };
     ContentComponent.prototype.LabelsChanged = function (data) {
-        // let isallunchecked:boolean = this.logic.isAllUnchecked(data);
-        // if(!isallunchecked)
-        //   this.filterd_data = this.logic.makeData(this.data,data);
-        // else
-        //   this.filterd_data = this.data;
-        // this.sortDates();
         this.checkboxes = data;
         this.updateData();
     };
     ContentComponent.prototype.BoardsChanged = function (data) {
-        // let isallunchecked:boolean = this.logic.isAllUnchecked(data);
-        // if(!isallunchecked)
-        //   this.filterd_data = this.logic.makeData(this.data,data);
-        // else
-        //   this.filterd_data = this.data;
-        // this.sortDates();
         this.boardlist = data;
+        this.updateData();
+    };
+    ContentComponent.prototype.ListsChanged = function (data) {
+        this.listslist = data;
         this.updateData();
     };
     ContentComponent.prototype.updateData = function () {
         var isalluncheckedFilters = this.logic.isAllUnchecked(this.checkboxes);
-        // let isalluncheckedBoards:boolean = this.logic.isAllUnchecked(this.boardlist);
         if (!isalluncheckedFilters)
             this.filterd_data = this.logic.makeData(this.data, this.checkboxes);
         else
@@ -398,17 +404,37 @@ var ContentComponent = /** @class */ (function () {
         var isalluncheckedBoards = this.logic.isAllUnchecked(this.boardlist);
         if (!isalluncheckedBoards)
             this.filterd_data = this.logic.filterBoards(this.filterd_data, this.boardlist);
+        var isalluncheckedLists = this.logic.isAllUnchecked(this.listslist);
+        if (!isalluncheckedLists)
+            this.filterd_data = this.logic.filterByLists(this.filterd_data, this.listslist);
         this.filterd_data = this.logic.timeFilter(this.filterd_data, this.time);
         this.sortDates();
+        this.datasource = new _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTableDataSource"](this.filterd_data);
     };
     ContentComponent.prototype.timeChange = function (time) {
         this.time = time;
         this.updateData();
     };
+    ContentComponent.prototype.searched = function (value) {
+        this.datasource.filter = value.trim().toLowerCase();
+        this.filterd_data = this.datasource.filteredData;
+    };
+    ContentComponent.prototype.refresh = function (id) {
+        console.log("refresh");
+        // this.refreshRoot.emit();
+        console.log(id);
+        var index = this.data.findIndex(function (item) { return item.id == id; });
+        this.data.splice(index, 1);
+        this.init();
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Object)
     ], ContentComponent.prototype, "data", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], ContentComponent.prototype, "refreshRoot", void 0);
     ContentComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-content',
@@ -442,7 +468,7 @@ module.exports = ".filters {\r\n    position: relative;\r\n   left: -50%;\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div class=\"wrapper\">\n  <mat-card class=\"mat-elevation-z8 centered filters\" color=\"primary\">\n      <mat-checkbox *ngFor=\"let item of checklist\" [(ngModel)]=\"item.isSelected\" style=\"margin-right: 10px;\" (change)=\"checkBoxClick(item.value,$event.checked)\" color=\"warn\">{{item.value}}</mat-checkbox>\n  </mat-card>\n</div> -->\n\n<!-- mat-elevation-z2 -->\n<div class=\"filteroptions\">\n  <div class=\"item\" (click)=\"timeClick('today')\" [ngClass]=\"{'itemselected':type=='today'}\">\n    <mat-icon>today</mat-icon> Today\n  </div>\n  <div class=\"item\" (click)=\"timeClick('7')\" [ngClass]=\"{'itemselected':type=='7'}\">\n    <mat-icon>event</mat-icon> Next 7 days\n  </div>\n  <div class=\"item\" (click)=\"timeClick('all')\" [ngClass]=\"{'itemselected':type=='all'}\">\n    <mat-icon>date_range</mat-icon> All\n  </div>\n  <!-- <div class=\"item\">\n    <mat-icon>assignment</mat-icon> By board\n  </div> -->\n\n\n  <mat-expansion-panel class=\"expansion mat-elevation-z0\">\n      <mat-expansion-panel-header>\n        <mat-panel-title class=\"expansiontitle\">\n          <mat-icon>assignment</mat-icon> Boards\n        </mat-panel-title>\n      </mat-expansion-panel-header>\n        <div class=\"expansionbody\">\n          <mat-checkbox *ngFor=\"let item of boardlist\" [(ngModel)]=\"item.isSelected\" style=\"margin-right: 10px;\" \n          (change)=\"boardClick(item.value,$event.checked)\" color=\"warn\">{{item.value}}</mat-checkbox>\n        </div>\n  </mat-expansion-panel>\n\n  <!-- <mat-tree class=\"item\">\n      <mat-tree-node> parent node </mat-tree-node>\n      <mat-tree-node> -- child node1 </mat-tree-node>\n      <mat-tree-node> -- child node2 </mat-tree-node>\n  </mat-tree> -->\n\n  <!-- <div class=\"item\">\n    <mat-icon>label</mat-icon> By Label\n  </div> -->\n\n  <mat-expansion-panel class=\"expansion mat-elevation-z0\">\n      <mat-expansion-panel-header>\n        <mat-panel-title class=\"expansiontitle\">\n          <mat-icon>label</mat-icon>  Labels\n        </mat-panel-title>\n      </mat-expansion-panel-header>\n\n        <div class=\"expansionbody\">\n          <mat-checkbox *ngFor=\"let item of checklist\" [(ngModel)]=\"item.isSelected\" style=\"margin-right: 10px;\" \n          (change)=\"filterClick(item.value,$event.checked)\" color=\"warn\">{{item.value}}</mat-checkbox>\n        </div>\n  </mat-expansion-panel>\n\n</div>\n<!-- <mat-divider vertical style=\"height: 1000px\"></mat-divider> -->\n        <!-- <div class=\"iteminside\" *ngFor=\"let item of checklist\" (onclick)=\"checkBoxClick(item.value,$event.checked)\">\n            <mat-icon>label_important</mat-icon> {{item.value}}\n        </div> -->"
+module.exports = "<!-- <div class=\"wrapper\">\n  <mat-card class=\"mat-elevation-z8 centered filters\" color=\"primary\">\n      <mat-checkbox *ngFor=\"let item of checklist\" [(ngModel)]=\"item.isSelected\" style=\"margin-right: 10px;\" (change)=\"checkBoxClick(item.value,$event.checked)\" color=\"warn\">{{item.value}}</mat-checkbox>\n  </mat-card>\n</div> -->\n\n<!-- mat-elevation-z2 -->\n<!-- itemselected -->\n<div class=\"filteroptions\">\n  <div class=\"item\" (click)=\"timeClick('today')\" [ngClass]=\"{'color-primary-bg':type=='today'}\"> \n    <mat-icon>today</mat-icon> Today\n  </div>\n  <div class=\"item\" (click)=\"timeClick('7')\" [ngClass]=\"{'color-primary-bg':type=='7'}\">\n    <mat-icon>event</mat-icon> Next week\n  </div>\n  <div class=\"item\" (click)=\"timeClick('all')\" [ngClass]=\"{'color-primary-bg':type=='all'}\">\n    <mat-icon>date_range</mat-icon> All\n  </div>\n\n  <mat-expansion-panel class=\"expansion mat-elevation-z0\">\n      <mat-expansion-panel-header>\n        <mat-panel-title class=\"expansiontitle\">\n          <mat-icon>assignment</mat-icon> Boards\n        </mat-panel-title>\n      </mat-expansion-panel-header>\n        <div class=\"expansionbody\">\n          <mat-checkbox *ngFor=\"let item of boardlist\" [(ngModel)]=\"item.isSelected\" style=\"margin-right: 10px;\" \n          (change)=\"boardClick(item.value,$event.checked)\" color=\"warn\">{{item.value}}</mat-checkbox>\n        </div>\n  </mat-expansion-panel>\n\n  <mat-expansion-panel class=\"expansion mat-elevation-z0\">\n    <mat-expansion-panel-header>\n      <mat-panel-title class=\"expansiontitle\">\n        <mat-icon>list</mat-icon>  Lists\n      </mat-panel-title>\n    </mat-expansion-panel-header>\n\n      <div class=\"expansionbody\">\n        <mat-checkbox *ngFor=\"let item of listslist\" [(ngModel)]=\"item.isSelected\" style=\"margin-right: 10px;\" \n        (change)=\"ListClick(item.value,$event.checked)\" color=\"warn\">{{item.value}}</mat-checkbox>\n      </div>\n  </mat-expansion-panel>\n\n  <mat-expansion-panel class=\"expansion mat-elevation-z0\">\n      <mat-expansion-panel-header>\n        <mat-panel-title class=\"expansiontitle\">\n          <mat-icon>label</mat-icon>  Labels\n        </mat-panel-title>\n      </mat-expansion-panel-header>\n\n        <div class=\"expansionbody\">\n          <mat-checkbox *ngFor=\"let item of checklist\" [(ngModel)]=\"item.isSelected\" style=\"margin-right: 10px;\" \n          (change)=\"filterClick(item.value,$event.checked)\" color=\"warn\">{{item.value}}</mat-checkbox>\n        </div>\n  </mat-expansion-panel>\n\n</div>"
 
 /***/ }),
 
@@ -474,6 +500,7 @@ var FiltersComponent = /** @class */ (function () {
         this.logic = logic;
         this.data_labeled = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.data_boarded = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.data_listed = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.time = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.type = "all";
     }
@@ -511,6 +538,22 @@ var FiltersComponent = /** @class */ (function () {
             }
         }
     };
+    FiltersComponent.prototype.ListClick = function (filter, checked) {
+        if (checked) {
+            this.listslist = this.logic.tickChecklist(this.listslist, filter, true);
+            this.data_listed.emit(this.listslist);
+        }
+        else {
+            this.listslist = this.logic.tickChecklist(this.listslist, filter, false);
+            var checkedfilters = this.logic.getCheckedFilters(this.listslist);
+            if (checkedfilters.length == 0) {
+                this.data_listed.emit(this.listslist);
+            }
+            else {
+                this.data_listed.emit(this.listslist);
+            }
+        }
+    };
     FiltersComponent.prototype.timeClick = function (type) {
         this.type = type;
         this.time.emit(type);
@@ -524,6 +567,10 @@ var FiltersComponent = /** @class */ (function () {
         __metadata("design:type", Object)
     ], FiltersComponent.prototype, "boardlist", void 0);
     __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], FiltersComponent.prototype, "listslist", void 0);
+    __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
     ], FiltersComponent.prototype, "data_labeled", void 0);
@@ -531,6 +578,10 @@ var FiltersComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
     ], FiltersComponent.prototype, "data_boarded", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], FiltersComponent.prototype, "data_listed", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
@@ -650,14 +701,24 @@ var LogicService = /** @class */ (function () {
                     }
                 }
             }
-            // for(let j=0; j<checked.length; j++)
-            // {
-            //   if(currentdata[i].date != "none" && checked[j]=="deadline" && !used_data[i])
-            //   {
-            //     if(!this.sameObjectAlreadyThere(newdata,currentdata[i]))
-            //       newdata.push(currentdata[i]);
-            //   }
-            // }
+        }
+        return newdata;
+    };
+    LogicService.prototype.filterByLists = function (data, checkedfilters) {
+        var currentdata = data;
+        var newdata = [];
+        var once = true;
+        var used_data = [];
+        var checked = this.getCheckedFilters(checkedfilters);
+        for (var i = 0; i < currentdata.length; i++) {
+            for (var j = 0; j < checked.length; j++) {
+                if (currentdata[i].list == checked[j]) {
+                    if (!this.sameObjectAlreadyThere(newdata, currentdata[i])) {
+                        newdata.push(currentdata[i]);
+                        used_data.push(true);
+                    }
+                }
+            }
         }
         return newdata;
     };
@@ -729,6 +790,17 @@ var LogicService = /** @class */ (function () {
         }
         return checklist;
     };
+    LogicService.prototype.buildLists = function (data) {
+        var list;
+        var checklist = [];
+        for (var i = 0; i < data.length; i++) {
+            list = data[i].list;
+            if (!this.filterExists(checklist, list)) {
+                checklist.push({ value: list, isSelected: false });
+            }
+        }
+        return checklist;
+    };
     LogicService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
@@ -742,6 +814,77 @@ var LogicService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/mainpage/content/search/search.component.css":
+/*!**************************************************************!*\
+  !*** ./src/app/mainpage/content/search/search.component.css ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/mainpage/content/search/search.component.html":
+/*!***************************************************************!*\
+  !*** ./src/app/mainpage/content/search/search.component.html ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-form-field style=\"bottom:0; left: 0; padding-left: 40px; width: 100%; font-size: 1.5em;\">\n  <input matInput placeholder=\"Search..\" autocomplete=\"off\" (keyup)=\"search($event.target.value)\" />\n</mat-form-field>"
+
+/***/ }),
+
+/***/ "./src/app/mainpage/content/search/search.component.ts":
+/*!*************************************************************!*\
+  !*** ./src/app/mainpage/content/search/search.component.ts ***!
+  \*************************************************************/
+/*! exports provided: SearchComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchComponent", function() { return SearchComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SearchComponent = /** @class */ (function () {
+    function SearchComponent() {
+        this.searchValue = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    SearchComponent.prototype.ngOnInit = function () {
+    };
+    SearchComponent.prototype.search = function (filterValue) {
+        this.searchValue.emit(filterValue);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], SearchComponent.prototype, "searchValue", void 0);
+    SearchComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-search',
+            template: __webpack_require__(/*! ./search.component.html */ "./src/app/mainpage/content/search/search.component.html"),
+            styles: [__webpack_require__(/*! ./search.component.css */ "./src/app/mainpage/content/search/search.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], SearchComponent);
+    return SearchComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/mainpage/content/task/task.component.css":
 /*!**********************************************************!*\
   !*** ./src/app/mainpage/content/task/task.component.css ***!
@@ -749,7 +892,7 @@ var LogicService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "@-webkit-keyframes float {\r\n\t0% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n\t50% {\r\n\t\tbox-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);\r\n\t\t-webkit-transform: translatey(-20px);\r\n\t\t        transform: translatey(-20px);\r\n\t}\r\n\t100% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n}\r\n\r\n@keyframes float {\r\n\t0% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n\t50% {\r\n\t\tbox-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);\r\n\t\t-webkit-transform: translatey(-20px);\r\n\t\t        transform: translatey(-20px);\r\n\t}\r\n\t100% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n}\r\n\r\n@-webkit-keyframes slideInFromLeft2 {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0);\r\n                transform: translateX(0);\r\n      }\r\n  }\r\n\r\n@keyframes slideInFromLeft2 {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0);\r\n                transform: translateX(0);\r\n      }\r\n  }\r\n\r\n.poop\r\n{\r\n    transition-duration: 0.5s;\r\n    /* animation: 1s ease-out 0s 1 slideInFromLeft2; */\r\n}\r\n\r\n.poop:hover\r\n{\r\n    /* box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2); */\r\n    -webkit-transform: translateY(-5%);\r\n            transform: translateY(-5%);\r\n}\r\n\r\n.task\r\n{\r\n  position: relative;\r\n  width: 45%;\r\n  height: 100px;\r\n  background-color: white;\r\n  margin-top: 20px;\r\n  margin-left: 25px;\r\n  padding: 0;\r\n}\r\n\r\n.header\r\n{\r\n  position: absolute;\r\n  display: flex;\r\n  height: 30%;\r\n  width: 100%;\r\n  background-color: lightgray;\r\n  padding: 0;\r\n  margin: 0;\r\n  flex-direction: row;\r\n  justify-content: space-around;\r\n  font-weight: bold;\r\n}\r\n\r\n.content\r\n{\r\n  position: absolute;\r\n  height: 70%;\r\n  top: 30%;\r\n  padding: 10px;\r\n}\r\n\r\n.datearea\r\n{\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n}\r\n\r\n.listarea\r\n{\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n}\r\n\r\n.labelarea\r\n{\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n}\r\n\r\n.boardarea\r\n{\r\n  position: absolute;\r\n  bottom: 0;\r\n  right: 0;\r\n}\r\n\r\n.textarea\r\n{\r\n  position: absolute;\r\n  left: 25%;\r\n  top: 12.5%;\r\n  width: 50%;\r\n  height: 75%;\r\n  /* background-color: red; */\r\n  text-align: left;\r\n}\r\n\r\n.example-card {\r\n    max-width: 400px;\r\n    min-width: 300px;\r\n    transition-duration: 0.5s;\r\n    /* background-color: rgb(240, 240, 240); */\r\n  }\r\n\r\n/* .example-card:hover\r\n{\r\n    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);\r\n    transform: translateY(-5%);\r\n} */\r\n\r\n/* .example-header-image {\r\n    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');\r\n    background-size: cover;\r\n  } */"
+module.exports = "@-webkit-keyframes float {\r\n\t0% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n\t50% {\r\n\t\tbox-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);\r\n\t\t-webkit-transform: translatey(-20px);\r\n\t\t        transform: translatey(-20px);\r\n\t}\r\n\t100% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n}\r\n\r\n@keyframes float {\r\n\t0% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n\t50% {\r\n\t\tbox-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);\r\n\t\t-webkit-transform: translatey(-20px);\r\n\t\t        transform: translatey(-20px);\r\n\t}\r\n\t100% {\r\n\t\tbox-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);\r\n\t\t-webkit-transform: translatey(0px);\r\n\t\t        transform: translatey(0px);\r\n\t}\r\n}\r\n\r\n@-webkit-keyframes slideInFromLeft2 {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0);\r\n                transform: translateX(0);\r\n      }\r\n  }\r\n\r\n@keyframes slideInFromLeft2 {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0);\r\n                transform: translateX(0);\r\n      }\r\n  }\r\n\r\n.poop\r\n{\r\n    transition-duration: 0.5s;\r\n    /* animation: 1s ease-out 0s 1 slideInFromLeft2; */\r\n}\r\n\r\n.poop:hover\r\n{\r\n    /* box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2); */\r\n    -webkit-transform: translateY(-5%);\r\n            transform: translateY(-5%);\r\n}\r\n\r\n/* .content:hover ~ .delete\r\n{\r\n    opacity: 1;\r\n} */\r\n\r\n.task\r\n{\r\n  position: relative;\r\n  width: 45%;\r\n  height: 100px;\r\n  background-color: white;\r\n  margin-top: 20px;\r\n  margin-left: 25px;\r\n  padding: 0;\r\n  min-width: 700px;\r\n}\r\n\r\n.header\r\n{\r\n  position: absolute;\r\n  display: flex;\r\n  height: 30%;\r\n  width: 100%;\r\n  /* background-color: lightgray; */\r\n  /* color: primary; */\r\n  padding: 0;\r\n  margin: 0;\r\n  flex-direction: row;\r\n  justify-content: space-around;\r\n  font-weight: bold;\r\n}\r\n\r\n.content\r\n{\r\n  position: absolute;\r\n  height: 70%;\r\n  top: 30%;\r\n  padding: 10px;\r\n}\r\n\r\n.delete\r\n{\r\n  position: absolute;\r\n  bottom: 0;\r\n  right: 0;\r\n  width: 5%;\r\n  height: 30%;\r\n  transition-duration: 0.5s;\r\n  opacity: 0;\r\n}\r\n\r\n.delete:hover\r\n{\r\n  color: red;\r\n  opacity: 1;\r\n}\r\n\r\n.deleteVisible\r\n{\r\n  opacity: 1;\r\n}\r\n\r\n.datearea\r\n{\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n}\r\n\r\n.listarea\r\n{\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n}\r\n\r\n.labelarea\r\n{\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n}\r\n\r\n.boardarea\r\n{\r\n  position: absolute;\r\n  bottom: 0;\r\n  right: 0;\r\n}\r\n\r\n.textarea\r\n{\r\n  position: absolute;\r\n  left: 25%;\r\n  top: 12.5%;\r\n  width: 50%;\r\n  height: 75%;\r\n  /* background-color: red; */\r\n  text-align: left;\r\n}\r\n\r\n.example-card {\r\n    max-width: 400px;\r\n    min-width: 300px;\r\n    transition-duration: 0.5s;\r\n    /* background-color: rgb(240, 240, 240); */\r\n  }\r\n\r\n/* .example-card:hover\r\n{\r\n    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);\r\n    transform: translateY(-5%);\r\n} */\r\n\r\n/* .example-header-image {\r\n    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');\r\n    background-size: cover;\r\n  } */"
 
 /***/ }),
 
@@ -760,7 +903,7 @@ module.exports = "@-webkit-keyframes float {\r\n\t0% {\r\n\t\tbox-shadow: 0 5px 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div class=\"poop\">\n  <mat-card class=\"example-card mat-elevation-z8\">\n      <mat-card-header>\n\n        <mat-card-title>{{ item.list }} list</mat-card-title>\n        <mat-card-subtitle>{{ item.board }} board</mat-card-subtitle>\n      </mat-card-header>\n\n      <mat-card-content>\n        <p>\n          {{ item.text }}\n        </p>\n      </mat-card-content>\n      <mat-card-actions>\n\n        <mat-card-subtitle>Deadline: {{ item.date }}</mat-card-subtitle>\n        <mat-card-subtitle>Tags: {{ item.labels }}</mat-card-subtitle>\n      </mat-card-actions>\n  </mat-card>\n</div> -->\n\n<div class=\"poop\">\n  <mat-card class=\"task mat-elevation-z8\">\n    <!-- <div class=\"datearea\">\n       Deadline: {{ item.date }}\n    </div>\n    <div class=\"listarea\">\n        List: {{ item.list }}\n    </div>\n    <div class=\"labelarea\">\n        Labels: {{ item.labels }}\n    </div>\n    <div class=\"boardarea\">\n        Board: {{ item.board }}\n    </div>\n    <div class=\"textarea\">\n        {{ item.text }}\n    </div> -->\n    <div class=\"header\">\n      <div>\n        Deadline: {{ item.date }}\n      </div>\n      <div>\n        Labels: {{ item.labels }}\n      </div>\n      <div>\n        List: {{ item.list }}\n      </div>\n      <div>\n        Board: {{ item.board }}\n      </div>\n    </div>\n    <div class=\"content\">\n      {{ item.text }}\n    </div>\n  </mat-card>\n</div>\n"
+module.exports = "<!-- <div class=\"poop\">\n  <mat-card class=\"example-card mat-elevation-z8\">\n      <mat-card-header>\n\n        <mat-card-title>{{ item.list }} list</mat-card-title>\n        <mat-card-subtitle>{{ item.board }} board</mat-card-subtitle>\n      </mat-card-header>\n\n      <mat-card-content>\n        <p>\n          {{ item.text }}\n        </p>\n      </mat-card-content>\n      <mat-card-actions>\n\n        <mat-card-subtitle>Deadline: {{ item.date }}</mat-card-subtitle>\n        <mat-card-subtitle>Tags: {{ item.labels }}</mat-card-subtitle>\n      </mat-card-actions>\n  </mat-card>\n</div> -->\n\n<div class=\"poop\">\n  <mat-card class=\"task mat-elevation-z8\">\n    <!-- <div class=\"datearea\">\n       Deadline: {{ item.date }}\n    </div>\n    <div class=\"listarea\">\n        List: {{ item.list }}\n    </div>\n    <div class=\"labelarea\">\n        Labels: {{ item.labels }}\n    </div>\n    <div class=\"boardarea\">\n        Board: {{ item.board }}\n    </div>\n    <div class=\"textarea\">\n        {{ item.text }}\n    </div> -->\n    <div class=\"header color-primary-bg\">\n      <div>\n        Deadline: {{ item.date }}\n      </div>\n      <div>\n        Labels: {{ item.labels }}\n      </div>\n      <div>\n        List: {{ item.list }}\n      </div>\n      <div>\n        Board: {{ item.board }}\n      </div>\n    </div>\n    <div class=\"content\">\n      {{ item.text }}\n    </div>\n    <div class=\"delete\" (click)=\"deleteTask(item.id)\">\n      <mat-icon>done</mat-icon>\n    </div>\n  </mat-card>\n</div>\n"
 
 /***/ }),
 
@@ -775,6 +918,8 @@ module.exports = "<!-- <div class=\"poop\">\n  <mat-card class=\"example-card ma
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskComponent", function() { return TaskComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../user.service */ "./src/app/mainpage/user.service.ts");
+/* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/snack-bar */ "./node_modules/@angular/material/esm5/snack-bar.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -785,23 +930,57 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var TaskComponent = /** @class */ (function () {
-    function TaskComponent() {
+    function TaskComponent(userservice, snackBar) {
+        this.userservice = userservice;
+        this.snackBar = snackBar;
+        this.refresh = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
     TaskComponent.prototype.ngOnInit = function () {
         // console.log(this.item);
+    };
+    TaskComponent.prototype.deleteTask = function (id) {
+        // this.openSnackBar("Hey","ok");
+        var _this = this;
+        console.log("deleting item " + id);
+        this.userservice.deleteTask(id).subscribe(function (res) {
+            console.log(res);
+            if (res.status) {
+                console.log("succesful delete");
+                _this.refresh.emit(id);
+                _this.openSnackBar("Completed!", "ok");
+            }
+            else {
+                console.log("error");
+                _this.openSnackBar("Error completing. Try again soon", "Ouch");
+            }
+        }, function (err) {
+            console.log("Error occured+ :: " + err);
+            _this.openSnackBar("Error contacting API. Try again soon", "Ouch");
+        });
+    };
+    TaskComponent.prototype.openSnackBar = function (message, action) {
+        this.snackBar.open(message, action, {
+            duration: 4000,
+        });
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Object)
     ], TaskComponent.prototype, "item", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], TaskComponent.prototype, "refresh", void 0);
     TaskComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-task',
             template: __webpack_require__(/*! ./task.component.html */ "./src/app/mainpage/content/task/task.component.html"),
             styles: [__webpack_require__(/*! ./task.component.css */ "./src/app/mainpage/content/task/task.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"], _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"]])
     ], TaskComponent);
     return TaskComponent;
 }());
@@ -828,7 +1007,7 @@ module.exports = "/* .header\r\n{\r\n    position: absolute;\r\n    width: 100%;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\">\n    <span>Hello {{ user }}</span>\n    <mat-icon class=\"example-icon\" aria-hidden=\"false\" aria-label=\"Example user verified icon\">verified_user</mat-icon>\n    <span class=\"example-spacer\"></span>\n    <mat-icon class=\"logout\" (click)=\"logout()\">arrow_back</mat-icon>\n</mat-toolbar>\n\n<!-- <p class=\"title\"> Your tasks: </p> -->"
+module.exports = "<mat-menu #appMenu=\"matMenu\">\n    <!-- <button mat-menu-item (click)=\"toggleTheme()\"> Switch theme </button>\n    <button mat-menu-item (click)=\"help()\"> Help </button>\n    <button mat-menu-item (click)=\"logout()\"> Logout </button> -->\n</mat-menu>\n\n<mat-toolbar color=\"primary\">\n    <span>Hello {{ user }}</span>\n    <mat-icon class=\"example-icon\" aria-hidden=\"false\" aria-label=\"Example user verified icon\">verified_user</mat-icon>\n    <span class=\"example-spacer\"></span>\n    <button mat-button [matMenuTriggerFor]=\"appMenu\"><mat-icon>settings</mat-icon></button>\n    <mat-icon class=\"logout\" (click)=\"logout()\">arrow_back</mat-icon>\n</mat-toolbar>\n\n<!-- <p class=\"title\"> Your tasks: </p> -->"
 
 /***/ }),
 
@@ -844,6 +1023,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/overlay */ "./node_modules/@angular/cdk/esm5/overlay.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -855,10 +1035,18 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+// import { ThemesService } from '../../themes.service';
+var dark = 'dark-theme';
+var light = 'default-theme';
 var HeaderComponent = /** @class */ (function () {
-    function HeaderComponent(router) {
+    // @Output() themechange: EventEmitter<Boolean> =  new EventEmitter();
+    function HeaderComponent(router, overlayContainer) {
         this.router = router;
+        this.overlayContainer = overlayContainer;
+        this.isdarktheme = false;
     }
+    // @HostBinding('class') componentCssClass;
     HeaderComponent.prototype.ngOnInit = function () {
     };
     HeaderComponent.prototype.logout = function () {
@@ -874,7 +1062,7 @@ var HeaderComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./header.component.html */ "./src/app/mainpage/header/header.component.html"),
             styles: [__webpack_require__(/*! ./header.component.css */ "./src/app/mainpage/header/header.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__["OverlayContainer"]])
     ], HeaderComponent);
     return HeaderComponent;
 }());
@@ -901,7 +1089,7 @@ module.exports = "\r\n.content\r\n{\r\n    overflow: hidden;\r\n}\r\n\r\n.error\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header [user]='user'></app-header>\n<app-content *ngIf=\"data.length > 0\" [data]='data' class=\"content\"></app-content>\n<div *ngIf=\"data.length == 0\" class=\"error\">\n    <mat-icon style=\"font-size: 3em; margin-right: 0.5em\">sentiment_dissatisfied</mat-icon>\n    <p style=\"color:red; font-size: 2em\">No data found</p>\n</div>"
+module.exports = "<app-header [user]='user' (themechange)=\"onThemeChange($event)\"></app-header>\n<app-content *ngIf=\"data.length > 0\" [data]='data' class=\"content\" (refreshRoot)=\"refresh()\"></app-content>\n<div *ngIf=\"data.length == 0\" class=\"error\">\n    <mat-icon style=\"font-size: 3em; margin-right: 0.5em\">sentiment_dissatisfied</mat-icon>\n    <p style=\"color:red; font-size: 2em\">No tasks/No data</p>\n</div>"
 
 /***/ }),
 
@@ -917,6 +1105,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainpageComponent", function() { return MainpageComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./user.service */ "./src/app/mainpage/user.service.ts");
+/* harmony import */ var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/overlay */ "./node_modules/@angular/cdk/esm5/overlay.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -928,11 +1117,16 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 // import { hostname } from 'os';
+var dark = 'dark-theme';
+var light = 'default-theme';
 var MainpageComponent = /** @class */ (function () {
-    function MainpageComponent(userservice, cd) {
+    function MainpageComponent(userservice, cd, overlayContainer) {
         this.userservice = userservice;
         this.cd = cd;
+        this.overlayContainer = overlayContainer;
+        // @HostBinding('class') componentCssClass;
         this.user = "";
         this.data = [];
     }
@@ -951,19 +1145,32 @@ var MainpageComponent = /** @class */ (function () {
             console.log(data);
         });
         //2019-07-07T 9:30:00.0
-        // this.data = [{text:"important mission1",list:"a good list",board:"bisli",labels:["general"],date:"2019-08-13T09:30",userid:"2"},
-        //              {text:"important mission2",list:"better list",board:"bisli2",labels:["general","meme"],date:"2026-08-12T15:20",userid:"2"},
-        //              {text:"important mission3",list:"better list",board:"bisli",labels:["bamba"],date:"none",userid:"2"},
-        //              {text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:undefined,userid:"2"},
-        //              {text:"important mission5",list:"better list",board:"bisli",labels:["general"],date:"2019-08-17T14:05",userid:"2"},
-        //              {text:"make pizza",list:"pro",board:"goodboard",labels:["meme"],date:"2019-08-15T13:05",userid:"2"}];
+        // this.data = [{id:"1",text:"important mission1",list:"a good list",board:"bisli",labels:["general"],date:"2019-08-13T09:30",userid:"2"},
+        //              {id:"2",text:"important mission2",list:"better list",board:"bisli2",labels:["general","meme"],date:"2026-08-12T15:20",userid:"2"},
+        //              {id:"3",text:"important mission3",list:"better list",board:"bisli",labels:["bamba"],date:"none",userid:"2"},
+        //              {id:"5",text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:undefined,userid:"2"},
+        //              {id:"13",text:"important mission5",list:"better list",board:"bisli",labels:["general"],date:"2019-08-17T14:05",userid:"2"},
+        //              {id:"139",text:"make pizza",list:"pro",board:"goodboard",labels:["meme"],date:"2019-08-15T13:05",userid:"2"}];
         // this.data = [{text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:"none",userid:"2"},
         //             {text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:"none",userid:"2"}];
         // console.log(this.data);
         console.log(this.data);
     };
+    MainpageComponent.prototype.refresh = function () {
+        console.log("refresh");
+        this.data = [];
+        this.data = [{ id: "1", text: "important mission1", list: "a good list", board: "bisli", labels: ["general"], date: "2019-08-13T09:30", userid: "2" },
+            { id: "2", text: "important mission2", list: "better list", board: "bisli2", labels: ["general", "meme"], date: "2026-08-12T15:20", userid: "2" },
+            { id: "3", text: "important mission3", list: "better list", board: "bisli", labels: ["bamba"], date: "none", userid: "2" }];
+        this.cd.detectChanges();
+        this.cd.markForCheck();
+    };
+    MainpageComponent.prototype.request = function () {
+    };
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class.is-open'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class.is-open')
+        // @HostBinding('class') componentCssClass;
+        ,
         __metadata("design:type", String)
     ], MainpageComponent.prototype, "user", void 0);
     MainpageComponent = __decorate([
@@ -972,7 +1179,7 @@ var MainpageComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./mainpage.component.html */ "./src/app/mainpage/mainpage.component.html"),
             styles: [__webpack_require__(/*! ./mainpage.component.css */ "./src/app/mainpage/mainpage.component.css")]
         }),
-        __metadata("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"]])
+        __metadata("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"], _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__["OverlayContainer"]])
     ], MainpageComponent);
     return MainpageComponent;
 }());
@@ -1015,6 +1222,9 @@ var UserService = /** @class */ (function () {
     }
     UserService.prototype.getData = function () {
         return this.http.get(host + '/api/data/' + this.id);
+    };
+    UserService.prototype.deleteTask = function (id) {
+        return this.http.post(host + '/api/deletetask/', { id: id });
     };
     UserService.prototype.set = function (user, id) {
         this.user = user;

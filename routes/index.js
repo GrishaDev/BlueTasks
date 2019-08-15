@@ -13,8 +13,12 @@ router.get('/data/:id', (req, res, next)=> {
 });
 
 router.post('/checkuser', (req, res, next)=> {
-    console.log("yehuda");
     methods.CheckUser(req,res);
+});
+
+router.post('/deletetask',(req,res)=>
+{
+    methods.deleteTask(req,res);
 });
 
 module.exports = router;

@@ -32,6 +32,14 @@ class methods
         else
             res.json({status:false});
     }
+
+    async deleteTask(req,res)
+    {
+        let id = req.body.id;
+        let status = await this.mongoer.deleteCard(id);
+
+        res.json({status:status});
+    }
 }
 
 module.exports = methods;
