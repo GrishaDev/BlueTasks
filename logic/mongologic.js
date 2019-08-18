@@ -11,6 +11,9 @@ class mongologic
     async init(path)
     {
         let mongo;
+        let triggeronce=true;
+        this.trigger = true;
+
         try
         {
             mongo = await MongoClient.connect(path,{ useNewUrlParser: true },{
@@ -29,7 +32,13 @@ class mongologic
             await this.getData();
 
             this.boards.watch().on('change', ()=> {
-                this.getData();
+
+                // console.log("trigger is "+this.trigger);
+                // if(this.trigger)
+                // {
+                    // this.getData();
+                    setTimeout(()=> { this.getData() }, 1000);
+                // }
             });
         }
         catch(err)
@@ -55,6 +64,7 @@ class mongologic
 
     async getData()
     {
+        
         console.log("collecting data..");
         this.alldata = [];
         try
@@ -80,8 +90,11 @@ class mongologic
                             if(parsed_date == undefined)
                                 parsed_date = "none";
                             
+                            // this is weird, let labels is parsed labels, and card_data.labels are normal labels(old?) swap between them and try.
+
                             let labels = this.labels(card_data.labels,data[i]);
-                            card = {id:card_data._id,text:card_data.text,list:data[i].lists[j].title,board:data[i].title,labels:labels,date:parsed_date,userid:card_data.assignedUserId};
+                            
+                            card = {id:card_data._id,text:card_data.text,list:data[i].lists[j].title,board:data[i].title,labels:card_data.labels,date:parsed_date,userid:card_data.assignedUserId};
                             this.alldata.push(card);
                         }
                     }
@@ -145,8 +158,11 @@ class mongologic
             let board = this.findBoardBycard(id);
             let boardid = board._id;
 
+            this.trigger = false;
             await this.boards.deleteOne({_id: boardid});
+            this.trigger = true;
             await this.boards.insertOne(board);
+
 
             return true;
         }
