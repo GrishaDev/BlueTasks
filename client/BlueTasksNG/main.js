@@ -65,7 +65,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.title = 'BlueTasksNG';
+        this.title = 'Blue Tasks';
     }
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -106,12 +106,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _mainpage_content_filters_filters_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./mainpage/content/filters/filters.component */ "./src/app/mainpage/content/filters/filters.component.ts");
 /* harmony import */ var _mainpage_content_search_search_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./mainpage/content/search/search.component */ "./src/app/mainpage/content/search/search.component.ts");
+/* harmony import */ var _mainpage_content_taskbetter_taskbetter_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./mainpage/content/taskbetter/taskbetter.component */ "./src/app/mainpage/content/taskbetter/taskbetter.component.ts");
+/* harmony import */ var _mainpage_content_taskbetter2_taskbetter2_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./mainpage/content/taskbetter2/taskbetter2.component */ "./src/app/mainpage/content/taskbetter2/taskbetter2.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -144,7 +148,9 @@ var AppModule = /** @class */ (function () {
                 _mainpage_content_content_component__WEBPACK_IMPORTED_MODULE_10__["ContentComponent"],
                 _mainpage_content_task_task_component__WEBPACK_IMPORTED_MODULE_11__["TaskComponent"],
                 _mainpage_content_filters_filters_component__WEBPACK_IMPORTED_MODULE_13__["FiltersComponent"],
-                _mainpage_content_search_search_component__WEBPACK_IMPORTED_MODULE_14__["SearchComponent"]
+                _mainpage_content_search_search_component__WEBPACK_IMPORTED_MODULE_14__["SearchComponent"],
+                _mainpage_content_taskbetter_taskbetter_component__WEBPACK_IMPORTED_MODULE_15__["TaskbetterComponent"],
+                _mainpage_content_taskbetter2_taskbetter2_component__WEBPACK_IMPORTED_MODULE_16__["Taskbetter2Component"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -163,6 +169,7 @@ var AppModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatTreeModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatMenuModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatSnackBarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatListModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(appRoutes)
             ],
             providers: [],
@@ -291,7 +298,7 @@ var LoginpageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n@-webkit-keyframes slideInFromRight {\r\n    0% {\r\n      -webkit-transform: translateX(100%);\r\n              transform: translateX(100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n  @keyframes slideInFromRight {\r\n    0% {\r\n      -webkit-transform: translateX(100%);\r\n              transform: translateX(100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n  @-webkit-keyframes slideInFromLeft {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n  @keyframes slideInFromLeft {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n  .test\r\n{\r\n    color: my-app-primary;\r\n}\r\n\r\n  .rightside\r\n{\r\n    position: absolute;\r\n}\r\n\r\n  .content\r\n{\r\n    position: absolute;\r\n    width: 70%;\r\n    left: 30%;\r\n    /* height: 100%; */\r\n    /* padding: 50px; */\r\n    display: flex;\r\n    /* flex-flow: row wrap; */\r\n    flex-direction: column;\r\n    text-align: center;\r\n    justify-content: center;\r\n    -webkit-animation: 1s ease-out 0s 1 slideInFromRight;\r\n            animation: 1s ease-out 0s 1 slideInFromRight;\r\n    /* overflow-y: visible; */\r\n    height: 90%;\r\n    /* background-color: red; */\r\n    padding-left: 25px;\r\n    /* background-color: green; */\r\n}\r\n\r\n  .scrollable\r\n{\r\n    position: relative;\r\n    height: 100%;\r\n    overflow-y: auto;\r\n    overflow-x: auto;\r\n}\r\n\r\n  .bot\r\n{\r\n    position: absolute;\r\n    /* background-color: rgba(0, 0, 255, 0.171); */\r\n     bottom: 0;\r\n    left: 0;\r\n    width: 10%;\r\n    /* width: 50%; */\r\n    /* width: 10%;\r\n    height: 10%;\r\n    margin: 200px; */\r\n    /* height: 5%;\r\n    width: 100%;\r\n    bottom: 0;\r\n    padding: 0;\r\n    width: 70%;\r\n    left: 30%; */\r\n}\r\n\r\n  .filters\r\n{\r\n    width: 30%;\r\n    /* right: 30%; */\r\n    /* height: 100%; */\r\n    position: absolute;\r\n    height: 100%;\r\n    background-color: rgb(236, 236, 236);\r\n    -webkit-animation: 1s ease-out 0s 1 slideInFromLeft;\r\n            animation: 1s ease-out 0s 1 slideInFromLeft;\r\n    /* background-color: blue; */\r\n}\r\n\r\n  .spaceout\r\n{\r\n    padding: 30px;\r\n}"
+module.exports = "\r\n@-webkit-keyframes slideInFromRight {\r\n    0% {\r\n      -webkit-transform: translateX(100%);\r\n              transform: translateX(100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n  @keyframes slideInFromRight {\r\n    0% {\r\n      -webkit-transform: translateX(100%);\r\n              transform: translateX(100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n  @-webkit-keyframes slideInFromLeft {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n  @keyframes slideInFromLeft {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n  /* @media only screen and (max-width: 400px) {\r\n    filters {\r\n        width: 5%;\r\n        position: absolute;\r\n        height: 100%;\r\n        background-color: rgb(236, 236, 236);\r\n        animation: 1s ease-out 0s 1 slideInFromLeft;\r\n    }\r\n  } */\r\n\r\n  .test\r\n{\r\n    color: my-app-primary;\r\n}\r\n\r\n  .rightside\r\n{\r\n    position: absolute;\r\n}\r\n\r\n  .content\r\n{\r\n    position: absolute;\r\n    width: 70%;\r\n    left: 30%;\r\n    /* height: 100%; */\r\n    /* padding: 50px; */\r\n    display: flex;\r\n    /* flex-flow: row wrap; */\r\n    flex-direction: column;\r\n    /* text-align: center; */\r\n    /* justify-content: center; */\r\n    -webkit-animation: 1s ease-out 0s 1 slideInFromRight;\r\n            animation: 1s ease-out 0s 1 slideInFromRight;\r\n    /* overflow-y: visible; */\r\n    height: 90%;\r\n    /* background-color: red; */\r\n    padding-left: 25px;\r\n    overflow-y: auto;\r\n    overflow-x: auto;\r\n    /* background-color: green; */\r\n}\r\n\r\n  /* .scrollable\r\n{\r\n    position: relative;\r\n    height: 100%;\r\n    overflow-y: auto;\r\n    overflow-x: auto;\r\n} */\r\n\r\n  .more\r\n{\r\n    position: relative;\r\n    /* background-color: blue; */\r\n    /* width: 50%; */\r\n    padding: 30px;\r\n}\r\n\r\n  .bot\r\n{\r\n    position: absolute;\r\n    /* background-color: rgba(0, 0, 255, 0.171); */\r\n     bottom: 0;\r\n    left: 0;\r\n    width: 10%;\r\n    /* width: 50%; */\r\n    /* width: 10%;\r\n    height: 10%;\r\n    margin: 200px; */\r\n    /* height: 5%;\r\n    width: 100%;\r\n    bottom: 0;\r\n    padding: 0;\r\n    width: 70%;\r\n    left: 30%; */\r\n}\r\n\r\n  .filters\r\n{\r\n    width: 30%;\r\n    /* min-width: 300px; */\r\n    position: absolute;\r\n    height: 100%;\r\n    background-color: rgb(236, 236, 236);\r\n    -webkit-animation: 1s ease-out 0s 1 slideInFromLeft;\r\n            animation: 1s ease-out 0s 1 slideInFromLeft;\r\n}\r\n\r\n  .spaceout\r\n{\r\n    /* background-color: blue;\r\n    position: relative; */\r\n    /* padding: 30px; */\r\n    /* background-color: yellow; */\r\n    padding: 30px;\r\n}\r\n\r\n  .aday\r\n{\r\n    position: relative;\r\n    /* height: 100%;\r\n    width: 100%; */\r\n    padding-top: 30px;\r\n    /* background-color: green; */\r\n}\r\n\r\n  .toright\r\n{\r\n  padding-left: 20px;\r\n}\r\n\r\n  .info\r\n{\r\n    position: absolute;\r\n    /* background-color: green; */\r\n    width: 30%;\r\n    right: 0;\r\n    height: 50%;\r\n    top: 0;\r\n    padding: 10px;\r\n}\r\n\r\n  .data\r\n{\r\n    padding-top: 20px;\r\n}\r\n\r\n  /* css is cancer */\r\n\r\n  .newcontent\r\n{\r\n    /* background-color: green; */\r\n    position: absolute;\r\n    width: 70%;\r\n    left: 30%;\r\n    height: 100%;\r\n    -webkit-animation: 1s ease-out 0s 1 slideInFromRight;\r\n            animation: 1s ease-out 0s 1 slideInFromRight;\r\n    /* background-color: my-app-primary; */\r\n    /* background-color: color-primary-bg; */\r\n}\r\n\r\n  .title\r\n{\r\n    /* background-color: blue; */\r\n    position: absolute;\r\n    height: 10%;\r\n    width: 100%;\r\n    padding: 30px;\r\n    top: 0;\r\n}\r\n\r\n  .actualcontent\r\n{\r\n    /* background-color: lightskyblue; */\r\n    position: absolute;\r\n    height: 80%;\r\n    top: 10%;\r\n    /* bottom: 0; */\r\n    width: 100%;\r\n    overflow-y: auto;\r\n    overflow-x: auto;\r\n}\r\n\r\n  .test\r\n{\r\n    /* background-color: red; */\r\n    position: relative;\r\n    height: 100px;\r\n    width: 30%;\r\n}\r\n\r\n  /* width */\r\n\r\n  ::-webkit-scrollbar {\r\n    width: 10px;\r\n  }\r\n\r\n  /* Track */\r\n\r\n  ::-webkit-scrollbar-track {\r\n    /* background: #f1f1f1;  */\r\n  }\r\n\r\n  /* Handle */\r\n\r\n  ::-webkit-scrollbar-thumb {\r\n    background: #888; \r\n  }\r\n\r\n  /* Handle on hover */\r\n\r\n  ::-webkit-scrollbar-thumb:hover {\r\n    background: #555; \r\n  }"
 
 /***/ }),
 
@@ -302,7 +309,7 @@ module.exports = "\r\n@-webkit-keyframes slideInFromRight {\r\n    0% {\r\n     
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"filters\">\n    <app-filters [checklist]='checkboxes' [boardlist]='boardlist' [listslist] = 'listslist' (data_labeled)=\"LabelsChanged($event)\" (data_boarded)=\"BoardsChanged($event)\"\n    (time)=\"timeChange($event)\" (data_listed)=\"ListsChanged($event)\"></app-filters>\n</div>\n\n<!-- <div class=\"rightside\">  -->\n    <div class=\"content\">\n        <div class=\"scrollable\">\n            <app-task *ngFor=\"let item of filterd_data\" [item]='item' class=\"spaceout\" (refresh)=\"refresh($event)\"></app-task>\n        </div>\n    </div>\n    <div class=\"bot\">\n        <app-search (searchValue)=\"searched($event)\"></app-search>\n    </div>\n<!-- </div> -->\n\n"
+module.exports = "<div class=\"filters\" [style.backgroundColor] = \"themeservice.filtersColor\" [style.color]= \"themeservice.textColor\">\r\n    <app-filters [checklist]='checkboxes' [boardlist]='boardlist' [listslist] = 'listslist' (data_labeled)=\"LabelsChanged($event)\" (data_boarded)=\"BoardsChanged($event)\"\r\n    (time)=\"timeChange($event)\" (data_listed)=\"ListsChanged($event)\" [style.color]= \"themeservice.textColor\"></app-filters>\r\n</div>\r\n\r\n    <!-- <div class=\"content\">\r\n                <h4 mat-line *ngIf=\"time == 'today'\"><b>Today</b>  <small>{{ aweek[0].toLocaleString().split(',')[0] }}</small></h4>\r\n                <h4 mat-line *ngIf=\"time == 'all'\"><b>All</b></h4>\r\n                <h4 mat-line *ngIf=\"time == '7'\"><b>Next 7 days</b></h4>\r\n                <app-taskbetter2 class=\"spaceout\"></app-taskbetter2>\r\n                <app-taskbetter2 class=\"spaceout\"></app-taskbetter2>\r\n\r\n                <div *ngIf=\"time != '7'\" class=\"more\">\r\n                    <app-taskbetter *ngFor=\"let item of filterd_data\" [item]='item' [time]='time' [aweek]='aweek' class=\"spaceout\" (refresh)=\"refresh($event)\"></app-taskbetter>\r\n                </div>\r\n\r\n                <div *ngIf=\"time == '7'\" class=\"more\">\r\n                    <div *ngFor=\"let day of aweek; let i = index\" class=\"aday\" >\r\n                        <b *ngIf=\"i === 0\">Today</b>\r\n                        <b *ngIf=\"i === 1\">Tomorrow</b>\r\n                        <b *ngIf=\"i > 1\">{{ weekdays[day.getDay()] }}</b>\r\n\r\n                        <div *ngFor=\"let item of filterd_data\">\r\n                            <app-taskbetter *ngIf=\"todayCheck(item,day)\" [item]='item' [time]='time' [aweek]='aweek' (refresh)=\"refresh($event)\" class=\"spaceout\"></app-taskbetter>\r\n                            <app-taskbetter2 class=\"spaceout\"></app-taskbetter2>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n    </div> -->\r\n\r\n    <div class=\"newcontent\" [style.backgroundColor] = \"themeservice.bgColor\" [style.color]= \"themeservice.textColor\">\r\n        <div class=\"title\">\r\n            <h4 mat-line *ngIf=\"time == 'today'\"><b>Today </b>  <small>{{ aweek[0].toLocaleString().split(',')[0] }}</small></h4>\r\n            <h4 mat-line *ngIf=\"time == 'all'\"><b>All</b></h4>\r\n            <h4 mat-line *ngIf=\"time == '7'\"><b>Next 7 days</b></h4>\r\n        </div>\r\n        <div class=\"actualcontent\">\r\n            <div *ngIf=\"time == '7'\" class=\"\">\r\n                <div *ngFor=\"let day of aweek; let i = index\" class=\"\" style=\"padding: 30px\">\r\n                    <b *ngIf=\"i === 0\">Today</b>\r\n                    <b *ngIf=\"i === 1\">Tomorrow</b>\r\n                    <b *ngIf=\"i > 1\">{{ weekdays[day.getDay()] }}</b>\r\n\r\n                    <!-- <div class=\"test\"> </div> -->\r\n                    <!-- <app-taskbetter *ngIf=\"todayCheck(item,day)\" [item]='item' [time]='time' [aweek]='aweek' (refresh)=\"refresh($event)\" class=\"spaceout\"></app-taskbetter> -->\r\n                    <ng-container *ngFor=\"let item of filterd_data\">\r\n                        <!-- <app-taskbetter2></app-taskbetter2> -->\r\n                        <!-- <app-taskbetter *ngIf=\"todayCheck(item,day)\" [item]='item' [time]='time' [aweek]='aweek' (refresh)=\"refresh($event)\" class=\"\"></app-taskbetter> -->\r\n                        <app-taskbetter2 [item]='item' *ngIf=\"todayCheck(item,day)\" [time]='time' [aweek]='aweek' (refresh)=\"refresh($event)\"></app-taskbetter2>\r\n                    </ng-container >\r\n                </div>\r\n            </div>\r\n\r\n            <div *ngIf=\"time != '7'\" class=\"more\">\r\n                <app-taskbetter2 *ngFor=\"let item of filterd_data\" [item]='item' [time]='time' [aweek]='aweek' (refresh)=\"refresh($event)\"></app-taskbetter2>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!-- <div style=\"width: 20%; background-color: red; height: 5%; bottom: 0; position: absolute;\">\r\n\r\n    </div> -->\r\n\r\n    <div class=\"bot\">\r\n        <app-search (searchValue)=\"searched($event)\"></app-search>\r\n    </div>\r\n<!-- </div> -->\r\n\r\n"
 
 /***/ }),
 
@@ -319,6 +326,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _logic_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./logic.service */ "./src/app/mainpage/content/logic.service.ts");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _themes_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../themes.service */ "./src/app/themes.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -331,12 +339,18 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ContentComponent = /** @class */ (function () {
-    function ContentComponent(logic) {
+    // taskhover:boolean = false;
+    // item:any = [];
+    function ContentComponent(logic, themeservice) {
         this.logic = logic;
+        this.themeservice = themeservice;
         this.refreshRoot = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.hahaa = "red";
         this.filterd_data = [];
         this.filterd_data_backup = [];
+        this.week_filterd_data = [];
         this.checkboxes = [];
         this.boardlist = [];
         this.listslist = [];
@@ -344,6 +358,8 @@ var ContentComponent = /** @class */ (function () {
         this.filterd_data_yesdate = [];
         this.time = "all";
         this.searchValue = "";
+        this.aweek = [];
+        this.weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     }
     ContentComponent.prototype.ngOnInit = function () {
         this.init();
@@ -356,6 +372,16 @@ var ContentComponent = /** @class */ (function () {
         this.datasort();
         this.sortDates();
         this.datasource = new _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTableDataSource"](this.filterd_data);
+        this.buildaweek();
+    };
+    ContentComponent.prototype.buildaweek = function () {
+        var today = new Date();
+        // const inweek = new Date();
+        // inweek.setDate(today.getDate() + 7);
+        for (var i = 0; i < 7; i++) {
+            this.aweek.push(new Date(today));
+            today.setDate(today.getDate() + 1);
+        }
     };
     ContentComponent.prototype.datasort = function () {
         for (var i = 0; i < this.filterd_data.length; i++) {
@@ -414,6 +440,7 @@ var ContentComponent = /** @class */ (function () {
     ContentComponent.prototype.timeChange = function (time) {
         this.time = time;
         this.updateData();
+        console.log(this.filterd_data);
     };
     ContentComponent.prototype.searched = function (value) {
         this.datasource.filter = value.trim().toLowerCase();
@@ -426,6 +453,27 @@ var ContentComponent = /** @class */ (function () {
         var index = this.data.findIndex(function (item) { return item.id == id; });
         this.data.splice(index, 1);
         this.init();
+    };
+    // hoveroutput(item)
+    // {
+    //   if(item.hover)
+    //   {
+    //     console.log("hello this is shit");
+    //     this.taskhover=true;
+    //     this.item = item.item;
+    //     console.log(this.item);
+    //   }
+    //   else
+    //   {
+    //     this.taskhover= false;
+    //   }
+    // }
+    ContentComponent.prototype.todayCheck = function (item, date) {
+        var itemdate = new Date(item.date);
+        return (itemdate.getDay() == date.getDay());
+    };
+    ContentComponent.prototype.haha = function (item) {
+        console.log(item);
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -441,7 +489,7 @@ var ContentComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./content.component.html */ "./src/app/mainpage/content/content.component.html"),
             styles: [__webpack_require__(/*! ./content.component.css */ "./src/app/mainpage/content/content.component.css")]
         }),
-        __metadata("design:paramtypes", [_logic_service__WEBPACK_IMPORTED_MODULE_1__["LogicService"]])
+        __metadata("design:paramtypes", [_logic_service__WEBPACK_IMPORTED_MODULE_1__["LogicService"], _themes_service__WEBPACK_IMPORTED_MODULE_3__["ThemesService"]])
     ], ContentComponent);
     return ContentComponent;
 }());
@@ -457,7 +505,7 @@ var ContentComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".filters {\r\n    position: relative;\r\n   left: -50%;\r\n   float: left;\r\n}\r\n\r\n.wrapper\r\n{\r\n   position: relative;\r\n   left: 50%;\r\n   float: left;\r\n   background-color: red;\r\n}\r\n\r\n.filteroptions\r\n{\r\n    padding: 20px;\r\n    font-size: 1.5em;\r\n    font-display: bold;\r\n    width: 50%;\r\n}\r\n\r\n.item\r\n{\r\n    /* background-color: white; */\r\n    transition-duration: 0.5s;\r\n    margin-top: 10px;\r\n}\r\n\r\n.itemselected\r\n{\r\n    background-color: lightgray;\r\n}\r\n\r\n.item:hover\r\n{\r\n    background-color: lightgray;\r\n}\r\n\r\n.iteminside\r\n{\r\n    \r\n}\r\n\r\n.iteminside:hover\r\n{\r\n    background-color: lightgray;\r\n}\r\n\r\n/* .item:hover\r\n{\r\n    background-color: lightblue;\r\n} */\r\n\r\n.expansion\r\n{\r\n    background-color: rgba(245, 245, 245, 0);\r\n    margin-top: 10px;\r\n}\r\n\r\n.expansiontitle\r\n{\r\n    font-size: 1.5em;\r\n    font-display: bold;\r\n    padding: 0px;\r\n    margin: 0px;\r\n}\r\n\r\n.expansionbody\r\n{\r\n    display: flex;\r\n    flex-direction: column;\r\n}"
+module.exports = "\r\n.filters {\r\n    position: relative;\r\n   left: -50%;\r\n   float: left;\r\n}\r\n\r\n.wrapper\r\n{\r\n   position: relative;\r\n   left: 50%;\r\n   float: left;\r\n   background-color: red;\r\n}\r\n\r\n.filteroptions\r\n{\r\n    padding: 20px;\r\n    font-size: 1.5em;\r\n    font-display: bold;\r\n    width: 50%;\r\n}\r\n\r\n.item\r\n{\r\n    /* background-color: white; */\r\n    transition-duration: 0.5s;\r\n    margin-top: 10px;\r\n}\r\n\r\n.itemselected\r\n{\r\n    background-color: lightgray;\r\n}\r\n\r\n.item:hover\r\n{\r\n    background-color: rgba(200,200,200,0.2);;\r\n}\r\n\r\n.iteminside\r\n{\r\n    \r\n}\r\n\r\n.iteminside:hover\r\n{\r\n    background-color: lightgray;\r\n}\r\n\r\n/* .item:hover\r\n{\r\n    background-color: lightblue;\r\n} */\r\n\r\n.expansion\r\n{\r\n    background-color: rgba(245, 245, 245, 0);\r\n    margin-top: 10px;\r\n}\r\n\r\n.expansiontitle\r\n{\r\n    font-size: 1.5em;\r\n    font-display: bold;\r\n    padding: 0px;\r\n    margin: 0px;\r\n}\r\n\r\n.expansionbody\r\n{\r\n    display: flex;\r\n    flex-direction: column;\r\n}"
 
 /***/ }),
 
@@ -468,7 +516,7 @@ module.exports = ".filters {\r\n    position: relative;\r\n   left: -50%;\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div class=\"wrapper\">\n  <mat-card class=\"mat-elevation-z8 centered filters\" color=\"primary\">\n      <mat-checkbox *ngFor=\"let item of checklist\" [(ngModel)]=\"item.isSelected\" style=\"margin-right: 10px;\" (change)=\"checkBoxClick(item.value,$event.checked)\" color=\"warn\">{{item.value}}</mat-checkbox>\n  </mat-card>\n</div> -->\n\n<!-- mat-elevation-z2 -->\n<!-- itemselected -->\n<div class=\"filteroptions\">\n  <div class=\"item\" (click)=\"timeClick('today')\" [ngClass]=\"{'color-primary-bg':type=='today'}\"> \n    <mat-icon>today</mat-icon> Today\n  </div>\n  <div class=\"item\" (click)=\"timeClick('7')\" [ngClass]=\"{'color-primary-bg':type=='7'}\">\n    <mat-icon>event</mat-icon> Next week\n  </div>\n  <div class=\"item\" (click)=\"timeClick('all')\" [ngClass]=\"{'color-primary-bg':type=='all'}\">\n    <mat-icon>date_range</mat-icon> All\n  </div>\n\n  <mat-expansion-panel class=\"expansion mat-elevation-z0\">\n      <mat-expansion-panel-header>\n        <mat-panel-title class=\"expansiontitle\">\n          <mat-icon>assignment</mat-icon> Boards\n        </mat-panel-title>\n      </mat-expansion-panel-header>\n        <div class=\"expansionbody\">\n          <mat-checkbox *ngFor=\"let item of boardlist\" [(ngModel)]=\"item.isSelected\" style=\"margin-right: 10px;\" \n          (change)=\"boardClick(item.value,$event.checked)\" color=\"warn\">{{item.value}}</mat-checkbox>\n        </div>\n  </mat-expansion-panel>\n\n  <mat-expansion-panel class=\"expansion mat-elevation-z0\">\n    <mat-expansion-panel-header>\n      <mat-panel-title class=\"expansiontitle\">\n        <mat-icon>list</mat-icon>  Lists\n      </mat-panel-title>\n    </mat-expansion-panel-header>\n\n      <div class=\"expansionbody\">\n        <mat-checkbox *ngFor=\"let item of listslist\" [(ngModel)]=\"item.isSelected\" style=\"margin-right: 10px;\" \n        (change)=\"ListClick(item.value,$event.checked)\" color=\"warn\">{{item.value}}</mat-checkbox>\n      </div>\n  </mat-expansion-panel>\n\n  <mat-expansion-panel class=\"expansion mat-elevation-z0\">\n      <mat-expansion-panel-header>\n        <mat-panel-title class=\"expansiontitle\">\n          <mat-icon>label</mat-icon>  Labels\n        </mat-panel-title>\n      </mat-expansion-panel-header>\n\n        <div class=\"expansionbody\">\n          <mat-checkbox *ngFor=\"let item of checklist\" [(ngModel)]=\"item.isSelected\" style=\"margin-right: 10px;\" \n          (change)=\"filterClick(item.value,$event.checked)\" color=\"warn\">{{item.value}}</mat-checkbox>\n        </div>\n  </mat-expansion-panel>\n\n</div>"
+module.exports = "<!-- <div class=\"wrapper\">\n  <mat-card class=\"mat-elevation-z8 centered filters\" color=\"primary\">\n      <mat-checkbox *ngFor=\"let item of checklist\" [(ngModel)]=\"item.isSelected\" style=\"margin-right: 10px;\" (change)=\"checkBoxClick(item.value,$event.checked)\" color=\"warn\">{{item.value}}</mat-checkbox>\n  </mat-card>\n</div> -->\n\n<!-- mat-elevation-z2 -->\n<!-- itemselected -->\n<div class=\"filteroptions\">\n  <div class=\"item\" (click)=\"timeClick('today')\" [ngClass]=\"{'color-white':type=='today'}\"> \n    <mat-icon>today</mat-icon> Today\n  </div>\n  <div class=\"item\" (click)=\"timeClick('7')\" [ngClass]=\"{'color-white':type=='7'}\">\n    <mat-icon>event</mat-icon> Next week\n  </div>\n  <div class=\"item\" (click)=\"timeClick('all')\" [ngClass]=\"{'color-white':type=='all'}\">\n    <mat-icon>date_range</mat-icon> All\n  </div>\n\n  <mat-expansion-panel class=\"expansion mat-elevation-z0\">\n      <mat-expansion-panel-header>\n        <mat-panel-title class=\"expansiontitle\">\n          <mat-icon>assignment</mat-icon> Boards\n        </mat-panel-title>\n      </mat-expansion-panel-header>\n        <div class=\"expansionbody\">\n          <mat-checkbox *ngFor=\"let item of boardlist\" [(ngModel)]=\"item.isSelected\" style=\"margin-right: 10px;\" \n          (change)=\"boardClick(item.value,$event.checked)\" color=\"warn\">{{item.value}}</mat-checkbox>\n        </div>\n  </mat-expansion-panel>\n\n  <mat-expansion-panel class=\"expansion mat-elevation-z0\">\n    <mat-expansion-panel-header>\n      <mat-panel-title class=\"expansiontitle\">\n        <mat-icon>list</mat-icon>  Lists\n      </mat-panel-title>\n    </mat-expansion-panel-header>\n\n      <div class=\"expansionbody\">\n        <mat-checkbox *ngFor=\"let item of listslist\" [(ngModel)]=\"item.isSelected\" style=\"margin-right: 10px;\" \n        (change)=\"ListClick(item.value,$event.checked)\" color=\"warn\">{{item.value}}</mat-checkbox>\n      </div>\n  </mat-expansion-panel>\n\n  <mat-expansion-panel class=\"expansion mat-elevation-z0\">\n      <mat-expansion-panel-header>\n        <mat-panel-title class=\"expansiontitle\">\n          <mat-icon>label</mat-icon>  Labels\n        </mat-panel-title>\n      </mat-expansion-panel-header>\n\n        <div class=\"expansionbody\">\n          <mat-checkbox *ngFor=\"let item of checklist\" [(ngModel)]=\"item.isSelected\" style=\"margin-right: 10px;\" \n          (change)=\"filterClick(item.value,$event.checked)\" color=\"warn\">{{item.value}}</mat-checkbox>\n        </div>\n  </mat-expansion-panel>\n\n</div>"
 
 /***/ }),
 
@@ -727,7 +775,7 @@ var LogicService = /** @class */ (function () {
         if (time == "all")
             return data;
         for (var i = 0; i < data.length; i++) {
-            if (time == "today") {
+            if (time === "today") {
                 if (this.isToday(new Date(data[i].date))) {
                     newdata.push(data[i]);
                 }
@@ -742,9 +790,10 @@ var LogicService = /** @class */ (function () {
     };
     LogicService.prototype.isNext7days = function (somedate) {
         var today = new Date();
+        today.setHours(0, 0, 0, 0);
         var inweek = new Date();
         inweek.setDate(today.getDate() + 7);
-        return (somedate.getTime() > today.getTime() && somedate.getTime() < inweek.getTime());
+        return (somedate.getTime() >= today.getTime() && somedate.getTime() < inweek.getTime());
     };
     LogicService.prototype.sameObjectAlreadyThere = function (newdata, currentdata) {
         for (var i = 0; i < newdata.length; i++) {
@@ -832,7 +881,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field style=\"bottom:0; left: 0; padding-left: 40px; width: 100%; font-size: 1.5em;\">\n  <input matInput placeholder=\"Search..\" autocomplete=\"off\" (keyup)=\"search($event.target.value)\" />\n</mat-form-field>"
+module.exports = "<mat-form-field style=\"bottom:0; left: 0; padding-left: 40px; width: 100%; font-size: 1.5em;\">\n  <input matInput placeholder=\"Search..\" autocomplete=\"off\" (keyup)=\"search($event.target.value)\"/>\n</mat-form-field>"
 
 /***/ }),
 
@@ -989,6 +1038,263 @@ var TaskComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/mainpage/content/taskbetter/taskbetter.component.css":
+/*!**********************************************************************!*\
+  !*** ./src/app/mainpage/content/taskbetter/taskbetter.component.css ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".task\r\n{\r\n    width: 50%;\r\n    height: 50px;\r\n    /* height: 100%; */\r\n    position: relative;\r\n    /* padding-top: 20px; */\r\n    /* margin-left: 30px; */\r\n    background-color: blue;\r\n    transition: all 0.5s ease-in-out; \r\n}\r\n\r\n.content\r\n{\r\n    position: relative;\r\n    transition: all 0.5s ease-in-out; \r\n    left: 0;\r\n    top: 0;\r\n    height: 30px;\r\n    width: 100%;\r\n    padding: 15px;\r\n}\r\n\r\n/* .contentexpand\r\n{\r\n    transition: all 0.5s ease-in-out; \r\n    left: 0;\r\n    top: 0;\r\n    height: 100px;\r\n    width: 100%;\r\n    padding: 15px;\r\n} */\r\n\r\n/* .poop\r\n{\r\n    position: absolute;\r\n    height: 30px;\r\n    width: 100%;\r\n}\r\n.hara\r\n{\r\n    position: absolute;\r\n    width:  10%;\r\n    height: 100%;\r\n    background-color: yellow;\r\n} */\r\n\r\n.side\r\n{\r\n    height: 100%;\r\n    width: 8%;\r\n    left: -10px;\r\n    background-color: gray;\r\n    position: absolute;\r\n    /* min-width: 100px; */\r\n}\r\n\r\n.therest\r\n{\r\n    height: 100%;\r\n    width: 95%;\r\n    right: 0;\r\n    background-color: yellow;\r\n    position: absolute;\r\n}\r\n\r\n.contentbot\r\n{\r\n    /* background-color: orange; */\r\n    position: absolute;\r\n    bottom: 0;\r\n    width: 100%;\r\n    height: 30%;\r\n    margin-bottom: -25px;\r\n    /* display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-around; */\r\n}\r\n\r\n.divider\r\n{\r\n    border-width: 2px;\r\n    /* border-style: solid; */\r\n}\r\n\r\n.info\r\n{\r\n    position: absolute;\r\n    /* background-color: green; */\r\n    width: 30%;\r\n    right: 0;\r\n    height: 50%;\r\n    top: 0;\r\n    padding: 10px;\r\n}\r\n\r\n.data\r\n{\r\n    padding-top: 20px;\r\n}\r\n\r\n.icon\r\n{\r\n    bottom: 0;\r\n    position: relative;\r\n}\r\n\r\n/* .content:hover\r\n{\r\n\r\n    height: 100px;\r\n} */\r\n\r\n/* transform: scaleY(2); */"
+
+/***/ }),
+
+/***/ "./src/app/mainpage/content/taskbetter/taskbetter.component.html":
+/*!***********************************************************************!*\
+  !*** ./src/app/mainpage/content/taskbetter/taskbetter.component.html ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!-- <mat-list *ngIf=\"time != '7'\">\r\n  <mat-list-item *ngIf=\"time == 'today'\"><p><small>{{ item.date.split(',')[1] }}</small></p></mat-list-item>\r\n  <mat-list-item *ngIf=\"time == 'all'\"><p><small>{{ item.date }}</small></p></mat-list-item>\r\n  <mat-divider></mat-divider>\r\n  <mat-list-item>{{ item.text }}</mat-list-item>\r\n  <mat-divider></mat-divider>\r\n</mat-list>\r\n\r\n<mat-list *ngIf=\"time == '7'\">\r\n  <mat-list-item><p><small>{{ item.date.split(',')[1] }}</small></p></mat-list-item>\r\n  <mat-divider></mat-divider>\r\n  <div class=\"content\">\r\n    <mat-list-item>{{ item.text }}</mat-list-item>\r\n  </div>\r\n  <mat-divider></mat-divider>\r\n</mat-list> -->\r\n<!-- (mouseenter) = \"hover(true)\"  (mouseleave) = \"hover(false)\" -->\r\n<!-- [ngClass]=\"isexpand ? 'contentexpand' : 'content'\" -->\r\n\r\n<div *ngIf=\"time != '7'\" class=\"task\" [style.height.%]=\"height\">\r\n\r\n        <div class=\"side\" (click)=\"expand()\">\r\n            <mat-icon class=\"icon\" >{{ expandvalue }}</mat-icon>\r\n        </div>\r\n\r\n        <div class=\"therest\">\r\n            <p *ngIf=\"time == 'today'\"><small>{{ item.date.split(',')[1] }}</small></p>\r\n            <p *ngIf=\"time == 'all'\"><small>{{ item.date }}</small></p>\r\n            <mat-divider></mat-divider>\r\n            <div class=\"content\" >\r\n                {{ item.text }}\r\n                <div class=\"contentbot\" *ngIf=\"isexpand\">\r\n                    <div> Labels: {{ item.labels }} </div>\r\n                    <div> list {{ item.list }} </div>\r\n                    <div> board: {{ item.board }} </div>\r\n                </div>\r\n            </div>\r\n            <mat-divider></mat-divider>\r\n        </div>\r\n</div>\r\n\r\n<div *ngIf=\"time == '7'\" class=\"task\" [style.height.%]=\"height\">\r\n\r\n    <div class=\"side\" (click)=\"expand()\">\r\n        <mat-icon class=\"icon\" >{{ expandvalue }}</mat-icon>\r\n    </div>\r\n\r\n    <div class=\"therest\">\r\n        <p><small>{{ item.date.split(',')[1] }}</small></p>\r\n        <mat-divider></mat-divider>\r\n        <div class=\"content\" >\r\n            {{ item.text }}\r\n            <div class=\"contentbot\" *ngIf=\"isexpand\">\r\n                <div> Labels: {{ item.labels }} </div>\r\n                <div> list {{ item.list }} </div>\r\n                <div> board: {{ item.board }} </div>\r\n            </div>\r\n        </div>\r\n        <mat-divider></mat-divider>\r\n    </div>\r\n\r\n    <!-- <p><small>{{ item.date.split(',')[1] }}</small></p>\r\n    <mat-divider></mat-divider>\r\n    <div class=\"content\">\r\n        {{ item.text }}\r\n    </div>\r\n    <mat-divider></mat-divider> -->\r\n</div>\r\n\r\n<!-- <div class=\"info\">\r\n    <p class=\"data\">List: {{ item.list }} </p>\r\n    <mat-divider></mat-divider>\r\n    <p class=\"data\">Board: {{ item.board }} </p>\r\n    <mat-divider></mat-divider>\r\n    <p class=\"data\">Labels: {{ item.labels }} </p>\r\n    <mat-divider></mat-divider>\r\n</div> -->"
+
+/***/ }),
+
+/***/ "./src/app/mainpage/content/taskbetter/taskbetter.component.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/mainpage/content/taskbetter/taskbetter.component.ts ***!
+  \*********************************************************************/
+/*! exports provided: TaskbetterComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskbetterComponent", function() { return TaskbetterComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../user.service */ "./src/app/mainpage/user.service.ts");
+/* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/snack-bar */ "./node_modules/@angular/material/esm5/snack-bar.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var TaskbetterComponent = /** @class */ (function () {
+    function TaskbetterComponent(userservice, snackBar) {
+        this.userservice = userservice;
+        this.snackBar = snackBar;
+        this.refresh = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        // @Output() onhoveroutput: EventEmitter<any> =  new EventEmitter();
+        this.isexpand = false;
+        this.height = 100;
+        this.expandvalue = "expand_more";
+    }
+    TaskbetterComponent.prototype.ngOnInit = function () {
+        // console.log(this.item);
+    };
+    TaskbetterComponent.prototype.deleteTask = function (id) {
+        // this.openSnackBar("Hey","ok");
+        var _this = this;
+        console.log("deleting item " + id);
+        this.userservice.deleteTask(id).subscribe(function (res) {
+            console.log(res);
+            if (res.status) {
+                console.log("succesful delete");
+                _this.refresh.emit(id);
+                _this.openSnackBar("Completed!", "ok");
+            }
+            else {
+                console.log("error");
+                _this.openSnackBar("Error completing. Try again soon", "Ouch");
+            }
+        }, function (err) {
+            console.log("Error occured+ :: " + err);
+            _this.openSnackBar("Error contacting API. Try again soon", "Ouch");
+        });
+    };
+    //  hover(type)
+    //  {
+    //   let item = {item: this.item, hover: type};
+    //   this.onhoveroutput.emit(item);
+    //  }
+    TaskbetterComponent.prototype.expand = function () {
+        this.isexpand = !this.isexpand;
+        if (this.isexpand) {
+            this.height = 200;
+            this.expandvalue = "expand_less";
+        }
+        else {
+            this.height = 100;
+            this.expandvalue = "expand_more";
+        }
+    };
+    TaskbetterComponent.prototype.openSnackBar = function (message, action) {
+        this.snackBar.open(message, action, {
+            duration: 4000,
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], TaskbetterComponent.prototype, "item", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], TaskbetterComponent.prototype, "time", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], TaskbetterComponent.prototype, "aweek", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], TaskbetterComponent.prototype, "refresh", void 0);
+    TaskbetterComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-taskbetter',
+            template: __webpack_require__(/*! ./taskbetter.component.html */ "./src/app/mainpage/content/taskbetter/taskbetter.component.html"),
+            styles: [__webpack_require__(/*! ./taskbetter.component.css */ "./src/app/mainpage/content/taskbetter/taskbetter.component.css")]
+        }),
+        __metadata("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"], _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"]])
+    ], TaskbetterComponent);
+    return TaskbetterComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/mainpage/content/taskbetter2/taskbetter2.component.css":
+/*!************************************************************************!*\
+  !*** ./src/app/mainpage/content/taskbetter2/taskbetter2.component.css ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".hara\r\n{\r\n    height: 150px;\r\n    width: 50%;\r\n    /* background-color: pink !important;  */\r\n    position: relative;\r\n    margin-top: 30px;\r\n    margin-left: 20px;\r\n    transition: all 0.3s ease-in-out; \r\n}\r\n\r\n.side\r\n{\r\n    height: 100%;\r\n    width: 5%;\r\n    left: 0;\r\n    /* background-color: gray; */\r\n    position: absolute;\r\n}\r\n\r\n.rest\r\n{\r\n    height: 100%;\r\n    width: 95%;\r\n    right: 0;\r\n    /* background-color: yellow; */\r\n    position: absolute;\r\n    /* transition: all 0.5s ease-in-out;  */\r\n}\r\n\r\n.content\r\n{\r\n    position: relative;\r\n    left: 0;\r\n    top: 0;\r\n    height: 50px;\r\n    width: 100%;\r\n    padding: 15px;\r\n    /* transition: all 0.5s ease-in-out;  */\r\n}\r\n\r\n.icon\r\n{\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.contentbot\r\n{\r\n    position: absolute;\r\n    /* transition: all 0.5s ease-in-out;  */\r\n    padding-left: 15px;\r\n    bottom: 0;\r\n}\r\n\r\n.delete\r\n{\r\n    right: 0;\r\n    position: absolute;\r\n    bottom: 0;\r\n    padding-top: 30px;\r\n    padding-right: 30px;\r\n}\r\n\r\n.delete:hover\r\n{\r\n    color: red;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/mainpage/content/taskbetter2/taskbetter2.component.html":
+/*!*************************************************************************!*\
+  !*** ./src/app/mainpage/content/taskbetter2/taskbetter2.component.html ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf=\"time != '7'\" class=\"hara\" [style.height.px]=\"height\">\n    <div class=\"side\">\n        <mat-icon class=\"icon\" (click)=\"expand()\" >{{ expandvalue }}</mat-icon>\n    </div>\n    <div class=\"rest\" >\n        <p *ngIf=\"time == 'today'\"><small>{{ item.date.split(',')[1] }}</small></p>\n        <p *ngIf=\"time == 'all'\"><small>{{ item.date }}</small></p>\n        <mat-divider></mat-divider>\n        <div class=\"content\" >\n          {{ item.text }}\n        </div>\n        <div class=\"contentbot\" *ngIf=\"isexpand\">\n          <div> Labels: {{ item.labels }} </div>\n          <div> list {{ item.list }} </div>\n          <div> board: {{ item.board }} </div>\n        </div>\n        <mat-divider></mat-divider>\n    </div>\n  </div>\n\n\n<div *ngIf=\"time == '7'\" class=\"hara\" [style.height.px]=\"height\">\n  <div class=\"side\">\n      <mat-icon class=\"icon\" (click)=\"expand()\" >{{ expandvalue }}</mat-icon>\n  </div>\n  <div class=\"rest\" >\n      <p><small>{{ item.date.split(',')[1] }}</small></p>\n      <mat-divider></mat-divider>\n      <div class=\"content\">\n        {{ item.text }}\n        <div class=\"delete\" *ngIf=\"isexpand\" (click)=\"deleteTask(item.id)\">\n            <mat-icon>done</mat-icon>\n        </div>\n      </div>\n      <div class=\"contentbot\" *ngIf=\"isexpand\">\n        <div> Labels: {{ item.labels }} </div>\n        <div> list {{ item.list }} </div>\n        <div> board: {{ item.board }} </div>\n      </div>\n      <mat-divider></mat-divider>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/mainpage/content/taskbetter2/taskbetter2.component.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/mainpage/content/taskbetter2/taskbetter2.component.ts ***!
+  \***********************************************************************/
+/*! exports provided: Taskbetter2Component */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Taskbetter2Component", function() { return Taskbetter2Component; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../user.service */ "./src/app/mainpage/user.service.ts");
+/* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/snack-bar */ "./node_modules/@angular/material/esm5/snack-bar.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var Taskbetter2Component = /** @class */ (function () {
+    function Taskbetter2Component(userservice, snackBar) {
+        this.userservice = userservice;
+        this.snackBar = snackBar;
+        this.refresh = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.isexpand = false;
+        this.height = 150;
+        this.expandvalue = "expand_more";
+    }
+    Taskbetter2Component.prototype.ngOnInit = function () {
+    };
+    Taskbetter2Component.prototype.expand = function () {
+        this.isexpand = !this.isexpand;
+        if (this.isexpand) {
+            this.height = 200;
+            this.expandvalue = "expand_less";
+        }
+        else {
+            this.height = 150;
+            this.expandvalue = "expand_more";
+        }
+    };
+    Taskbetter2Component.prototype.deleteTask = function (id) {
+        // this.openSnackBar("Hey","ok");
+        var _this = this;
+        console.log("deleting item " + id);
+        this.userservice.deleteTask(id).subscribe(function (res) {
+            console.log(res);
+            if (res.status) {
+                console.log("succesful delete");
+                _this.refresh.emit(id);
+                _this.openSnackBar("Completed!", "ok");
+            }
+            else {
+                console.log("error");
+                _this.openSnackBar("Error completing. Try again soon", "Ouch");
+            }
+        }, function (err) {
+            console.log("Error occured+ :: " + err);
+            _this.openSnackBar("Error contacting API. Try again soon", "Ouch");
+        });
+    };
+    Taskbetter2Component.prototype.openSnackBar = function (message, action) {
+        this.snackBar.open(message, action, {
+            duration: 4000,
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], Taskbetter2Component.prototype, "item", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], Taskbetter2Component.prototype, "time", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], Taskbetter2Component.prototype, "aweek", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], Taskbetter2Component.prototype, "refresh", void 0);
+    Taskbetter2Component = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-taskbetter2',
+            template: __webpack_require__(/*! ./taskbetter2.component.html */ "./src/app/mainpage/content/taskbetter2/taskbetter2.component.html"),
+            styles: [__webpack_require__(/*! ./taskbetter2.component.css */ "./src/app/mainpage/content/taskbetter2/taskbetter2.component.css")]
+        }),
+        __metadata("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"], _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"]])
+    ], Taskbetter2Component);
+    return Taskbetter2Component;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/mainpage/header/header.component.css":
 /*!******************************************************!*\
   !*** ./src/app/mainpage/header/header.component.css ***!
@@ -996,7 +1302,7 @@ var TaskComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* .header\r\n{\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 15%;\r\n} */\r\n.example-spacer {\r\n    flex: 1 1 auto;\r\n  }\r\n.title\r\n{\r\n    text-align: center;\r\n    font-size: 2em;\r\n}\r\n.logout\r\n{\r\n    transition-duration: 0.5s;\r\n    font-size: 36px;\r\n    padding: 0;\r\n    margin-bottom: 7.5px;\r\n    margin-right: 7.5px;\r\n}\r\n.logout:hover\r\n{\r\n    color: red;\r\n}"
+module.exports = "/* .header\r\n{\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 15%;\r\n} */\r\n.example-spacer {\r\n    flex: 1 1 auto;\r\n  }\r\n.title\r\n{\r\n    text-align: center;\r\n    font-size: 2em;\r\n}\r\n.logout\r\n{\r\n    transition-duration: 0.5s;\r\n    font-size: 36px;\r\n    padding: 0;\r\n    margin-bottom: 7.5px;\r\n    margin-right: 7.5px;\r\n}\r\n.logout:hover\r\n{\r\n    color: blue;\r\n}\r\n.theme\r\n{\r\n    padding-right: 50px;\r\n    transition-duration: 0.3s;\r\n}\r\n.theme:hover\r\n{\r\n    color:blue\r\n}"
 
 /***/ }),
 
@@ -1007,7 +1313,7 @@ module.exports = "/* .header\r\n{\r\n    position: absolute;\r\n    width: 100%;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-menu #appMenu=\"matMenu\">\n    <!-- <button mat-menu-item (click)=\"toggleTheme()\"> Switch theme </button>\n    <button mat-menu-item (click)=\"help()\"> Help </button>\n    <button mat-menu-item (click)=\"logout()\"> Logout </button> -->\n</mat-menu>\n\n<mat-toolbar color=\"primary\">\n    <span>Hello {{ user }}</span>\n    <mat-icon class=\"example-icon\" aria-hidden=\"false\" aria-label=\"Example user verified icon\">verified_user</mat-icon>\n    <span class=\"example-spacer\"></span>\n    <button mat-button [matMenuTriggerFor]=\"appMenu\"><mat-icon>settings</mat-icon></button>\n    <mat-icon class=\"logout\" (click)=\"logout()\">arrow_back</mat-icon>\n</mat-toolbar>\n\n<!-- <p class=\"title\"> Your tasks: </p> -->"
+module.exports = "<mat-menu #appMenu=\"matMenu\">\n    <!-- <button mat-menu-item (click)=\"toggleTheme()\"> Switch theme </button>\n    <button mat-menu-item (click)=\"help()\"> Help </button>\n    <button mat-menu-item (click)=\"logout()\"> Logout </button> -->\n</mat-menu>\n\n<mat-toolbar color=\"primary\">\n    <span>Hello {{ user }}</span>\n    <mat-icon class=\"example-icon\" aria-hidden=\"false\" aria-label=\"Example user verified icon\">verified_user</mat-icon>\n    <span class=\"example-spacer\"></span>\n    <!-- <button mat-button [matMenuTriggerFor]=\"appMenu\"><mat-icon>settings</mat-icon></button> -->\n    <mat-icon class=\"theme\" (click)=\"toggleTheme()\">colorize</mat-icon>\n    <mat-icon class=\"logout\" (click)=\"logout()\">arrow_back</mat-icon>\n</mat-toolbar>\n\n<!-- <p class=\"title\"> Your tasks: </p> -->"
 
 /***/ }),
 
@@ -1040,22 +1346,47 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var dark = 'dark-theme';
 var light = 'default-theme';
 var HeaderComponent = /** @class */ (function () {
-    // @Output() themechange: EventEmitter<Boolean> =  new EventEmitter();
     function HeaderComponent(router, overlayContainer) {
         this.router = router;
         this.overlayContainer = overlayContainer;
         this.isdarktheme = false;
+        this.themechange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
-    // @HostBinding('class') componentCssClass;
     HeaderComponent.prototype.ngOnInit = function () {
     };
     HeaderComponent.prototype.logout = function () {
         this.router.navigate([""]);
     };
+    HeaderComponent.prototype.toggleTheme = function () {
+        this.isdarktheme = !this.isdarktheme;
+        this.themechange.emit(this.isdarktheme);
+        // if(this.isdarktheme)
+        // {
+        //   this.overlayContainer.getContainerElement().classList.add(dark);
+        //   this.overlayContainer.getContainerElement().classList.remove(light);
+        //   this.componentCssClass = dark;
+        //   localStorage.setItem("theme", dark);
+        // }
+        // else
+        // {
+        //   this.overlayContainer.getContainerElement().classList.add(light);
+        //   this.overlayContainer.getContainerElement().classList.remove(dark);
+        //   this.componentCssClass = light;
+        //   localStorage.setItem("theme", light);
+        // }
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", String)
     ], HeaderComponent.prototype, "user", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], HeaderComponent.prototype, "themechange", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class'),
+        __metadata("design:type", Object)
+    ], HeaderComponent.prototype, "componentCssClass", void 0);
     HeaderComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-header',
@@ -1078,7 +1409,7 @@ var HeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n.content\r\n{\r\n    overflow: hidden;\r\n}\r\n\r\n.error\r\n{\r\n    text-align:center;\r\n}"
+module.exports = "\r\n.content\r\n{\r\n    overflow: hidden;\r\n}\r\n\r\n.error\r\n{\r\n    text-align:center;\r\n}\r\n\r\n"
 
 /***/ }),
 
@@ -1106,6 +1437,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./user.service */ "./src/app/mainpage/user.service.ts");
 /* harmony import */ var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/overlay */ "./node_modules/@angular/cdk/esm5/overlay.es5.js");
+/* harmony import */ var _themes_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../themes.service */ "./src/app/themes.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1118,14 +1450,16 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 // import { hostname } from 'os';
 var dark = 'dark-theme';
 var light = 'default-theme';
 var MainpageComponent = /** @class */ (function () {
-    function MainpageComponent(userservice, cd, overlayContainer) {
+    function MainpageComponent(userservice, cd, overlayContainer, themeservice) {
         this.userservice = userservice;
         this.cd = cd;
         this.overlayContainer = overlayContainer;
+        this.themeservice = themeservice;
         // @HostBinding('class') componentCssClass;
         this.user = "";
         this.data = [];
@@ -1139,18 +1473,24 @@ var MainpageComponent = /** @class */ (function () {
         // });
         // console.log("??????? "+this.userservice.user);
         this.user = this.userservice.user;
+        // this.overlayContainer.getContainerElement().classList.add(dark);
+        // this.overlayContainer.getContainerElement().classList.remove(light);
+        // this.componentCssClass = dark;
+        // Uncomment this for prod:
         this.userservice.getData().subscribe(function (data) {
             _this.data = data;
             _this.cd.detectChanges();
             console.log(data);
         });
-        //2019-07-07T 9:30:00.0
-        // this.data = [{id:"1",text:"important mission1",list:"a good list",board:"bisli",labels:["general"],date:"2019-08-13T09:30",userid:"2"},
-        //              {id:"2",text:"important mission2",list:"better list",board:"bisli2",labels:["general","meme"],date:"2026-08-12T15:20",userid:"2"},
-        //              {id:"3",text:"important mission3",list:"better list",board:"bisli",labels:["bamba"],date:"none",userid:"2"},
+        // ==============================
+        // Uncomment this for dev:
+        // this.data = [{id:"1",text:"important mission1",list:"a good list",board:"bisli",labels:["general"],date:"2019-09-03T09:30",userid:"2"},
+        //              {id:"2",text:"important mission2",list:"better list",board:"bisli2",labels:["general","meme"],date:"2019-09-03T15:20",userid:"2"},
+        //              {id:"3",text:"important mission3",list:"better list",board:"bisli",labels:["bamba"],date:"2019-09-06T15:20",userid:"2"},
         //              {id:"5",text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:undefined,userid:"2"},
-        //              {id:"13",text:"important mission5",list:"better list",board:"bisli",labels:["general"],date:"2019-08-17T14:05",userid:"2"},
+        //              {id:"13",text:"important mission5",list:"better list",board:"bisli",labels:["general"],date:"2019-09-08T14:05",userid:"2"},
         //              {id:"139",text:"make pizza",list:"pro",board:"goodboard",labels:["meme"],date:"2019-08-15T13:05",userid:"2"}];
+        // ==============================
         // this.data = [{text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:"none",userid:"2"},
         //             {text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:"none",userid:"2"}];
         // console.log(this.data);
@@ -1167,19 +1507,47 @@ var MainpageComponent = /** @class */ (function () {
     };
     MainpageComponent.prototype.request = function () {
     };
+    MainpageComponent.prototype.onThemeChange = function (isdarktheme) {
+        // if(isdarktheme)
+        // {
+        // this.overlayContainer.getContainerElement().classList.add(dark);
+        // this.overlayContainer.getContainerElement().classList.remove(light);
+        // this.componentCssClass = dark;
+        // localStorage.setItem("theme", dark);
+        // }
+        // else
+        // {
+        // this.overlayContainer.getContainerElement().classList.add(light);
+        // this.overlayContainer.getContainerElement().classList.remove(dark);
+        // this.componentCssClass = light;
+        // localStorage.setItem("theme", light);
+        // }
+        var isdark = this.themeservice.toggleTheme();
+        if (isdark) {
+            this.overlayContainer.getContainerElement().classList.add(dark);
+            this.overlayContainer.getContainerElement().classList.remove(light);
+            this.componentCssClass = dark;
+            localStorage.setItem("theme", dark);
+        }
+        else {
+            this.overlayContainer.getContainerElement().classList.add(light);
+            this.overlayContainer.getContainerElement().classList.remove(dark);
+            this.componentCssClass = light;
+            localStorage.setItem("theme", light);
+        }
+    };
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class.is-open')
-        // @HostBinding('class') componentCssClass;
-        ,
-        __metadata("design:type", String)
-    ], MainpageComponent.prototype, "user", void 0);
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class.is-open'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class'),
+        __metadata("design:type", Object)
+    ], MainpageComponent.prototype, "componentCssClass", void 0);
     MainpageComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-mainpage',
             template: __webpack_require__(/*! ./mainpage.component.html */ "./src/app/mainpage/mainpage.component.html"),
             styles: [__webpack_require__(/*! ./mainpage.component.css */ "./src/app/mainpage/mainpage.component.css")]
         }),
-        __metadata("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"], _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__["OverlayContainer"]])
+        __metadata("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"], _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__["OverlayContainer"], _themes_service__WEBPACK_IMPORTED_MODULE_3__["ThemesService"]])
     ], MainpageComponent);
     return MainpageComponent;
 }());
@@ -1247,6 +1615,86 @@ var UserService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
     ], UserService);
     return UserService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/themes.service.ts":
+/*!***********************************!*\
+  !*** ./src/app/themes.service.ts ***!
+  \***********************************/
+/*! exports provided: ThemesService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ThemesService", function() { return ThemesService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/cdk/overlay */ "./node_modules/@angular/cdk/esm5/overlay.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var dark = 'dark-theme';
+var light = 'default-theme';
+var filtersdark = '#2e2d2d';
+var filterswhite = '#ececec';
+var bgdark = '#3d3d3d';
+var bgwhite = '';
+var textdark = '#000000';
+var textwhite = '#ffffff';
+var ThemesService = /** @class */ (function () {
+    function ThemesService(overlayContainer) {
+        this.overlayContainer = overlayContainer;
+        this.isdarktheme = false;
+        this.filtersColor = "";
+        this.bgColor = "";
+        this.textColor = "";
+    }
+    ThemesService.prototype.toggleTheme = function () {
+        console.log("hello i am here");
+        this.isdarktheme = !this.isdarktheme;
+        if (this.isdarktheme) {
+            // this.overlayContainer.getContainerElement().classList.add(dark);
+            // this.overlayContainer.getContainerElement().classList.remove(light);
+            // this.componentCssClass = dark;
+            this.filtersColor = filtersdark;
+            this.bgColor = bgdark;
+            this.textColor = textwhite;
+            // localStorage.setItem("theme", dark);
+            return true;
+        }
+        else {
+            // this.overlayContainer.getContainerElement().classList.add(light);
+            // this.overlayContainer.getContainerElement().classList.remove(dark);
+            // this.componentCssClass = light;
+            this.filtersColor = filterswhite;
+            this.bgColor = bgwhite;
+            this.textColor = textdark;
+            // localStorage.setItem("theme", light);
+            return false;
+        }
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class'),
+        __metadata("design:type", Object)
+    ], ThemesService.prototype, "componentCssClass", void 0);
+    ThemesService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_1__["OverlayContainer"]])
+    ], ThemesService);
+    return ThemesService;
 }());
 
 
