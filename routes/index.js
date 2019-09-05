@@ -1,11 +1,22 @@
 var express = require('express');
 var router = express.Router();
 let methods = require('../logic/methods.js');
+let passport = require('passport');
 
 methods = new methods();
 
 router.get('/', (req, res, next)=> {
+    
     methods.home(req,res);
+});
+
+
+router.get('/test', passport.authenticate('saml'),(req, res, next)=> {
+    
+    // passport.authenticate('saml', { failureRedirect: '/nothing', failureFlash: true }),
+    // (req, res)=> {
+    //     res.redirect('/nothing');
+    // }
 });
 
 router.get('/data/:id', (req, res, next)=> {

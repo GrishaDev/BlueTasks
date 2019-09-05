@@ -5,12 +5,30 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser')
 var cors = require('cors')
+let passport = require('passport');
+let SamlStrategy = require('passport-saml').Strategy;
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var pagesRouter = require('./routes/pages');
 
 var app = express();
+
+passport.use(new SamlStrategy(
+  {
+    path: '',
+    entryPoint: '',
+    issuer: 'passport-saml'
+  },
+  (profile, done)=> {
+    findByEmail(profile.email, (err, user)=> {
+      if (err) {
+        return done(err);
+      }
+      return done(null, user);
+    });
+  })
+);
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
