@@ -5,10 +5,10 @@ let passport = require('passport');
 
 methods = new methods();
 
-router.get('/', (req, res, next)=> {
+// router.get('/home', (req, res, next)=> {
     
-    methods.home(req,res);
-});
+//     methods.home(req,res);
+// });
 
 
 router.get('/test', passport.authenticate('saml'),(req, res, next)=> {
@@ -21,6 +21,10 @@ router.get('/test', passport.authenticate('saml'),(req, res, next)=> {
 
 router.get('/data/:id', (req, res, next)=> {
     methods.showData(req,res);
+});
+
+router.get('/authdata', (req, res, next)=> {
+    methods.authData(req,res);
 });
 
 router.post('/checkuser', (req, res, next)=> {

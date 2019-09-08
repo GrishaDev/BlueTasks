@@ -10,10 +10,17 @@ class methods
 
     home(req,res)
     {
-        res.render(path.join(__dirname,'../client/index.html'));
+        // res.render(path.join(__dirname,'../client/index.html'));
+        res.send(req.user);
     }
 
-    
+    async authData(req,res)
+    {
+        console.log(req.user);
+        let user = req.user.displayName;
+        let id = req.user.id;
+        res.json({user:user,id:id});
+    }
     async showData(req,res)
     {
         let id = req.params.id;

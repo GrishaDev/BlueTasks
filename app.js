@@ -6,29 +6,45 @@ var logger = require('morgan');
 var bodyParser = require('body-parser')
 var cors = require('cors')
 let passport = require('passport');
-let SamlStrategy = require('passport-saml').Strategy;
+const configurePassport = require("./passport");
+const session = require("express-session")
+
+// let SamlStrategy = require('passport-saml').Strategy;
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var pagesRouter = require('./routes/pages');
+var authRouter = require('./routes/auth');
 
 var app = express();
+app.use(cors());
 
-passport.use(new SamlStrategy(
-  {
-    path: '',
-    entryPoint: '',
-    issuer: 'passport-saml'
-  },
-  (profile, done)=> {
-    findByEmail(profile.email, (err, user)=> {
-      if (err) {
-        return done(err);
-      }
-      return done(null, user);
-    });
-  })
-);
+configurePassport();
+
+app.use(session({
+  secret: 'meme123',
+  resave: false,
+  saveUninitialized: true
+}))
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// passport.use(new SamlStrategy(
+//   {
+//     path: '',
+//     entryPoint: '',
+//     issuer: 'passport-saml'
+//   },
+//   (profile, done)=> {
+//     findByEmail(profile.email, (err, user)=> {
+//       if (err) {
+//         return done(err);
+//       }
+//       return done(null, user);
+//     });
+//   })
+// );
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
@@ -39,11 +55,23 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client/BlueTasksNG')));
+// app.use(express.static(path.join(__dirname, 'client')));
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use('/api', indexRouter);
+
+app.use('/auth', authRouter);
+
+app.use((req, res, next) => {
+    if (!req.user)
+        res.redirect("/auth")
+    else
+        next();
+})
+
+
 app.use('/users', usersRouter);
 app.use('/', pagesRouter);
 
@@ -52,7 +80,7 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-app.use(cors());
+
 
 // error handler
 app.use(function(err, req, res, next) {
