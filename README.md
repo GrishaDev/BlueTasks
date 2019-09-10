@@ -1,6 +1,6 @@
 # Blue Tasks
 
-include config.json  file in jsons folder with following syntax:
+include config.json  file in jsons folder(create the folder too) with following syntax:
 
 ```json
     {
@@ -9,4 +9,10 @@ include config.json  file in jsons folder with following syntax:
         "usersCollection": "users collection",
         "boardsCollection": "boards collection"
     }
+```
+
+
+```Shraga docker
+    cd ./compositor 
+    docker-compose -f "docker-compose.yml" up -d --build
 ```
