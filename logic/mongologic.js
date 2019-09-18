@@ -93,7 +93,6 @@ class mongologic
                             // this is weird, let labels is parsed labels, and card_data.labels are normal labels(old?) swap between them and try.
 
                             let labels = this.labels(card_data.labels,data[i]);
-                            
                             card = {id:card_data._id,text:card_data.text,list:data[i].lists[j].title,board:data[i].title,labels:card_data.labels,date:parsed_date,userid:card_data.assignedUserId};
                             this.alldata.push(card);
                         }
