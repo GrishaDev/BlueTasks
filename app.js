@@ -60,16 +60,18 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.use('/api', indexRouter);
-
 app.use('/auth', authRouter);
 
+
+
 app.use((req, res, next) => {
-    if (!req.user)
-        res.redirect("/auth")
-    else
-        next();
+  if (!req.user)
+  res.redirect("/auth")
+  else
+  next();
 })
+
+app.use('/api', indexRouter);
 
 app.use(express.static(path.join(__dirname, 'client/BlueTasksNG')));
 

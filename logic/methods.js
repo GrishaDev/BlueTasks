@@ -24,10 +24,14 @@ class methods
     async showData(req,res)
     {
         let id = req.params.id;
-        if(id != undefined)
+        if(id != undefined && id === req.user.id)
         {
             let data = await this.mongoer.parseData(id);
             res.json(data);
+        }
+        else
+        {
+            res.json({error:"stop hacking"});
         }
     }
 
