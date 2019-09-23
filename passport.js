@@ -20,9 +20,11 @@ passport.deserializeUser((id, cb) => {
 const configurePassport = () => {
     passport.use(new Strategy({}, (profile, done) => {
         console.log("my profile " + profile);
+        console.log(profile);
         // let length = users.filter(user => user.id === id).length;
         // if (length === 0)
-        //     users.push(profile);
+        users.push(profile);
+        console.log("LENGTH IS  "+users.length);
         done(null, profile);
     }))
 }

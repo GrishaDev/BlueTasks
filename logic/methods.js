@@ -18,7 +18,7 @@ class methods
     {
         console.log(req.user);
         let user = req.user.displayName;
-        let id = req.user.id;
+        let id = await this.mongoer.getUser(req.user.displayName);
         res.json({user:user,id:id});
     }
     async showData(req,res)

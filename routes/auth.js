@@ -11,7 +11,7 @@ router.get('/', passport.authenticate("shraga"), function (req, res, next) {
 /* GET home page. */
 router.post('/callback', passport.authenticate("shraga"), function (req, res, next) {
     //res.send(req.user);
-
+    console.log("callback");
     res.redirect('/');
 });
 

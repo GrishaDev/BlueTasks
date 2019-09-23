@@ -65,7 +65,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.title = 'Blue Tasks';
+        this.title = 'Tasks';
     }
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -110,12 +110,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mainpage_content_taskbetter_taskbetter_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./mainpage/content/taskbetter/taskbetter.component */ "./src/app/mainpage/content/taskbetter/taskbetter.component.ts");
 /* harmony import */ var _mainpage_content_taskbetter2_taskbetter2_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./mainpage/content/taskbetter2/taskbetter2.component */ "./src/app/mainpage/content/taskbetter2/taskbetter2.component.ts");
 /* harmony import */ var _mainpage_content_biranplace_biranplace_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./mainpage/content/biranplace/biranplace.component */ "./src/app/mainpage/content/biranplace/biranplace.component.ts");
+/* harmony import */ var _mainpage_loading_loading_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./mainpage/loading/loading.component */ "./src/app/mainpage/loading/loading.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -154,7 +156,8 @@ var AppModule = /** @class */ (function () {
                 _mainpage_content_search_search_component__WEBPACK_IMPORTED_MODULE_14__["SearchComponent"],
                 _mainpage_content_taskbetter_taskbetter_component__WEBPACK_IMPORTED_MODULE_15__["TaskbetterComponent"],
                 _mainpage_content_taskbetter2_taskbetter2_component__WEBPACK_IMPORTED_MODULE_16__["Taskbetter2Component"],
-                _mainpage_content_biranplace_biranplace_component__WEBPACK_IMPORTED_MODULE_17__["BiranplaceComponent"]
+                _mainpage_content_biranplace_biranplace_component__WEBPACK_IMPORTED_MODULE_17__["BiranplaceComponent"],
+                _mainpage_loading_loading_component__WEBPACK_IMPORTED_MODULE_18__["LoadingComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -176,6 +179,7 @@ var AppModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatListModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatSlideToggleModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatTooltipModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatProgressSpinnerModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(appRoutes)
             ],
             providers: [],
@@ -367,7 +371,7 @@ var BiranplaceComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n@-webkit-keyframes slideInFromRight {\r\n    0% {\r\n      -webkit-transform: translateX(100%);\r\n              transform: translateX(100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n  @keyframes slideInFromRight {\r\n    0% {\r\n      -webkit-transform: translateX(100%);\r\n              transform: translateX(100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n  @-webkit-keyframes slideInFromLeft {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n  @keyframes slideInFromLeft {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n  /* @media only screen and (max-width: 400px) {\r\n    filters {\r\n        width: 5%;\r\n        position: absolute;\r\n        height: 100%;\r\n        background-color: rgb(236, 236, 236);\r\n        animation: 1s ease-out 0s 1 slideInFromLeft;\r\n    }\r\n  } */\r\n\r\n  .test\r\n{\r\n    color: my-app-primary;\r\n}\r\n\r\n  .rightside\r\n{\r\n    position: absolute;\r\n}\r\n\r\n  .content\r\n{\r\n    position: absolute;\r\n    width: 70%;\r\n    left: 30%;\r\n    /* height: 100%; */\r\n    /* padding: 50px; */\r\n    display: flex;\r\n    /* flex-flow: row wrap; */\r\n    flex-direction: column;\r\n    /* text-align: center; */\r\n    /* justify-content: center; */\r\n    -webkit-animation: 1s ease-out 0s 1 slideInFromRight;\r\n            animation: 1s ease-out 0s 1 slideInFromRight;\r\n    /* overflow-y: visible; */\r\n    height: 90%;\r\n    /* background-color: red; */\r\n    padding-left: 25px;\r\n    overflow-y: auto;\r\n    overflow-x: auto;\r\n    /* background-color: green; */\r\n}\r\n\r\n  /* .scrollable\r\n{\r\n    position: relative;\r\n    height: 100%;\r\n    overflow-y: auto;\r\n    overflow-x: auto;\r\n} */\r\n\r\n  .more\r\n{\r\n    position: relative;\r\n    /* background-color: blue; */\r\n    /* width: 50%; */\r\n    padding: 10px;\r\n}\r\n\r\n  .bot\r\n{\r\n    position: absolute;\r\n    /* background-color: rgba(0, 0, 255, 0.171); */\r\n     bottom: 0;\r\n    left: 0;\r\n    width: 10%;\r\n    /* width: 50%; */\r\n    /* width: 10%;\r\n    height: 10%;\r\n    margin: 200px; */\r\n    /* height: 5%;\r\n    width: 100%;\r\n    bottom: 0;\r\n    padding: 0;\r\n    width: 70%;\r\n    left: 30%; */\r\n}\r\n\r\n  .filters\r\n{\r\n    width: 30%;\r\n    /* min-width: 300px; */\r\n    position: absolute;\r\n    height: 100%;\r\n    background-color: rgb(236, 236, 236);\r\n    -webkit-animation: 1s ease-out 0s 1 slideInFromLeft;\r\n            animation: 1s ease-out 0s 1 slideInFromLeft;\r\n}\r\n\r\n  .spaceout\r\n{\r\n    /* background-color: blue;\r\n    position: relative; */\r\n    /* padding: 30px; */\r\n    /* background-color: yellow; */\r\n    padding: 30px;\r\n}\r\n\r\n  .aday\r\n{\r\n    position: relative;\r\n    /* height: 100%;\r\n    width: 100%; */\r\n    padding-top: 30px;\r\n    /* background-color: green; */\r\n}\r\n\r\n  .toright\r\n{\r\n  padding-left: 20px;\r\n}\r\n\r\n  .info\r\n{\r\n    position: absolute;\r\n    /* background-color: green; */\r\n    width: 30%;\r\n    right: 0;\r\n    height: 50%;\r\n    top: 0;\r\n    padding: 10px;\r\n}\r\n\r\n  .data\r\n{\r\n    padding-top: 20px;\r\n}\r\n\r\n  /* css is cancer */\r\n\r\n  .newcontent\r\n{\r\n    /* background-color: green; */\r\n    position: absolute;\r\n    width: 70%;\r\n    left: 30%;\r\n    height: 100%;\r\n    -webkit-animation: 1s ease-out 0s 1 slideInFromRight;\r\n            animation: 1s ease-out 0s 1 slideInFromRight;\r\n    /* background-color: my-app-primary; */\r\n    /* background-color: color-primary-bg; */\r\n}\r\n\r\n  .title\r\n{\r\n    /* background-color: blue; */\r\n    position: absolute;\r\n    height: 10%;\r\n    width: 100%;\r\n    padding: 30px;\r\n    top: 0;\r\n}\r\n\r\n  .actualcontent\r\n{\r\n    /* background-color: lightskyblue; */\r\n    position: absolute;\r\n    height: 80%;\r\n    top: 10%;\r\n    /* bottom: 0; */\r\n    width: 100%;\r\n    overflow-y: auto;\r\n    overflow-x: auto;\r\n}\r\n\r\n  .test\r\n{\r\n    /* background-color: red; */\r\n    position: relative;\r\n    height: 100px;\r\n    width: 30%;\r\n}\r\n\r\n  .time\r\n{\r\n    color: #808080 !important;\r\n    margin-left: 6px;\r\n    font-size: 14px;\r\n    font-weight: normal;\r\n}\r\n\r\n  .mat-divider {\r\n    display: block;\r\n    margin: 0;\r\n    border-top-width: 1.5px;\r\n    border-top-style: solid;\r\n}\r\n\r\n  .title2\r\n{\r\n    font-size: 25px;\r\n}\r\n\r\n  /* width */\r\n\r\n  ::-webkit-scrollbar {\r\n    width: 10px;\r\n    height: 10px;\r\n  }\r\n\r\n  /* Track */\r\n\r\n  ::-webkit-scrollbar-track {\r\n    /* background: #f1f1f1;  */\r\n  }\r\n\r\n  /* Handle */\r\n\r\n  ::-webkit-scrollbar-thumb {\r\n    background: #888; \r\n  }\r\n\r\n  /* Handle on hover */\r\n\r\n  ::-webkit-scrollbar-thumb:hover {\r\n    background: #555; \r\n  }\r\n\r\n  @media only screen and (max-width: 767px) {\r\n    .filters {\r\n      display: none;\r\n    }\r\n\r\n    .newcontent\r\n    {\r\n        width: 100%;\r\n        left: 0;\r\n    }\r\n\r\n    .bot\r\n    {\r\n        position: absolute;\r\n        top: 10%;\r\n        left: 25%;\r\n        width: 30%;\r\n    }\r\n  }"
+module.exports = "\r\n@-webkit-keyframes slideInFromRight {\r\n    0% {\r\n      -webkit-transform: translateX(100%);\r\n              transform: translateX(100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n  @keyframes slideInFromRight {\r\n    0% {\r\n      -webkit-transform: translateX(100%);\r\n              transform: translateX(100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n  @-webkit-keyframes slideInFromLeft {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n  @keyframes slideInFromLeft {\r\n    0% {\r\n      -webkit-transform: translateX(-100%);\r\n              transform: translateX(-100%);\r\n    }\r\n    /* 90% {\r\n      transform: translateX(+2%);\r\n    } */\r\n    100% {\r\n        -webkit-transform: translateX(0%);\r\n                transform: translateX(0%);\r\n      }\r\n  }\r\n\r\n  /* @media only screen and (max-width: 400px) {\r\n    filters {\r\n        width: 5%;\r\n        position: absolute;\r\n        height: 100%;\r\n        background-color: rgb(236, 236, 236);\r\n        animation: 1s ease-out 0s 1 slideInFromLeft;\r\n    }\r\n  } */\r\n\r\n  .test\r\n{\r\n    color: my-app-primary;\r\n}\r\n\r\n  .rightside\r\n{\r\n    position: absolute;\r\n}\r\n\r\n  .content\r\n{\r\n    position: absolute;\r\n    width: 70%;\r\n    left: 30%;\r\n    /* height: 100%; */\r\n    /* padding: 50px; */\r\n    display: flex;\r\n    /* flex-flow: row wrap; */\r\n    flex-direction: column;\r\n    /* text-align: center; */\r\n    /* justify-content: center; */\r\n    -webkit-animation: 1s ease-out 0s 1 slideInFromRight;\r\n            animation: 1s ease-out 0s 1 slideInFromRight;\r\n    /* overflow-y: visible; */\r\n    height: 90%;\r\n    /* background-color: red; */\r\n    padding-left: 25px;\r\n    overflow-y: auto;\r\n    overflow-x: auto;\r\n    /* background-color: green; */\r\n}\r\n\r\n  /* .scrollable\r\n{\r\n    position: relative;\r\n    height: 100%;\r\n    overflow-y: auto;\r\n    overflow-x: auto;\r\n} */\r\n\r\n  .more\r\n{\r\n    position: relative;\r\n    /* background-color: blue; */\r\n    /* width: 50%; */\r\n    padding: 10px;\r\n}\r\n\r\n  .bot\r\n{\r\n    position: absolute;\r\n    /* background-color: rgba(0, 0, 255, 0.171); */\r\n     bottom: 0;\r\n    left: 0;\r\n    width: 10%;\r\n    /* width: 50%; */\r\n    /* width: 10%;\r\n    height: 10%;\r\n    margin: 200px; */\r\n    /* height: 5%;\r\n    width: 100%;\r\n    bottom: 0;\r\n    padding: 0;\r\n    width: 70%;\r\n    left: 30%; */\r\n}\r\n\r\n  .filters\r\n{\r\n    width: 30%;\r\n    /* min-width: 300px; */\r\n    position: absolute;\r\n    height: 100%;\r\n    background-color: rgb(236, 236, 236);\r\n    -webkit-animation: 1s ease-out 0s 1 slideInFromLeft;\r\n            animation: 1s ease-out 0s 1 slideInFromLeft;\r\n}\r\n\r\n  .spaceout\r\n{\r\n    /* background-color: blue;\r\n    position: relative; */\r\n    /* padding: 30px; */\r\n    /* background-color: yellow; */\r\n    padding: 30px;\r\n}\r\n\r\n  .aday\r\n{\r\n    position: relative;\r\n    /* height: 100%;\r\n    width: 100%; */\r\n    padding-top: 30px;\r\n    /* background-color: green; */\r\n}\r\n\r\n  .toright\r\n{\r\n  padding-left: 20px;\r\n}\r\n\r\n  .info\r\n{\r\n    position: absolute;\r\n    /* background-color: green; */\r\n    width: 30%;\r\n    right: 0;\r\n    height: 50%;\r\n    top: 0;\r\n    padding: 10px;\r\n}\r\n\r\n  .data\r\n{\r\n    padding-top: 20px;\r\n}\r\n\r\n  /* css is cancer */\r\n\r\n  .newcontent\r\n{\r\n    /* background-color: green; */\r\n    position: absolute;\r\n    width: 70%;\r\n    left: 30%;\r\n    height: 100%;\r\n    -webkit-animation: 1s ease-out 0s 1 slideInFromRight;\r\n            animation: 1s ease-out 0s 1 slideInFromRight;\r\n    /* background-color: my-app-primary; */\r\n    /* background-color: color-primary-bg; */\r\n}\r\n\r\n  .animate\r\n{\r\n    -webkit-animation: 0.5s ease-out 0s 1 slideInFromRight;\r\n            animation: 0.5s ease-out 0s 1 slideInFromRight;\r\n    \r\n}\r\n\r\n  .title\r\n{\r\n    /* background-color: blue; */\r\n    position: absolute;\r\n    height: 10%;\r\n    width: 100%;\r\n    padding: 30px;\r\n    top: 0;\r\n}\r\n\r\n  .actualcontent\r\n{\r\n    /* background-color: lightskyblue; */\r\n    position: absolute;\r\n    height: 80%;\r\n    top: 10%;\r\n    /* bottom: 0; */\r\n    width: 100%;\r\n    overflow-y: auto;\r\n    overflow-x: hidden;\r\n}\r\n\r\n  .test\r\n{\r\n    /* background-color: red; */\r\n    position: relative;\r\n    height: 100px;\r\n    width: 30%;\r\n}\r\n\r\n  .time\r\n{\r\n    color: #808080 !important;\r\n    margin-left: 6px;\r\n    font-size: 14px;\r\n    font-weight: normal;\r\n}\r\n\r\n  .mat-divider {\r\n    display: block;\r\n    margin: 0;\r\n    border-top-width: 1.5px;\r\n    border-top-style: solid;\r\n}\r\n\r\n  .title2\r\n{\r\n    font-size: 25px;\r\n}\r\n\r\n  /* width */\r\n\r\n  ::-webkit-scrollbar {\r\n    width: 10px;\r\n    height: 10px;\r\n  }\r\n\r\n  /* Track */\r\n\r\n  ::-webkit-scrollbar-track {\r\n    /* background: #f1f1f1;  */\r\n  }\r\n\r\n  /* Handle */\r\n\r\n  ::-webkit-scrollbar-thumb {\r\n    background: #888; \r\n  }\r\n\r\n  /* Handle on hover */\r\n\r\n  ::-webkit-scrollbar-thumb:hover {\r\n    background: #555; \r\n  }\r\n\r\n  @media only screen and (max-width: 767px) {\r\n    .filters {\r\n      display: none;\r\n    }\r\n\r\n    .newcontent\r\n    {\r\n        width: 100%;\r\n        left: 0;\r\n    }\r\n\r\n    .bot\r\n    {\r\n        position: absolute;\r\n        top: 10%;\r\n        left: 25%;\r\n        width: 30%;\r\n    }\r\n  }"
 
 /***/ }),
 
@@ -378,7 +382,7 @@ module.exports = "\r\n@-webkit-keyframes slideInFromRight {\r\n    0% {\r\n     
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"filters\" [style.backgroundColor] = \"themeservice.filtersColor\" [style.color]= \"themeservice.textColor\">\r\n    <app-filters [checklist]='checkboxes' [boardlist]='boardlist' [listslist] = 'listslist' (data_labeled)=\"LabelsChanged($event)\" (data_boarded)=\"BoardsChanged($event)\"\r\n    (time)=\"timeChange($event)\" (data_listed)=\"ListsChanged($event)\" [style.color]= \"themeservice.textColor\"></app-filters>\r\n</div>\r\n\r\n    <!-- <div class=\"content\">\r\n                <h4 mat-line *ngIf=\"time == 'today'\"><b>Today</b>  <small>{{ aweek[0].toLocaleString().split(',')[0] }}</small></h4>\r\n                <h4 mat-line *ngIf=\"time == 'all'\"><b>All</b></h4>\r\n                <h4 mat-line *ngIf=\"time == '7'\"><b>Next 7 days</b></h4>\r\n                <app-taskbetter2 class=\"spaceout\"></app-taskbetter2>\r\n                <app-taskbetter2 class=\"spaceout\"></app-taskbetter2>\r\n\r\n                <div *ngIf=\"time != '7'\" class=\"more\">\r\n                    <app-taskbetter *ngFor=\"let item of filterd_data\" [item]='item' [time]='time' [aweek]='aweek' class=\"spaceout\" (refresh)=\"refresh($event)\"></app-taskbetter>\r\n                </div>\r\n\r\n                <div *ngIf=\"time == '7'\" class=\"more\">\r\n                    <div *ngFor=\"let day of aweek; let i = index\" class=\"aday\" >\r\n                        <b *ngIf=\"i === 0\">Today</b>\r\n                        <b *ngIf=\"i === 1\">Tomorrow</b>\r\n                        <b *ngIf=\"i > 1\">{{ weekdays[day.getDay()] }}</b>\r\n\r\n                        <div *ngFor=\"let item of filterd_data\">\r\n                            <app-taskbetter *ngIf=\"todayCheck(item,day)\" [item]='item' [time]='time' [aweek]='aweek' (refresh)=\"refresh($event)\" class=\"spaceout\"></app-taskbetter>\r\n                            <app-taskbetter2 class=\"spaceout\"></app-taskbetter2>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n    </div> -->\r\n\r\n    <div class=\"newcontent\" [style.backgroundColor] = \"themeservice.bgColor\" [style.color]= \"themeservice.textColor\">\r\n        <div class=\"title\">\r\n            <h4 mat-line *ngIf=\"time == 'today'\"><b class=\"title2\">Today </b>  <small class=\"time\">{{ aweek[0].toLocaleString('en-GB').split(',')[0] }}</small></h4>\r\n            <h4 mat-line *ngIf=\"time == 'all'\"><b class=\"title2\">All</b></h4>\r\n            <h4 mat-line *ngIf=\"time == '7'\"><b class=\"title2\">Next 7 days</b></h4>\r\n        </div>\r\n        <div class=\"actualcontent\">\r\n            <div *ngIf=\"time == '7'\" class=\"\">\r\n                <div *ngFor=\"let day of aweek; let i = index\" class=\"\" style=\"padding-left: 30px; padding-top: 30px;\">\r\n                    <b *ngIf=\"i === 0\">Today  <small class=\"time\">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b> \r\n                    <b *ngIf=\"i === 1\">Tomorrow  <small class=\"time\">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b> \r\n                    <b *ngIf=\"i > 1\">{{ weekdays[day.getDay()] }}   <small class=\"time\">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b>\r\n                    <mat-divider style=\"margin-top: 10px; width: 50%;\"></mat-divider>\r\n\r\n                    <!-- <div class=\"test\"> </div> -->\r\n                    <!-- <app-taskbetter *ngIf=\"todayCheck(item,day)\" [item]='item' [time]='time' [aweek]='aweek' (refresh)=\"refresh($event)\" class=\"spaceout\"></app-taskbetter> -->\r\n                    <ng-container *ngFor=\"let item of filterd_data\">\r\n                        <!-- <app-taskbetter2></app-taskbetter2> -->\r\n                        <!-- <app-taskbetter *ngIf=\"todayCheck(item,day)\" [item]='item' [time]='time' [aweek]='aweek' (refresh)=\"refresh($event)\" class=\"\"></app-taskbetter> -->\r\n                        <app-taskbetter2 [item]='item' *ngIf=\"todayCheck(item,day)\" [time]='time' [aweek]='aweek' (refresh)=\"refresh($event)\"></app-taskbetter2>\r\n                        <!-- <mat-divider></mat-divider> -->\r\n                    </ng-container >\r\n                </div>\r\n            </div>\r\n\r\n            <div *ngIf=\"time != '7'\" class=\"more\">\r\n                <app-taskbetter2 *ngFor=\"let item of filterd_data\" [item]='item' [time]='time' [aweek]='aweek' (refresh)=\"refresh($event)\"></app-taskbetter2>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!-- <div style=\"width: 20%; background-color: red; height: 5%; bottom: 0; position: absolute;\">\r\n\r\n    </div> -->\r\n    <app-biranplace></app-biranplace>\r\n\r\n    <div class=\"bot\">\r\n        <app-search (searchValue)=\"searched($event)\"></app-search>\r\n    </div>\r\n<!-- </div> -->\r\n\r\n"
+module.exports = "<div class=\"filters\" [style.backgroundColor] = \"themeservice.filtersColor\" [style.color]= \"themeservice.textColor\">\r\n    <app-filters [checklist]='checkboxes' [boardlist]='boardlist' [listslist] = 'listslist' (data_labeled)=\"LabelsChanged($event)\" (data_boarded)=\"BoardsChanged($event)\"\r\n    (time)=\"timeChange($event)\" (data_listed)=\"ListsChanged($event)\" [style.color]= \"themeservice.textColor\"></app-filters>\r\n</div>\r\n\r\n    <div class=\"newcontent\" [style.backgroundColor] = \"themeservice.bgColor\" [style.color]= \"themeservice.textColor\">\r\n        <div class=\"title\">\r\n            <h4 mat-line *ngIf=\"time == 'today'\"><b class=\"title2\">Today </b>  <small class=\"time\">{{ aweek[0].toLocaleString('en-GB').split(',')[0] }}</small></h4>\r\n            <h4 mat-line *ngIf=\"time == 'all'\"><b class=\"title2\">All</b></h4>\r\n            <h4 mat-line *ngIf=\"time == '7'\"><b class=\"title2\">Next 7 days</b></h4>\r\n        </div>\r\n        <div class=\"actualcontent\">\r\n            <div *ngIf=\"time == '7'\" class=\"animate\">\r\n                <div *ngFor=\"let day of aweek; let i = index\" class=\"\" style=\"padding-left: 30px; padding-top: 30px;\">\r\n                    <b *ngIf=\"i === 0\">Today  <small class=\"time\">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b> \r\n                    <b *ngIf=\"i === 1\">Tomorrow  <small class=\"time\">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b> \r\n                    <b *ngIf=\"i > 1\">{{ weekdays[day.getDay()] }}   <small class=\"time\">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b>\r\n                    <mat-divider style=\"margin-top: 10px; width: 50%;\"></mat-divider>\r\n\r\n                    <ng-container *ngFor=\"let item of filterd_data\">\r\n                        <app-taskbetter2 [item]='item' *ngIf=\"todayCheck(item,day)\" [time]='time' [aweek]='aweek' (refresh)=\"refresh($event)\"></app-taskbetter2>\r\n                    </ng-container >\r\n                </div>\r\n            </div>\r\n\r\n            <div *ngIf=\"time == 'all'\" class=\"more animate\">\r\n                <app-taskbetter2 *ngFor=\"let item of filterd_data\" [item]='item' [time]='time' [aweek]='aweek' (refresh)=\"refresh($event)\"></app-taskbetter2>\r\n            </div>\r\n            <div *ngIf=\"time == 'today'\" class=\"more animate\">\r\n                <app-taskbetter2 *ngFor=\"let item of filterd_data\" [item]='item' [time]='time' [aweek]='aweek' (refresh)=\"refresh($event)\"></app-taskbetter2>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n    <app-biranplace></app-biranplace>\r\n\r\n    <div class=\"bot\">\r\n        <app-search (searchValue)=\"searched($event)\"></app-search>\r\n    </div>\r\n\r\n"
 
 /***/ }),
 
@@ -1420,7 +1424,7 @@ var Taskbetter2Component = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* .header\r\n{\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 15%;\r\n} */\r\n.example-spacer {\r\n    flex: 1 1 auto;\r\n  }\r\n.title\r\n{\r\n    text-align: center;\r\n    font-size: 2em;\r\n}\r\n.logout\r\n{\r\n    transition-duration: 0.5s;\r\n    font-size: 36px;\r\n    padding: 0;\r\n    margin-bottom: 7.5px;\r\n    margin-right: 7.5px;\r\n}\r\n.logout:hover\r\n{\r\n    color: blue;\r\n}\r\n.theme\r\n{\r\n    padding-right: 50px;\r\n    transition-duration: 0.3s;\r\n}\r\n.avatar\r\n{\r\n    width: 50px;\r\n    height: 50px;\r\n    padding-right: 15px;\r\n}\r\n/* .theme:hover\r\n{\r\n    color:blue\r\n} */"
+module.exports = "/* .header\r\n{\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 15%;\r\n} */\r\n.example-spacer {\r\n    flex: 1 1 auto;\r\n  }\r\n.title\r\n{\r\n    text-align: center;\r\n    font-size: 2em;\r\n}\r\n.logout\r\n{\r\n    transition-duration: 0.5s;\r\n    font-size: 36px;\r\n    padding: 0;\r\n    margin-bottom: 7.5px;\r\n    margin-right: 7.5px;\r\n}\r\n.logout:hover\r\n{\r\n    color: blue;\r\n}\r\n.theme\r\n{\r\n    padding-right: 10px;\r\n    transition-duration: 0.3s;\r\n}\r\n.avatar\r\n{\r\n    width: 50px;\r\n    height: 50px;\r\n    padding-right: 15px;\r\n}\r\n.amount\r\n{\r\n    padding-left: 20px;\r\n}\r\n/* .theme:hover\r\n{\r\n    color:blue\r\n} */"
 
 /***/ }),
 
@@ -1431,7 +1435,7 @@ module.exports = "/* .header\r\n{\r\n    position: absolute;\r\n    width: 100%;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-menu #appMenu=\"matMenu\">\n    <!-- <button mat-menu-item (click)=\"toggleTheme()\"> Switch theme </button>\n    <button mat-menu-item (click)=\"help()\"> Help </button>\n    <button mat-menu-item (click)=\"logout()\"> Logout </button> -->\n</mat-menu>\n<!-- [style.backgroundColor] = \"themeservice.headerColor\" -->\n<mat-toolbar  color=\"primary\" >\n    <span><img src=\"assets/clipboard.png\" class=\"avatar\"></span>\n    <span>Hello {{ user }}</span>\n    <mat-icon class=\"example-icon\" aria-hidden=\"false\" aria-label=\"Example user verified icon\">verified_user</mat-icon>\n    <span class=\"example-spacer\"></span>\n    <!-- <button mat-button [matMenuTriggerFor]=\"appMenu\"><mat-icon>settings</mat-icon></button> -->\n    <!-- <mat-icon class=\"theme\" (click)=\"toggleTheme()\">colorize</mat-icon> -->\n    <mat-slide-toggle\n          class=\"theme\"\n          (change)=\"toggleTheme()\">\n        Change Theme\n    </mat-slide-toggle>\n    <!-- <mat-icon class=\"logout\" (click)=\"logout()\">arrow_back</mat-icon> -->\n</mat-toolbar>\n\n<!-- <p class=\"title\"> Your tasks: </p> -->"
+module.exports = "<mat-menu #appMenu=\"matMenu\">\n    <!-- <button mat-menu-item (click)=\"toggleTheme()\"> Switch theme </button>\n    <button mat-menu-item (click)=\"help()\"> Help </button>\n    <button mat-menu-item (click)=\"logout()\"> Logout </button> -->\n</mat-menu>\n<!-- [style.backgroundColor] = \"themeservice.headerColor\" -->\n<mat-toolbar  color=\"primary\" >\n    <span><img src=\"assets/clipboard.png\" class=\"avatar\"></span>\n    <span>Hello {{ user }}</span>\n    <mat-icon class=\"example-icon\" aria-hidden=\"false\" aria-label=\"Example user verified icon\">verified_user</mat-icon>\n    <span class=\"amount\">Tasks: {{ tasksamount }}</span>\n    <span class=\"example-spacer\"></span>\n    <!-- <button mat-button [matMenuTriggerFor]=\"appMenu\"><mat-icon>settings</mat-icon></button> -->\n    <!-- <mat-icon class=\"theme\" (click)=\"toggleTheme()\">colorize</mat-icon> -->\n    <mat-slide-toggle\n          class=\"theme\"\n          (change)=\"toggleTheme()\">\n        Theme\n    </mat-slide-toggle>\n    <!-- <mat-icon class=\"logout\" (click)=\"logout()\">arrow_back</mat-icon> -->\n</mat-toolbar>\n\n<!-- <p class=\"title\"> Your tasks: </p> -->"
 
 /***/ }),
 
@@ -1500,6 +1504,10 @@ var HeaderComponent = /** @class */ (function () {
         __metadata("design:type", String)
     ], HeaderComponent.prototype, "user", void 0);
     __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Number)
+    ], HeaderComponent.prototype, "tasksamount", void 0);
+    __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
     ], HeaderComponent.prototype, "themechange", void 0);
@@ -1516,6 +1524,69 @@ var HeaderComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__["OverlayContainer"], _themes_service__WEBPACK_IMPORTED_MODULE_3__["ThemesService"]])
     ], HeaderComponent);
     return HeaderComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/mainpage/loading/loading.component.css":
+/*!********************************************************!*\
+  !*** ./src/app/mainpage/loading/loading.component.css ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".spinner\r\n{\r\n    position: fixed;\r\n    z-index: 999;\r\n    height: 2em;\r\n    width: 2em;\r\n    margin: auto;\r\n    top: 0;\r\n    left: 0;\r\n    bottom: 0;\r\n    right: 0;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/mainpage/loading/loading.component.html":
+/*!*********************************************************!*\
+  !*** ./src/app/mainpage/loading/loading.component.html ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-spinner class=\"spinner\"></mat-spinner>"
+
+/***/ }),
+
+/***/ "./src/app/mainpage/loading/loading.component.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/mainpage/loading/loading.component.ts ***!
+  \*******************************************************/
+/*! exports provided: LoadingComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadingComponent", function() { return LoadingComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var LoadingComponent = /** @class */ (function () {
+    function LoadingComponent() {
+    }
+    LoadingComponent.prototype.ngOnInit = function () {
+    };
+    LoadingComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-loading',
+            template: __webpack_require__(/*! ./loading.component.html */ "./src/app/mainpage/loading/loading.component.html"),
+            styles: [__webpack_require__(/*! ./loading.component.css */ "./src/app/mainpage/loading/loading.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], LoadingComponent);
+    return LoadingComponent;
 }());
 
 
@@ -1540,7 +1611,7 @@ module.exports = "\r\n.content\r\n{\r\n    overflow: hidden;\r\n}\r\n\r\n.error\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header [user]='user' (themechange)=\"onThemeChange($event)\"></app-header>\n<app-content *ngIf=\"data.length > 0\" [data]='data' class=\"content\" (refreshRoot)=\"refresh()\"></app-content>\n<div *ngIf=\"data.length == 0\" class=\"error\">\n    <mat-icon style=\"font-size: 3em; margin-right: 0.5em\">sentiment_dissatisfied</mat-icon>\n    <p style=\"color:red; font-size: 2em\">No tasks/No data</p>\n</div>\n\n"
+module.exports = "<app-header [user]='user' [tasksamount]='data.length' (themechange)=\"onThemeChange($event)\"></app-header>\n<app-content *ngIf=\"!error && !loading\" [data]='data' class=\"content\" (refreshRoot)=\"refresh()\"></app-content>\n\n<app-loading *ngIf=\"loading\"></app-loading>\n<div *ngIf=\"error\" class=\"error\">\n    <mat-icon style=\"font-size: 3em; margin-right: 0.5em\">sentiment_dissatisfied</mat-icon>\n    <p style=\"color:red; font-size: 2em\">Unknown error</p>\n</div>\n\n"
 
 /***/ }),
 
@@ -1583,6 +1654,8 @@ var MainpageComponent = /** @class */ (function () {
         this.elementRef = elementRef;
         // @HostBinding('class') componentCssClass;
         this.user = "";
+        this.loading = true;
+        this.error = false;
         this.data = [];
     }
     MainpageComponent.prototype.ngOnInit = function () {
@@ -1595,6 +1668,7 @@ var MainpageComponent = /** @class */ (function () {
         this.GetAuth();
         // ==============================
         // Uncomment this for dev:
+        // this.loading = false;
         // this.data = [{id:"1",text:"important mission1 important mission1 important mission1 important mission1 important mission1 important mission1"+
         // "important mission1 important mission1 important mission1 important mission1 important mission1 important mission1",list:"a good list",board:"bisli",labels:["general"],date:"2019-09-13T09:30",userid:"2"},
         //              {id:"2",text:"important mission2",list:"better list",board:"bisli2",labels:["general","meme"],date:"2019-09-13T15:20",userid:"2"},
@@ -1623,8 +1697,19 @@ var MainpageComponent = /** @class */ (function () {
             it.userservice.getData().subscribe(function (data) {
                 it.data = data;
                 it.cd.detectChanges();
+                it.loading = false;
                 console.log(data);
+            }, function (err) {
+                console.log("Error occured:: ");
+                console.log(err);
+                it.error = true;
+                it.loading = false;
             });
+        }, function (err) {
+            console.log("Error occured:: ");
+            console.log(err);
+            it.error = true;
+            it.loading = false;
         });
     };
     MainpageComponent.prototype.onThemeChange = function (isdarktheme) {
