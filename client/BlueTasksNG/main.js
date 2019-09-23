@@ -111,12 +111,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mainpage_content_taskbetter2_taskbetter2_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./mainpage/content/taskbetter2/taskbetter2.component */ "./src/app/mainpage/content/taskbetter2/taskbetter2.component.ts");
 /* harmony import */ var _mainpage_content_biranplace_biranplace_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./mainpage/content/biranplace/biranplace.component */ "./src/app/mainpage/content/biranplace/biranplace.component.ts");
 /* harmony import */ var _mainpage_loading_loading_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./mainpage/loading/loading.component */ "./src/app/mainpage/loading/loading.component.ts");
+/* harmony import */ var _mainpage_content_notasks_notasks_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./mainpage/content/notasks/notasks.component */ "./src/app/mainpage/content/notasks/notasks.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -157,7 +159,8 @@ var AppModule = /** @class */ (function () {
                 _mainpage_content_taskbetter_taskbetter_component__WEBPACK_IMPORTED_MODULE_15__["TaskbetterComponent"],
                 _mainpage_content_taskbetter2_taskbetter2_component__WEBPACK_IMPORTED_MODULE_16__["Taskbetter2Component"],
                 _mainpage_content_biranplace_biranplace_component__WEBPACK_IMPORTED_MODULE_17__["BiranplaceComponent"],
-                _mainpage_loading_loading_component__WEBPACK_IMPORTED_MODULE_18__["LoadingComponent"]
+                _mainpage_loading_loading_component__WEBPACK_IMPORTED_MODULE_18__["LoadingComponent"],
+                _mainpage_content_notasks_notasks_component__WEBPACK_IMPORTED_MODULE_19__["NotasksComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -382,7 +385,7 @@ module.exports = "\r\n@-webkit-keyframes slideInFromRight {\r\n    0% {\r\n     
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"filters\" [style.backgroundColor] = \"themeservice.filtersColor\" [style.color]= \"themeservice.textColor\">\r\n    <app-filters [checklist]='checkboxes' [boardlist]='boardlist' [listslist] = 'listslist' (data_labeled)=\"LabelsChanged($event)\" (data_boarded)=\"BoardsChanged($event)\"\r\n    (time)=\"timeChange($event)\" (data_listed)=\"ListsChanged($event)\" [style.color]= \"themeservice.textColor\"></app-filters>\r\n</div>\r\n\r\n    <div class=\"newcontent\" [style.backgroundColor] = \"themeservice.bgColor\" [style.color]= \"themeservice.textColor\">\r\n        <div class=\"title\">\r\n            <h4 mat-line *ngIf=\"time == 'today'\"><b class=\"title2\">Today </b>  <small class=\"time\">{{ aweek[0].toLocaleString('en-GB').split(',')[0] }}</small></h4>\r\n            <h4 mat-line *ngIf=\"time == 'all'\"><b class=\"title2\">All</b></h4>\r\n            <h4 mat-line *ngIf=\"time == '7'\"><b class=\"title2\">Next 7 days</b></h4>\r\n        </div>\r\n        <div class=\"actualcontent\">\r\n            <div *ngIf=\"time == '7'\" class=\"animate\">\r\n                <div *ngFor=\"let day of aweek; let i = index\" class=\"\" style=\"padding-left: 30px; padding-top: 30px;\">\r\n                    <b *ngIf=\"i === 0\">Today  <small class=\"time\">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b> \r\n                    <b *ngIf=\"i === 1\">Tomorrow  <small class=\"time\">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b> \r\n                    <b *ngIf=\"i > 1\">{{ weekdays[day.getDay()] }}   <small class=\"time\">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b>\r\n                    <mat-divider style=\"margin-top: 10px; width: 50%;\"></mat-divider>\r\n\r\n                    <ng-container *ngFor=\"let item of filterd_data\">\r\n                        <app-taskbetter2 [item]='item' *ngIf=\"todayCheck(item,day)\" [time]='time' [aweek]='aweek' (refresh)=\"refresh($event)\"></app-taskbetter2>\r\n                    </ng-container >\r\n                </div>\r\n            </div>\r\n\r\n            <div *ngIf=\"time == 'all'\" class=\"more animate\">\r\n                <app-taskbetter2 *ngFor=\"let item of filterd_data\" [item]='item' [time]='time' [aweek]='aweek' (refresh)=\"refresh($event)\"></app-taskbetter2>\r\n            </div>\r\n            <div *ngIf=\"time == 'today'\" class=\"more animate\">\r\n                <app-taskbetter2 *ngFor=\"let item of filterd_data\" [item]='item' [time]='time' [aweek]='aweek' (refresh)=\"refresh($event)\"></app-taskbetter2>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n    <app-biranplace></app-biranplace>\r\n\r\n    <div class=\"bot\">\r\n        <app-search (searchValue)=\"searched($event)\"></app-search>\r\n    </div>\r\n\r\n"
+module.exports = "<div class=\"filters\" [style.backgroundColor] = \"themeservice.filtersColor\" [style.color]= \"themeservice.textColor\">\r\n    <app-filters [checklist]='checkboxes' [boardlist]='boardlist' [listslist] = 'listslist' (data_labeled)=\"LabelsChanged($event)\" (data_boarded)=\"BoardsChanged($event)\"\r\n    (time)=\"timeChange($event)\" (data_listed)=\"ListsChanged($event)\" [style.color]= \"themeservice.textColor\"></app-filters>\r\n</div>\r\n    <div class=\"newcontent\" [style.backgroundColor] = \"themeservice.bgColor\" [style.color]= \"themeservice.textColor\">\r\n        <div class=\"title\">\r\n            <h4 mat-line *ngIf=\"time == 'today'\"><b class=\"title2\">Today </b>  <small class=\"time\">{{ aweek[0].toLocaleString('en-GB').split(',')[0] }}</small></h4>\r\n            <h4 mat-line *ngIf=\"time == 'all'\"><b class=\"title2\">All</b></h4>\r\n            <h4 mat-line *ngIf=\"time == '7'\"><b class=\"title2\">Next 7 days</b></h4>\r\n        </div>\r\n        <div class=\"actualcontent\">\r\n            <div *ngIf=\"time == '7'\" class=\"animate\">\r\n                <ng-container *ngIf=\"data.length > 0\">\r\n                    <div *ngFor=\"let day of aweek; let i = index\" class=\"\" style=\"padding-left: 30px; padding-top: 30px;\">\r\n                        <b *ngIf=\"i === 0\">Today  <small class=\"time\">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b> \r\n                        <b *ngIf=\"i === 1\">Tomorrow  <small class=\"time\">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b> \r\n                        <b *ngIf=\"i > 1\">{{ weekdays[day.getDay()] }}   <small class=\"time\">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b>\r\n                        <mat-divider style=\"margin-top: 10px; width: 50%;\"></mat-divider>\r\n                        <ng-container *ngFor=\"let item of filterd_data\">\r\n                            <app-taskbetter2 [item]='item' *ngIf=\"todayCheck(item,day)\" [time]='time' [aweek]='aweek' (refresh)=\"refresh($event)\"></app-taskbetter2>\r\n                        </ng-container >\r\n                    </div>\r\n                </ng-container>\r\n            </div>\r\n            <ng-container *ngIf=\"data.length > 0\">\r\n                <div *ngIf=\"time == 'all'\" class=\"more animate\">\r\n                    <app-taskbetter2 *ngFor=\"let item of filterd_data\" [item]='item' [time]='time' [aweek]='aweek' (refresh)=\"refresh($event)\"></app-taskbetter2>\r\n                </div>\r\n                <div *ngIf=\"time == 'today'\" class=\"more animate\">\r\n                    <app-taskbetter2 *ngFor=\"let item of filterd_data\" [item]='item' [time]='time' [aweek]='aweek' (refresh)=\"refresh($event)\"></app-taskbetter2>\r\n                </div>\r\n            </ng-container>\r\n            <!-- <div class=\"more\" *ngIf=\"time == '7'\">\r\n            </div> -->\r\n            <div style=\"margin: 40px; margin-top: 80px;\">\r\n                <app-notasks *ngIf=\"data.length == 0\"></app-notasks>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n    <app-biranplace></app-biranplace>\r\n\r\n    <div class=\"bot\">\r\n        <app-search (searchValue)=\"searched($event)\"></app-search>\r\n    </div>\r\n\r\n"
 
 /***/ }),
 
@@ -461,7 +464,7 @@ var ContentComponent = /** @class */ (function () {
             var date = new Date(this.filterd_data[i].date);
             if (!isNaN(date.getTime())) {
                 // this.filterd_data[i].date = date.toLocaleString('en-GB');  // javascript dates are dogshit
-                this.filterd_data[i].date = date.toLocaleString();
+                this.filterd_data[i].date = date.toLocaleString('en-US');
             }
             else
                 this.filterd_data[i].date = "none";
@@ -931,6 +934,69 @@ var LogicService = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], LogicService);
     return LogicService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/mainpage/content/notasks/notasks.component.css":
+/*!****************************************************************!*\
+  !*** ./src/app/mainpage/content/notasks/notasks.component.css ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".pic\r\n{\r\n    height: 200px;\r\n    width: 200px;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/mainpage/content/notasks/notasks.component.html":
+/*!*****************************************************************!*\
+  !*** ./src/app/mainpage/content/notasks/notasks.component.html ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<img src=\"assets/completed-task.png\" class=\"pic\">\n<p>\n  No tasks. \n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/mainpage/content/notasks/notasks.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/mainpage/content/notasks/notasks.component.ts ***!
+  \***************************************************************/
+/*! exports provided: NotasksComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotasksComponent", function() { return NotasksComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var NotasksComponent = /** @class */ (function () {
+    function NotasksComponent() {
+    }
+    NotasksComponent.prototype.ngOnInit = function () {
+    };
+    NotasksComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-notasks',
+            template: __webpack_require__(/*! ./notasks.component.html */ "./src/app/mainpage/content/notasks/notasks.component.html"),
+            styles: [__webpack_require__(/*! ./notasks.component.css */ "./src/app/mainpage/content/notasks/notasks.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], NotasksComponent);
+    return NotasksComponent;
 }());
 
 
