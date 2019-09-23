@@ -16,3 +16,8 @@ include config.json  file in jsons folder(create the folder too) with following 
     cd ./compositor 
     docker-compose -f "docker-compose.yml" up -d --build
 ```
+
+
+```For my self(to copy paste config)
+  https://www.codedpad.com/
+```
