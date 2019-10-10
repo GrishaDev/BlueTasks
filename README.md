@@ -18,6 +18,6 @@ include config.json  file in jsons folder(create the folder too) with following 
 ```
 
 
-```For my self(to copy paste config)
+```For my self(to copy paste  [bluetasks] config)
   https://www.codedpad.com/
 ```

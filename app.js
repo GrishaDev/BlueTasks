@@ -56,10 +56,12 @@ app.use((req, res, next) => {
   next();
 })
 
-app.use('/api', indexRouter);
+
 
 app.use(express.static(path.join(__dirname, 'client/BlueTasksNG')));
+app.use(express.static(path.join(__dirname, 'client/404page')));
 
+app.use('/api', indexRouter);
 app.use('/users', usersRouter);
 app.use('/', pagesRouter);
 
@@ -78,7 +80,14 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  // res.render('error');
+  // res.send('404 feels bad');
+  res.sendFile(path.join(__dirname, 'client/404page/error.html'));
+  // app.use(express.static(__dirname,'404page'));
 });
+
+// app.get('*', function(req, res){
+//   res.send('what???', 404);
+// });
 
 module.exports = app;
