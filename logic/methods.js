@@ -1,5 +1,5 @@
 let mongo = require('./mongologic.js');
-let config = require('../jsons/config.json')
+let config = require('../jsons/config.json');
 
 class methods
 {
