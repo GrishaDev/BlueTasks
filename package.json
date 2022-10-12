@@ -18,7 +18,7 @@
     "mongoose": "^5.6.8",
     "morgan": "~1.9.0",
     "passport": "^0.4.0",
-    "passport-saml": "^1.1.0",
+    "passport-saml": "^3.2.2",
     "passport-shraga": "^1.0.0"
   }
 }
